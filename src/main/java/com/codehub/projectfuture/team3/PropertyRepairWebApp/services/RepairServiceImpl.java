@@ -17,26 +17,30 @@ public class RepairServiceImpl implements RepairService{
 
     @Override
     public Optional<Repair> findRepair(Long id) {
-        return Optional.empty();
+        return repairRepository.findById(id);
     }
 
     @Override
     public List<Repair> getAllRepairs() {
-        return null;
+        return repairRepository.findAll();
     }
 
     @Override
     public List<Repair> findRepairByDate(Date date) {
-        return null;
+        return repairRepository.findRepairByDate(date);
     }
 
     @Override
     public List<Repair> findRepairByAfm(Long afm) {
-        return null;
+        return repairRepository.findRepairByAfm(afm);
     }
 
     @Override
     public Repair addRepair(Repair repair) {
-        return null;
+        return repairRepository.save(repair);
     }
+
+//    @Override
+//    public Repair deleteRepair(){}
+
 }

@@ -21,4 +21,5 @@ public interface RepairService {
 
     //List<Repair> findRepairByStartDateGraterThanEqualAndEndDateLessThanEqual(Date endDate, Date startDate);
 
+    //todo delete query to implement
 }
