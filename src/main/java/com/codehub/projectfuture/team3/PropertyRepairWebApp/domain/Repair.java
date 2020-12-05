@@ -15,6 +15,7 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name="REPAIR")
 public class Repair {
 
     @Id

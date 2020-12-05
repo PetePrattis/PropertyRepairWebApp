@@ -13,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"owner_AFM", "owner_email"})})
+@Table(name = "OWNER", uniqueConstraints = {@UniqueConstraint(columnNames = {"owner_AFM", "owner_email"})})
 public class Owner {
 
     @Id
