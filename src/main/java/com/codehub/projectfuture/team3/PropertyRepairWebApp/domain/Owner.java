@@ -1,6 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.domain;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,6 +47,11 @@ public class Owner {
     @Column(name = "property_type")
     private PropertyType propertyType;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "user_role")
+    private UserRole userRole;
+
     @OneToMany(mappedBy = "owner", targetEntity = Repair.class)
     private List<Repair> repairs;
+
 }
