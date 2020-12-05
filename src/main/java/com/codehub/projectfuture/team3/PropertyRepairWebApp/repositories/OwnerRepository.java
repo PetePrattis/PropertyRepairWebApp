@@ -12,5 +12,5 @@ public interface OwnerRepository extends JpaRepository<Owner, Long> {
     Optional<Owner> findOwnerByEmail(String email);
     Optional<Owner> findOwnerByAfm(Long afm);
 
-    //TODO updates and deletes
+    //TODO updates
 }
