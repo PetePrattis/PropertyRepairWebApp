@@ -15,7 +15,7 @@ public class OwnerController {
 
     @GetMapping("/owner")
     public String ownerView(Model model){
-        Owner owner = ownerService.findOwner(1L).orElseThrow();
+        Owner owner = ownerService.findOwner(50L).orElseThrow();
 
         model.addAttribute("anOwner", owner);
         return "Index";
