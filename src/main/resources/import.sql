@@ -10,11 +10,14 @@
 -- INSERT INTO USER (id, firstname, lastname, email, username, password, role) VALUES ('123', 'John', 'Doe', 'john@mail.com', 'johnD', 'pass1234', 'ROLE_USER');
 -- INSERT INTO USER (id, firstname, lastname, email, username, password, role) VALUES ('124', 'Jane', 'Doe', 'jane@mail.com', 'janeD', 'pass1234', 'ROLE_ADMIN');
 
-INSERT INTO OWNER (owner_AFM, owner_email) VALUES ('1234567891', 'Tolstoy@mail.com');
+INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephone, owner_email, owner_password, property_type) VALUES ('1234567891', 'Tolstoy@mail.com');
 INSERT INTO OWNER (owner_AFM, owner_email) VALUES ('1234567892', 'Steinbeck@mail.com');
 INSERT INTO OWNER (owner_AFM, owner_email) VALUES ('1234567893', 'Papadiamantis@mail.com');
 INSERT INTO OWNER (owner_AFM, owner_email) VALUES ('1234567894', 'Kazantzakis@mail.com');
 INSERT INTO OWNER (owner_AFM, owner_email) VALUES ('12345678915', 'Terzakis@mail.com');
+
+INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephone, owner_email, owner_password, property_type, user_role) VALUES ('1234567891', 'fname', 'lname', 'address', 'phone', '@mail.com', 'password', 'type', 'role');
+
 
 
 -- insert into BOOK(book_id, book_title,publication_year,author_id,book_category) values ('fbe25e54-645f-4ede-829b-d28f3a29b2dc','War and Peace','1867','1','LITERARY_REALISM');
