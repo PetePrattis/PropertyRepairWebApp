@@ -10,7 +10,7 @@ public interface RepairRepository extends JpaRepository<Repair, Long> {
 
     List<Repair> findRepairByDate(Date date);
 
-    List<Repair> findRepairByAfm(Long afm);
+    //List<Repair> findRepairByAfm(Long afm);
 
     //TODO find by date
     //List<Repair> findRepairByStartDateGraterThanEqualAndEndDateLessThanEqual(Date endDate, Date startDate);

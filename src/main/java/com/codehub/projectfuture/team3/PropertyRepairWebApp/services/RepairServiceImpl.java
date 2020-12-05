@@ -30,10 +30,6 @@ public class RepairServiceImpl implements RepairService{
         return repairRepository.findRepairByDate(date);
     }
 
-    @Override
-    public List<Repair> findRepairByAfm(Long afm) {
-        return repairRepository.findRepairByAfm(afm);
-    }
 
     @Override
     public Repair addRepair(Repair repair) {
