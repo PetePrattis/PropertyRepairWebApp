@@ -17,6 +17,8 @@ public interface RepairService {
 
     Repair addRepair(Repair repair);
 
+    List<Repair> getRepairsByAfm(Long afm);
+
     //List<Repair> findRepairByStartDateGraterThanEqualAndEndDateLessThanEqual(Date endDate, Date startDate);
 
     //todo delete query to implement

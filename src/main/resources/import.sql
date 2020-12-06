@@ -17,6 +17,8 @@ INSERT INTO OWNER (owner_AFM, owner_email) VALUES ('1234567894', 'Kazantzakis@ma
 INSERT INTO OWNER (owner_AFM, owner_email) VALUES ('12345678915', 'Terzakis@mail.com');
 
 -- INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephone, owner_email, owner_password, property_type, user_role) VALUES ('1234567891', 'fname', 'lname', 'address', 'phone', '@mail.com', 'password', 'type', 'role');
+INSERT INTO REPAIR (repair_cost, owner_id) VALUES ('100', '1');
+INSERT INTO REPAIR (repair_cost, owner_id) VALUES ('123', '2');
 
 
 
