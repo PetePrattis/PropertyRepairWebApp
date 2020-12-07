@@ -13,5 +13,4 @@ public enum RepairType {
     ELECTRICAL("Electrical work");
 
     private String type;
-
 }
