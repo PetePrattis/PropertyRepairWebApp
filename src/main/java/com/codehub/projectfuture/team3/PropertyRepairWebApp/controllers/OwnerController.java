@@ -20,7 +20,4 @@ public class OwnerController {
         model.addAttribute("anOwner", owner);
         return "Index";
     }
-
-
-
 }

@@ -36,6 +36,11 @@ public class RepairServiceImpl implements RepairService{
         return repairRepository.save(repair);
     }
 
+    @Override
+    public List<Repair> getRepairsByAfm(Long afm) {
+        return repairRepository.findByOwner_Afm(afm);
+    }
+
 //    @Override
 //    public Repair deleteRepair(){}
 
