@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface OwnerService {
 
-    Optional<Owner> findOwner(Long id);
+    Optional<Owner> findOwnerById(Long id);
 
     List<Owner> getAllOwners();
 
@@ -15,11 +15,14 @@ public interface OwnerService {
 
     Optional<Owner> findOwnerByEmail(String email);
 
+    //Optional<Owner> findOwnerByAfmAndEmail(Long afm, String email);
+
     Owner addOwner(Owner owner);
 
-    Owner deleteOwnerByEmail(String email);
+    void deleteOwnerById(Long id);
 
-    Owner deleteOwnerByAfm(Long afm);
+   // Owner deleteOwnerByEmail(String email);
+   // Owner deleteOwnerByAfm(Long afm);
 
     //TODO find by email or afm & updates
 }

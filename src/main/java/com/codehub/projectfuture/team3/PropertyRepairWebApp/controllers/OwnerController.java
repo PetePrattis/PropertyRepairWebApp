@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class OwnerController {
@@ -15,7 +14,7 @@ public class OwnerController {
 
     @GetMapping("/owner")
     public String ownerView(Model model){
-        Owner owner = ownerService.findOwner(1L).orElseThrow();
+        Owner owner = ownerService.findOwnerById(1L).orElseThrow();
 
         model.addAttribute("anOwner", owner);
         return "Index";

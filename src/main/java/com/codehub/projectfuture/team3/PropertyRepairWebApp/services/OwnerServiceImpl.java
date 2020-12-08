@@ -16,7 +16,7 @@ public class OwnerServiceImpl  implements OwnerService{
 
 
     @Override
-    public Optional<Owner> findOwner(Long id) {
+    public Optional<Owner> findOwnerById(Long id) {
         return ownerRepository.findById(id);
     }
 
@@ -41,14 +41,7 @@ public class OwnerServiceImpl  implements OwnerService{
     }
 
     @Override
-    public Owner deleteOwnerByEmail(String email) {
-        //todo delete query call
-        return null;
-    }
-
-    @Override
-    public Owner deleteOwnerByAfm(Long afm) {
-        //todo delete query call
-        return null;
+    public void deleteOwnerById(Long id) {
+        ownerRepository.deleteById(id);
     }
 }
