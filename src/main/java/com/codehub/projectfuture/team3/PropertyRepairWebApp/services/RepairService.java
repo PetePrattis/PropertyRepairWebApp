@@ -27,6 +27,8 @@ public interface RepairService {
 
     void deleteRepairById(Long id);
 
+    List<Repair> findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus status);
+
     //TODO updates
     //TODO show top 10 next repairs
 }

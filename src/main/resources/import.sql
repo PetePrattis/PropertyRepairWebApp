@@ -17,9 +17,13 @@ INSERT INTO OWNER (owner_AFM, owner_email) VALUES ('1234567894', 'Kazantzakis@ma
 INSERT INTO OWNER (owner_AFM, owner_email) VALUES ('12345678915', 'Terzakis@mail.com');
 
 -- INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephone, owner_email, owner_password, property_type, user_role) VALUES ('1234567891', 'fname', 'lname', 'address', 'phone', '@mail.com', 'password', 'type', 'role');
-INSERT INTO REPAIR (repair_cost, owner_id) VALUES ('100', '1');
-INSERT INTO REPAIR (repair_cost, owner_id) VALUES ('123', '2');
-
+-- INSERT INTO REPAIR (repair_cost, owner_id) VALUES ('100', '1');
+-- INSERT INTO REPAIR (repair_cost, owner_id) VALUES ('123', '2');
+INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id) VALUES ('Address 1',2000.14,'2021-01-11 13:21:22','Extra info 1','INPROGRESS','INSULATION',1)
+INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id) VALUES ('Address 2',200021.14,'2021-02-11 13:21:21','Extra info 2','INPROGRESS','PAINTING',2)
+INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id) VALUES ('Address 3',20100.14,'2021-01-11','Extra info 3','INPROGRESS','PLUMBING',3)
+INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id) VALUES ('Address 4',20300.14,'2021-01-11 12:21:22','Extra info 4','INPROGRESS','PLUMBING',1)
+INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id) VALUES ('Address 5',21300.14,'2021-11-11 12:21','Extra info 5','PENDING','PLUMBING',1)
 
 
 -- insert into BOOK(book_id, book_title,publication_year,author_id,book_category) values ('fbe25e54-645f-4ede-829b-d28f3a29b2dc','War and Peace','1867','1','LITERARY_REALISM');

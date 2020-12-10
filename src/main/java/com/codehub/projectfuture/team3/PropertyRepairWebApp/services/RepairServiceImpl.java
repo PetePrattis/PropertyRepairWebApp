@@ -55,4 +55,10 @@ public class RepairServiceImpl implements RepairService{
     public List<Repair> getRepairsByAfm(Long afm) {
         return repairRepository.findByOwner_Afm(afm);
     }
+
+    @Override
+    public List<Repair> findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus status)
+    {
+        return repairRepository.findFirst10ByRepairStatusOrderByDateAsc(status);
+    }
 }

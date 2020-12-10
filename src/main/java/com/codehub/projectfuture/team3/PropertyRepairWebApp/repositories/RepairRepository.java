@@ -17,5 +17,7 @@ public interface RepairRepository extends JpaRepository<Repair, Long> {
 
     List<Repair> findByOwner_Afm(Long OwnerAfm);
 
+    List<Repair> findFirst10ByRepairStatusOrderByDateAsc(RepairStatus status);
+
     //List<Repair> findRepairByStartDateGraterThanEqualAndEndDateLessThanEqual(Date endDate, Date startDate);
 }

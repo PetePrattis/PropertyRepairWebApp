@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -24,7 +26,7 @@ public class Repair {
     private Long id;
 
     @Column(name = "repair_date")
-    private Date date;
+    private Timestamp date;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "repair_status")
