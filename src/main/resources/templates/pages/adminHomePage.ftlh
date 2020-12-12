@@ -37,8 +37,16 @@
                             <tr data-id="${repair.id}">
                                 <td><a href="/repair/${repair.id}/edit">#${repair.id}</a></td>
                                 <td>${repair.date?string.short_short}</td>
-                                <td>${repair.repairStatus}</td>
-                                <td>${repair.repairType}</td>
+                                <td>
+                        <#if repair.repairStatus??>
+                                ${repair.repairStatus.getStatus()}
+                        </#if>
+                                </td>
+                                <td>
+                        <#if repair.repairType??>
+                                ${repair.repairType.getType()}
+                        </#if>
+                                </td>
                                 <td>${repair.cost}</td>
                                 <td>${repair.address}</td>
                                 <td>${repair.owner.afm}</td>
