@@ -2,6 +2,8 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.RepairToRepairModelMapper;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.RepairModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.repositories.RepairRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,9 @@ public class RepairServiceImpl implements RepairService{
 
     @Autowired
     private RepairRepository repairRepository;
+
+    @Autowired
+    private RepairToRepairModelMapper repairModelMapper;
 
     @Override
     public Optional<Repair> findRepairById(Long id) {
@@ -60,5 +65,13 @@ public class RepairServiceImpl implements RepairService{
     public List<Repair> findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus status)
     {
         return repairRepository.findFirst10ByRepairStatusOrderByDateAsc(status);
+    }
+
+    @Override
+    public Optional<RepairModel> findRepair(Long id) {
+        return repairRepository
+                .findById(id)
+                .map(book -> repairModelMapper.map(book));
+
     }
 }

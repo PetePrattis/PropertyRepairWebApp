@@ -3,6 +3,7 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.RepairModel;
 
 import java.sql.Date;
 import java.util.List;
@@ -26,6 +27,9 @@ public interface RepairService {
     //List<Repair> findRepairByStartDateGraterThanEqualAndEndDateLessThanEqual(Date endDate, Date startDate);
 
     void deleteRepairById(Long id);
+
+    Optional<RepairModel> findRepair(Long id);
+
 
     List<Repair> findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus status);
 
