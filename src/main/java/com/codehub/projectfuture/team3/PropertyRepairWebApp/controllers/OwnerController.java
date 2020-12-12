@@ -34,7 +34,7 @@ public class OwnerController {
         List<Repair> repairList = repairService.findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus.INPROGRESS);
 
         model.addAttribute("repairList", repairList);
-        return "adminHomePage";
+        return "pages/adminHomePage";
     }
 
     @GetMapping("/owner")
