@@ -33,6 +33,7 @@ public interface RepairService {
 
     List<Repair> findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus status);
 
+    RepairModel updateRepair(RepairModel repairModel);
     //TODO updates
     //TODO show top 10 next repairs
 }

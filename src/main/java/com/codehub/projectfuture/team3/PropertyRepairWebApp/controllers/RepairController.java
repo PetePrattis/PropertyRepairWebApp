@@ -1,6 +1,5 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers;
 
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
@@ -44,9 +43,9 @@ public class RepairController {
     }
 
     @GetMapping(value = "/repair/{id}/edit")
-    public String editBook(@PathVariable Long id, Model model) {
-        RepairModel bookModel = repairService.findRepair(id).get();
-        model.addAttribute(REPAIR_ATTR, bookModel);
+    public String editRepair(@PathVariable Long id, Model model) {
+        RepairModel repairModel = repairService.findRepair(id).get();
+        model.addAttribute(REPAIR_ATTR, repairModel);
         model.addAttribute(REPAIR_STATUS, RepairStatus.values());
         model.addAttribute(REPAIR_TYPES, RepairType.values());
         return "pages/repair_edit";

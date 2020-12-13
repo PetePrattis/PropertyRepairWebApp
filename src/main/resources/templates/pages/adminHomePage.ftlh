@@ -51,7 +51,7 @@
                                 <td>${repair.address}</td>
                                 <td>${repair.owner.afm}</td>
                                 <td>${repair.extraInfo}</td>
-                                <td class="text-center"><a class="btn btn-link" href="/repair/${repair.id}/edit"><span data-feather="tool"></span></a></td>
+                                <td class="text-center"><a class="btn btn-link" href="/repair/${repair.id}/edit"><span data-feather="edit"></span></a></td>
                                 <td class="text-center">
 
                                 <button

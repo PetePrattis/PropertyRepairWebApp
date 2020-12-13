@@ -9,8 +9,8 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link active" href="/admin">
-                    <span data-feather="repair"></span>
+                <a class="nav-link active" href="/repairs">
+                    <span data-feather="tool"></span>
                     Repairs
                 </a>
             </li>
@@ -23,7 +23,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/repair/create">
+                <a class="nav-link" href="/repairs/create">
                     <span data-feather="plus-circle"></span>
                     Create Repair
                 </a>

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,10 +69,25 @@ public class RepairServiceImpl implements RepairService{
     }
 
     @Override
+    public RepairModel updateRepair(RepairModel repairModel) {
+        Repair originalRepair = repairRepository.findById(repairModel.getId()).get();
+        originalRepair.setAddress(repairModel.getAddress());
+        originalRepair.setCost(repairModel.getCost());
+        originalRepair.setDate(repairModel.getDate());
+        originalRepair.setExtraInfo(repairModel.getExtraInfo());
+        originalRepair.setOwner(repairModel.getOwner());
+        originalRepair.setRepairStatus(repairModel.getRepairStatus());
+        originalRepair.setRepairType(repairModel.getRepairType());
+        Repair newRepair = repairRepository.save(originalRepair);
+        return repairModelMapper.map(newRepair);
+
+    }
+
+    @Override
     public Optional<RepairModel> findRepair(Long id) {
         return repairRepository
                 .findById(id)
-                .map(book -> repairModelMapper.map(book));
+                .map(repair -> repairModelMapper.map(repair));
 
     }
 }
