@@ -73,4 +73,13 @@ public class OwnerController {
     public Owner addOwner(@RequestBody Owner owner){
         return ownerService.addOwner(owner);
     }
+
+    @GetMapping("/admin/owners")
+    public String adminShowOwners(Model model) {
+        List<Owner> ownerList = ownerService.getAllOwners();
+
+        model.addAttribute("ownerList", ownerList);
+        return "pages/owner/owners";
+    }
+
 }

@@ -23,9 +23,31 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/repairs/create">
+                <a class="nav-link" href="/repair/create">
                     <span data-feather="plus-circle"></span>
                     Create Repair
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/owners">
+                    <span data-feather="users"></span>
+                    Owners
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/searchOwner">
+                    <span data-feather="search"></span>
+                    Search for Owners
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/admin/owners/create">
+                    <span data-feather="plus-circle"></span>
+                    Create Owner
                 </a>
             </li>
         </ul>

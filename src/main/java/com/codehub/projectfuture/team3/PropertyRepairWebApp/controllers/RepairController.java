@@ -3,6 +3,7 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.RepairForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.RepairModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.RepairService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ public class RepairController {
     private static final String REPAIR_ATTR = "repair";
     private static final String REPAIR_TYPES = "repairTypes";
     private static final String REPAIR_STATUS = "repairStatus";
+    private static final String REPAIRS_FORM = "repairsForm";
 
 
     @Autowired
@@ -51,6 +53,19 @@ public class RepairController {
         return "pages/repair_edit";
     }
 
+    @PostMapping(value = "/repair/edit")
+    public String editRepair(RepairModel repairModel) {
+        repairService.updateRepair(repairModel);
+        return "redirect:/admin";
+    }
+
+    @GetMapping(value = "/repair/create")
+    public String booksDynamic(Model model) {
+        model.addAttribute(REPAIRS_FORM, new RepairForm());
+        model.addAttribute(REPAIR_STATUS, RepairStatus.values());
+        model.addAttribute(REPAIR_TYPES, RepairType.values());
+        return "pages/create_repair";
+    }
 
     @PostMapping("/search-repair")
     public String searchRepairView(Model model) {
