@@ -67,8 +67,8 @@ public class RepairController {
         return "pages/create_repair";
     }
 
-    @PostMapping("/search-repair")
+    @GetMapping("/search/repair")
     public String searchRepairView(Model model) {
-        return "Index";
+        return "pages/repair/search_repair";
     }
 }

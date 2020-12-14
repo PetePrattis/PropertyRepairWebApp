@@ -20,6 +20,22 @@
             <input type="text" class="form-control" id="datepickerto" name="date">
         </div>
 
+        <label for="datepicker">Pick Date:</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><span data-feather="calendar"></span></span>
+            </div>
+            <input type="text" class="form-control" id="datepicker" name="date">
+        </div>
+
+        <label for="afmpicker">Pick AFM:</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"></span>
+            </div>
+            <input type="text" class="form-control" id="afmpicker" name="afm">
+        </div>
+
     </div>
     <button class="btn btn-primary btn-lg mt-4" type="submit">Search</button>
 </form>

@@ -16,7 +16,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/searchDate">
+                <a class="nav-link" href="/search/repair">
                     <span data-feather="search"></span>
                     Search for Repairs
                 </a>
