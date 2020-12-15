@@ -1,7 +1,7 @@
 <#import "/spring.ftl" as spring />
 
 <h4 class="mb-3">Create Owner</h4>
-<form id="createForm" action="/owner/create" method="post">
+<form id="createForm" action="/admin/owners/create" method="post">
 
     <div class="mb-3">
         <label for="title">AFM</label>
@@ -59,7 +59,7 @@
         <div class="input-group">
             <select class="custom-select d-block w-100" id="property-type" name="propertyType">
                 <#list propertyType as type>
-                    <option value="${type.getType()}">${type.getType()}</option>
+                    <option value="${type}">${type.getType()}</option>
                 </#list>
             </select>
         </div>
@@ -70,7 +70,7 @@
         <div class="input-group">
             <select class="custom-select d-block w-100" id="user-role" name="userRole">
                 <#list userRole as role>
-                    <option value="${role.getRole()}">${role.getRole()}</option>
+                    <option value="${role}">${role.getRole()}</option>
                 </#list>
             </select>
         </div>

@@ -19,10 +19,6 @@ public class OwnerModel {
     private String address;
     private String telephoneNumber;
     private String email;
-    private String password;
-    private PropertyType propertyType;
-    private UserRole userRole;
-    private List<Repair> repairs;
 
     public Long getId() {
         return id;
@@ -78,37 +74,5 @@ public class OwnerModel {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public PropertyType getPropertyType() {
-        return propertyType;
-    }
-
-    public void setPropertyType(PropertyType propertyType) {
-        this.propertyType = propertyType;
-    }
-
-    public UserRole getUserRole() {
-        return userRole;
-    }
-
-    public void setUserRole(UserRole userRole) {
-        this.userRole = userRole;
-    }
-
-    public List<Repair> getRepairs() {
-        return repairs;
-    }
-
-    public void setRepairs(List<Repair> repairs) {
-        this.repairs = repairs;
     }
 }

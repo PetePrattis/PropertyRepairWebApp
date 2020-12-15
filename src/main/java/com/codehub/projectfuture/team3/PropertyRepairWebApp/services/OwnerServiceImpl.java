@@ -1,6 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.OwnerFormToOwnerMapper;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.OwnerToOwnerModelMapper;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.RepairToRepairModelMapper;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class OwnerServiceImpl  implements OwnerService{
@@ -19,34 +21,39 @@ public class OwnerServiceImpl  implements OwnerService{
     private OwnerRepository ownerRepository;
 
     @Autowired
-    private OwnerToOwnerModelMapper ownerModelMapper;
+    private OwnerToOwnerModelMapper ownerToOwnerModel;
 
     @Autowired
-    private OwnerFormToOwnerMapper ownerMapper;
+    private OwnerFormToOwnerMapper ownerFormToOwner;
 
     @Override
-    public Optional<Owner> findOwnerById(Long id) {
-        return ownerRepository.findById(id);
+    public Optional<OwnerModel> findOwnerById(Long id) {
+        return ownerRepository
+                .findById(id)
+                .map(owner -> ownerToOwnerModel.map(owner));
     }
 
     @Override
-    public List<Owner> getAllOwners() {
-        return ownerRepository.findAll();
+    public List<OwnerModel> getAllOwners() {
+        return ownerRepository
+                .findAll()
+                .stream()
+                .map(owner -> ownerToOwnerModel.map(owner))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Optional<Owner> findOwnerByAfm(Long afm) {
-        return ownerRepository.findOwnerByAfm(afm);
+    public Optional<OwnerModel> findOwnerByAfm(Long afm) {
+        return ownerRepository
+                .findOwnerByAfm(afm)
+                .map(owner -> ownerToOwnerModel.map(owner));
     }
 
     @Override
-    public Optional<Owner> findOwnerByEmail(String email) {
-        return ownerRepository.findOwnerByEmail(email);
-    }
-
-    @Override
-    public Owner addOwner(Owner owner) {
-        return ownerRepository.save(owner);
+    public Optional<OwnerModel> findOwnerByEmail(String email) {
+        return ownerRepository
+                .findOwnerByEmail(email)
+                .map(owner -> ownerToOwnerModel.map(owner));
     }
 
     @Override
@@ -54,12 +61,6 @@ public class OwnerServiceImpl  implements OwnerService{
         ownerRepository.deleteById(id);
     }
 
-    @Override
-    public Optional<OwnerModel> findOwner(Long id) {
-        return ownerRepository
-                .findById(id)
-                .map(owner -> ownerModelMapper.map(owner));
-    }
 
     @Override
     public OwnerModel updateOwner(OwnerModel ownerModel) {
@@ -67,7 +68,18 @@ public class OwnerServiceImpl  implements OwnerService{
         originalOwner.setFirstName(ownerModel.getFirstName());
         originalOwner.setAfm(ownerModel.getAfm());
         originalOwner.setLastName(ownerModel.getLastName());
-        Owner newBook = ownerRepository.save(originalOwner);
-        return ownerModelMapper.map(newBook);
+        originalOwner.setAddress(ownerModel.getAddress());
+        originalOwner.setEmail(ownerModel.getEmail());
+        originalOwner.setTelephoneNumber(ownerModel.getTelephoneNumber());
+
+        Owner newOwner = ownerRepository.save(originalOwner);
+        return ownerToOwnerModel.map(newOwner);
+    }
+
+    @Override
+    public OwnerModel createOwner(OwnerForm ownerForm) {
+        Owner owner = ownerFormToOwner.map(ownerForm);
+        Owner newOwner = ownerRepository.save(owner);
+        return ownerToOwnerModel.map(newOwner);
     }
 }

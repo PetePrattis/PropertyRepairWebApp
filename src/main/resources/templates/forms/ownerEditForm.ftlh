@@ -9,7 +9,7 @@
     <div class="mb-3">
         <label for="title">AFM</label>
         <div class="input-group">
-            <input type="text" class="form-control" id="afm" name="Afm"  value="${owner.afm}">
+            <input type="text" class="form-control" id="afm" name="Afm"  value="${owner.afm?replace(",","")}">
         </div>
     </div>
 
@@ -46,25 +46,6 @@
         <label for="author-first-name">Email</label>
         <div class="input-group">
             <input type="text" class="form-control" id="email" name="email" value="${owner.email}">
-        </div>
-    </div>
-
-    <div class="mb-3">
-        <label for="author-first-name">Password</label>
-        <div class="input-group">
-            <input type="text" class="form-control" id="password" name="password" value="${owner.password}">
-        </div>
-    </div>
-
-
-    <div class="mb-3">
-        <label for="category">Property Type</label>
-        <div class="input-group">
-            <select class="custom-select d-block w-100" id="property-type" name="propertyType">
-                <#list propertyType as type>
-                    <option value="${type.getType()}"<#if owner.propertyType == type> selected</#if>>${type.getType()}</option>
-                </#list>
-            </select>
         </div>
     </div>
 

@@ -1,11 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.forms;
 
 
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.UserRole;
-
 public class OwnerForm {
-    private String id;
     private String afm;
     private String firstName;
     private String lastName;
@@ -15,14 +11,6 @@ public class OwnerForm {
     private String password;
     private String propertyType;
     private String userRole;
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getAfm() {
         return afm;

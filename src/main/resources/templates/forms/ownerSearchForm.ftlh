@@ -2,7 +2,7 @@
 
 <h4 class="mb-3">Search Repair</h4>
 <!-- todo different forms for searches-->
-<form action="/search-repair" method="post">
+<form action="/admin/search/owner" method="post">
     <div>
         <label for="emailpicker">Pick Email:</label>
         <div class="input-group">
