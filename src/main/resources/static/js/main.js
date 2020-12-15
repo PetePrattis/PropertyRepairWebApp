@@ -56,4 +56,12 @@ jQuery(function ($) {
             return `Repair #${id}`;
         });
     });
+
+    $('#ownersModal').on('show.bs.modal', function (event) {
+        const id = event.relatedTarget.dataset.id;
+        $('#deleteForm').attr('action', `/owner/${id}/delete`);
+        $('.modal-title').text(function () {
+            return `Owner #${id}`;
+        });
+    });
 });
