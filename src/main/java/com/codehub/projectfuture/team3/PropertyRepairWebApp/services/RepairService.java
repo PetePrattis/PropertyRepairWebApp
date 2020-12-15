@@ -11,27 +11,22 @@ import java.util.Optional;
 
 public interface RepairService {
 
-    Optional<Repair> findRepairById(Long id);
+    Optional<RepairModel> findRepairById(Long id);
 
-    List<Repair> getAllRepairs();
+    List<RepairModel> getAllRepairs();
 
-    List<Repair> findRepairByDateAndRepairStatus(Date date, RepairStatus status);
+    List<RepairModel> findRepairByDateAndRepairStatus(Date date, RepairStatus status);
 
-    Repair addRepair(Repair repair);
+    List<RepairModel> getRepairsByAfm(Long afm);
 
-    List<Repair> getRepairsByAfm(Long afm);
+    List<RepairModel> findRepairByDate(Date date);
 
-    List<Repair> findRepairByDate(Date date);
-
-    List<Repair> findRepairByDateBetween(Date startDate, Date endDate);
+    List<RepairModel> findRepairByDateBetween(Date startDate, Date endDate);
     //List<Repair> findRepairByStartDateGraterThanEqualAndEndDateLessThanEqual(Date endDate, Date startDate);
 
     void deleteRepairById(Long id);
 
-    Optional<RepairModel> findRepair(Long id);
-
-
-    List<Repair> findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus status);
+    List<RepairModel> findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus status);
 
     RepairModel updateRepair(RepairModel repairModel);
     //TODO updates

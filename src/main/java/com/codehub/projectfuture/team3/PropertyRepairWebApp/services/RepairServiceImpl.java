@@ -12,6 +12,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class RepairServiceImpl implements RepairService{
@@ -23,28 +24,46 @@ public class RepairServiceImpl implements RepairService{
     private RepairToRepairModelMapper repairModelMapper;
 
     @Override
-    public Optional<Repair> findRepairById(Long id) {
-        return repairRepository.findById(id);
+    public Optional<RepairModel> findRepairById(Long id) {
+        return repairRepository
+                .findById(id)
+                .map(repair -> repairModelMapper.map(repair));
     }
 
     @Override
-    public List<Repair> getAllRepairs() {
-        return repairRepository.findAll();
+    public List<RepairModel> getAllRepairs() {
+        return repairRepository
+                .findAll()
+                .stream()
+                .map(repair -> repairModelMapper.map(repair))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<Repair> findRepairByDateAndRepairStatus(Date date, RepairStatus status) {
-        return repairRepository.findByDateAndRepairStatus(date, status);
+    public List<RepairModel> findRepairByDateAndRepairStatus(Date date, RepairStatus status) {
+        return repairRepository
+                .findByDateAndRepairStatus(date, status)
+                .stream()
+                .map(repair -> repairModelMapper.map(repair))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<Repair> findRepairByDate(Date date) {
-        return repairRepository.findRepairByDate(date);
+    public List<RepairModel> findRepairByDate(Date date) {
+        return repairRepository
+                .findRepairByDate(date)
+                .stream()
+                .map(repair -> repairModelMapper.map(repair))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<Repair> findRepairByDateBetween(Date startDate, Date endDate) {
-        return repairRepository.findByDateBetween(startDate, endDate);
+    public List<RepairModel> findRepairByDateBetween(Date startDate, Date endDate) {
+        return repairRepository
+                .findByDateBetween(startDate, endDate)
+                .stream()
+                .map(repair -> repairModelMapper.map(repair))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -53,19 +72,22 @@ public class RepairServiceImpl implements RepairService{
     }
 
     @Override
-    public Repair addRepair(Repair repair) {
-        return repairRepository.save(repair);
+    public List<RepairModel> getRepairsByAfm(Long afm) {
+        return repairRepository
+                .findByOwner_Afm(afm)
+                .stream()
+                .map(repair -> repairModelMapper.map(repair))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public List<Repair> getRepairsByAfm(Long afm) {
-        return repairRepository.findByOwner_Afm(afm);
-    }
-
-    @Override
-    public List<Repair> findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus status)
+    public List<RepairModel> findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus status)
     {
-        return repairRepository.findFirst10ByRepairStatusOrderByDateAsc(status);
+        return repairRepository
+                .findFirst10ByRepairStatusOrderByDateAsc(status)
+                .stream()
+                .map(repair -> repairModelMapper.map(repair))
+                .collect(Collectors.toList());
     }
 
     @Override
@@ -83,10 +105,4 @@ public class RepairServiceImpl implements RepairService{
 
     }
 
-    @Override
-    public Optional<RepairModel> findRepair(Long id) {
-        return repairRepository
-                .findById(id)
-                .map(repair -> repairModelMapper.map(repair));
-    }
 }

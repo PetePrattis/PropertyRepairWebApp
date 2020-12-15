@@ -12,16 +12,13 @@ import java.time.LocalDate;
 
 public class RepairModel {
     private Long id;
-    private Timestamp date;
-    private RepairStatus repairStatus;
-    private RepairType repairType;
+    private String date;
+    private String repairStatus;
+    private String repairType;
     private float cost;
     private String address;
     private String extraInfo;
-    private Owner owner;
-
-    public RepairModel() {
-    }
+    private Long ownerAfm;
 
     public Long getId() {
         return id;
@@ -31,27 +28,27 @@ public class RepairModel {
         this.id = id;
     }
 
-    public Timestamp getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public RepairStatus getRepairStatus() {
+    public String getRepairStatus() {
         return repairStatus;
     }
 
-    public void setRepairStatus(RepairStatus repairStatus) {
+    public void setRepairStatus(String repairStatus) {
         this.repairStatus = repairStatus;
     }
 
-    public RepairType getRepairType() {
+    public String getRepairType() {
         return repairType;
     }
 
-    public void setRepairType(RepairType repairType) {
+    public void setRepairType(String repairType) {
         this.repairType = repairType;
     }
 
@@ -79,11 +76,11 @@ public class RepairModel {
         this.extraInfo = extraInfo;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public Long getOwnerAfm() {
+        return ownerAfm;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
+    public void setOwnerAfm(Long ownerAfm) {
+        this.ownerAfm = ownerAfm;
     }
 }
