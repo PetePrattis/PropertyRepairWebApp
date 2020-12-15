@@ -65,6 +65,16 @@
         </div>
     </div>
 
+    <div class="mb-3">
+        <label for="category">User Role</label>
+        <div class="input-group">
+            <select class="custom-select d-block w-100" id="user-role" name="userRole">
+                <#list userRole as role>
+                    <option value="${role.getRole()}">${role.getRole()}</option>
+                </#list>
+            </select>
+        </div>
+    </div>
 
     <button class="btn btn-primary btn-lg mt-4" type="submit">Create</button>
 </form>

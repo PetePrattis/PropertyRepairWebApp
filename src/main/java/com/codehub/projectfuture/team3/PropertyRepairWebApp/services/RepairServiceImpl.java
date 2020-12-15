@@ -88,6 +88,5 @@ public class RepairServiceImpl implements RepairService{
         return repairRepository
                 .findById(id)
                 .map(repair -> repairModelMapper.map(repair));
-
     }
 }

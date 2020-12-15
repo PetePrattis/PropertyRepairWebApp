@@ -50,7 +50,7 @@ public class RepairController {
         model.addAttribute(REPAIR_ATTR, repairModel);
         model.addAttribute(REPAIR_STATUS, RepairStatus.values());
         model.addAttribute(REPAIR_TYPES, RepairType.values());
-        return "pages/repair_edit";
+        return "pages/repair/repair_edit";
     }
 
     @PostMapping(value = "/repair/edit")
@@ -64,7 +64,7 @@ public class RepairController {
         model.addAttribute(REPAIRS_FORM, new RepairForm());
         model.addAttribute(REPAIR_STATUS, RepairStatus.values());
         model.addAttribute(REPAIR_TYPES, RepairType.values());
-        return "pages/create_repair";
+        return "pages/repair/create_repair";
     }
 
     @GetMapping("/search/repair")

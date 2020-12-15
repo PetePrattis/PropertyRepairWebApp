@@ -40,7 +40,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/admin/searchOwner">
+                <a class="nav-link" href="/admin/search/owner">
                     <span data-feather="search"></span>
                     Search for Owners
                 </a>

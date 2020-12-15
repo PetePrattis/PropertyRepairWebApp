@@ -1,6 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,7 +22,11 @@ public interface OwnerService {
 
     void deleteOwnerById(Long id);
 
-   // Owner deleteOwnerByEmail(String email);
+    Optional<OwnerModel> findOwner(Long id);
+
+    OwnerModel updateOwner(OwnerModel ownerModel);
+
+    // Owner deleteOwnerByEmail(String email);
    // Owner deleteOwnerByAfm(Long afm);
 
     //TODO find by email or afm & updates
