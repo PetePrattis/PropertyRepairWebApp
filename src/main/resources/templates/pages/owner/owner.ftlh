@@ -15,7 +15,6 @@
         <#include "../../partials/sidebar.ftlh">
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
             <h3 class="mb-3">Owners</h3>
-  <#if ownerList?has_content>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -32,7 +31,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                            <#list ownerList as owner>
                             <tr data-id="${owner.id}">
                                 <td><a href="/owner/${owner.id}/edit">#${owner.id}</a></td>
                                 <td>${owner.afm}</td>
@@ -55,7 +53,6 @@
 
                                 </td>
                             </tr>
-                            </#list>
                     </tbody>
                 </table>
 
@@ -80,11 +77,7 @@
                         </div>
                     </div>
                 </div>
-
             </div>
-      <#else>
-        There are no owners!
-      </#if>
         </main>
     </div>
 </div>

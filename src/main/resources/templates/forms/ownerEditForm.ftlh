@@ -9,7 +9,7 @@
     <div class="mb-3">
         <label for="title">AFM</label>
         <div class="input-group">
-            <input type="text" class="form-control" id="afm" name="Afm"  value="${owner.afm?replace(",","")}">
+            <input type="text" class="form-control" id="afm" name="Afm"  value="${owner.afm?replace(",","")?replace(".","")}">
         </div>
     </div>
 

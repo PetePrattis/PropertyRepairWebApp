@@ -30,12 +30,9 @@ public class SearchOwnerController {
     @PostMapping("/admin/search/owner")
     public String searchOwnerView(@ModelAttribute(OWNER_FORM)OwnerSearchForm ownerSearchForm, Model model) {
 
-        //TODO change this very bad
-        List<OwnerModel> owners = new ArrayList<>();
         OwnerModel ownerst = ownerService.findOwnerByAfm(Long.parseLong(ownerSearchForm.getAfm())).get();
-        owners.add(ownerst);
 
-        model.addAttribute("ownerList", owners);
-        return "pages/owner/owners";
+        model.addAttribute("owner", ownerst);
+        return "pages/owner/owner";
     }
 }
