@@ -4,6 +4,5 @@ import lombok.Data;
 
 @Data
 public class OwnerSearchForm {
-    private String afm;
-    private String email;
+    private String input;
 }
