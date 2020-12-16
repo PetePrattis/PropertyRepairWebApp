@@ -10,6 +10,10 @@ jQuery(function ($) {
     if ($datePicker.datepicker) {
         $datePicker.datepicker({format: 'yyyy-mm-dd'});
     }
+    var $datePicker2 = $('#datepicker2');
+    if ($datePicker2.datepicker) {
+        $datePicker2.datepicker({format: 'yyyy-mm-dd'});
+    }
     const $createForm = $('#createForm');
     if ($createForm.validate) {
         $createForm.validate({
