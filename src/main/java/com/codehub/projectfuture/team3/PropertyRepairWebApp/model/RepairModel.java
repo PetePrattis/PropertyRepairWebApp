@@ -13,9 +13,9 @@ import java.time.LocalDate;
 public class RepairModel {
     private Long id;
     private String date;
-    private String repairStatus;
-    private String repairType;
-    private float cost;
+    private RepairStatus repairStatus;
+    private RepairType repairType;
+    private String cost;
     private String address;
     private String extraInfo;
     private Long ownerAfm;
@@ -36,27 +36,27 @@ public class RepairModel {
         this.date = date;
     }
 
-    public String getRepairStatus() {
+    public RepairStatus getRepairStatus() {
         return repairStatus;
     }
 
-    public void setRepairStatus(String repairStatus) {
+    public void setRepairStatus(RepairStatus repairStatus) {
         this.repairStatus = repairStatus;
     }
 
-    public String getRepairType() {
+    public RepairType getRepairType() {
         return repairType;
     }
 
-    public void setRepairType(String repairType) {
+    public void setRepairType(RepairType repairType) {
         this.repairType = repairType;
     }
 
-    public float getCost() {
+    public String getCost() {
         return cost;
     }
 
-    public void setCost(float cost) {
+    public void setCost(String cost) {
         this.cost = cost;
     }
 

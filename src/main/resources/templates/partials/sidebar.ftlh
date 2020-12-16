@@ -9,7 +9,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link active" href="/repairs">
+                <a class="nav-link active" href="/admin/repairs">
                     <span data-feather="tool"></span>
                     Repairs
                 </a>

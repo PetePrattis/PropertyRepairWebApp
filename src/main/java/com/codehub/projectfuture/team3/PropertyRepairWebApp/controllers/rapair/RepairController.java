@@ -28,44 +28,12 @@ public class RepairController {
 
     @GetMapping("/repair")
     public String repairView(Model model){
-        List<Repair> repairList = repairService.getRepairsByAfm(1234567892L);
+        List<RepairModel> repairList = repairService.getRepairsByAfm(1234567892L);
 
         model.addAttribute("aRepair", repairList.get(0));
         return "Index2";
     }
 
-    @PostMapping("/create-repair")
-    public String createRepairView(Model model) {
-        return "Index";
-    }
-
-    @PostMapping("/edit-repair")
-    public String editRepairView(Model model) {
-        return "Index";
-    }
-
-    @GetMapping(value = "/repair/{id}/edit")
-    public String editRepair(@PathVariable Long id, Model model) {
-        RepairModel repairModel = repairService.findRepair(id).get();
-        model.addAttribute(REPAIR_ATTR, repairModel);
-        model.addAttribute(REPAIR_STATUS, RepairStatus.values());
-        model.addAttribute(REPAIR_TYPES, RepairType.values());
-        return "pages/repair/repair_edit";
-    }
-
-    @PostMapping(value = "/repair/edit")
-    public String editRepair(RepairModel repairModel) {
-        repairService.updateRepair(repairModel);
-        return "redirect:/admin";
-    }
-
-    @GetMapping(value = "/repair/create")
-    public String booksDynamic(Model model) {
-        model.addAttribute(REPAIRS_FORM, new RepairForm());
-        model.addAttribute(REPAIR_STATUS, RepairStatus.values());
-        model.addAttribute(REPAIR_TYPES, RepairType.values());
-        return "pages/repair/create_repair";
-    }
 
     @GetMapping("/search/repair")
     public String searchRepairView(Model model) {

@@ -20,10 +20,10 @@
     <div class="mb-3">
         <label for="category">Status</label>
         <div class="input-group">
-            <select class="custom-select d-block w-100" id="status" name="status">
+            <select class="custom-select d-block w-100" id="status" name="repairStatus">
                 <#if repairStatus??>
                     <#list repairStatus as status>
-                        <option value="${status.getStatus()}"<#if repair.repairStatus == status> selected</#if>>${status.getStatus()}</option>
+                        <option value="${status}"<#if repair.repairStatus == status> selected</#if>>${status.getStatus()}</option>
                     </#list>
                 </#if>
             </select>
@@ -33,10 +33,10 @@
     <div class="mb-3">
         <label for="category">Type</label>
         <div class="input-group">
-            <select class="custom-select d-block w-100" id="type" name="type">
+            <select class="custom-select d-block w-100" id="type" name="repairType">
                 <#if repairTypes??>
                     <#list repairTypes as type>
-                        <option value="${type.getType()}"<#if repair.repairType == type> selected</#if>>${type.getType()}</option>
+                        <option value="${type}"<#if repair.repairType == type> selected</#if>>${type.getType()}</option>
                     </#list>
                 </#if>
             </select>
@@ -60,7 +60,7 @@
     <div class="mb-3">
         <label for="title">Owner's AFM</label>
         <div class="input-group">
-            <input type="text" class="form-control" id="owner-afm" name="ownersAfm"  value="${repair.owner.afm}">
+            <input type="text" class="form-control" id="owner-afm" name="ownerAfm"  value="${repair.ownerAfm?replace(",","")?replace(".","")}">
         </div>
     </div>
 

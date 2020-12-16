@@ -7,11 +7,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -26,7 +25,8 @@ public class Repair {
     private Long id;
 
     @Column(name = "repair_date")
-    private Timestamp date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate date;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "repair_status")
@@ -58,11 +58,11 @@ public class Repair {
         this.id = id;
     }
 
-    public Timestamp getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

@@ -4,6 +4,7 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.RepairModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.OwnerService;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.RepairService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class AdminController {
 
     @GetMapping("/admin")
     public String adminHomePageView(Model model) {
-        List<Repair> repairList = repairService.findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus.INPROGRESS);
+        List<RepairModel> repairList = repairService.findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus.INPROGRESS);
 
         model.addAttribute("repairList", repairList);
         return "pages/adminHomePage";
@@ -36,4 +37,12 @@ public class AdminController {
         model.addAttribute("ownerList", ownerList);
         return "pages/owner/owners";
     }
+
+    @GetMapping("/admin/repairs")
+    public String adminShowRepairs(Model model) {
+        List<RepairModel> repairModelList = repairService.getAllRepairs();
+        model.addAttribute("repairList", repairModelList);
+        return "pages/adminHomePage";
+    }
+
 }
