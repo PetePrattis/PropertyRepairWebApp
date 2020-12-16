@@ -16,10 +16,21 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/search/repair">
+                <a class="nav-link">
                     <span data-feather="search"></span>
                     Search for Repairs
                 </a>
+                <ul>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin/search/byDate/repair">Search By Date</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin/search/betweenDate/repair">Search Between Date</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin/search/byOwnersAfm/repair">Search By Owner's Afm</a>
+                  </li>
+                </ul>
             </li>
 
 
@@ -40,10 +51,18 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/admin/search/owner">
+                <a class="nav-link">
                     <span data-feather="search"></span>
                     Search for Owners
                 </a>
+                <ul>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin/search/byAFM/owner">Search By AFM</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin/search/byEmail/owner">Search By Email</a>
+                  </li>
+                </ul>
             </li>
 
             <li class="nav-item">

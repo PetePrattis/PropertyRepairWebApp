@@ -13,7 +13,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"><span data-feather="calendar"></span></span>
             </div>
-            <input type="text" class="form-control" id="datepicker" name="date" value="${repair.date}">
+            <input type="text" class="form-control" id="datepicker" name="date" value="${repair.date?string.short_short}">
         </div>
     </div>
 
@@ -60,7 +60,7 @@
     <div class="mb-3">
         <label for="title">Owner's AFM</label>
         <div class="input-group">
-            <input type="text" class="form-control" id="owner-afm" name="ownersAfm"  value="${repair.owner.afm}">
+            <input type="text" class="form-control" id="owner-afm" name="ownersAfm"  value="${repair.owner.afm?replace(",","")?replace(".","")}">
         </div>
     </div>
 

@@ -20,17 +20,33 @@ public class SearchOwnerController {
     @Autowired
     private OwnerService ownerService;
 
-    @GetMapping("/admin/search/owner")
-    public String searchOwnerView(Model model)
+    @GetMapping("/admin/search/byAFM/owner")
+    public String searchOwnerByAFMView(Model model)
     {
         model.addAttribute(OWNER_FORM, new OwnerSearchForm());
-        return "pages/owner/search_owner";
+        return "pages/owner/search_owner_byAFM";
     }
 
-    @PostMapping("/admin/search/owner")
+    @GetMapping("/admin/search/byEmail/owner")
+    public String searchOwnerByEmailView(Model model)
+    {
+        model.addAttribute(OWNER_FORM, new OwnerSearchForm());
+        return "pages/owner/search_owner_byEmail";
+    }
+
+    @PostMapping("/admin/search/byAfm/owner")
     public String searchOwnerView(@ModelAttribute(OWNER_FORM)OwnerSearchForm ownerSearchForm, Model model) {
 
-        OwnerModel ownerst = ownerService.findOwnerByAfm(Long.parseLong(ownerSearchForm.getAfm())).get();
+        OwnerModel ownerst = ownerService.findOwnerByAfm(Long.parseLong(ownerSearchForm.getInput())).get();
+
+        model.addAttribute("owner", ownerst);
+        return "pages/owner/owner";
+    }
+
+    @PostMapping("/admin/search/byEmail/owner")
+    public String searchOwnerByEmailView(@ModelAttribute(OWNER_FORM)OwnerSearchForm ownerSearchForm, Model model) {
+
+        OwnerModel ownerst = ownerService.findOwnerByEmail(ownerSearchForm.getInput()).get();
 
         model.addAttribute("owner", ownerst);
         return "pages/owner/owner";
