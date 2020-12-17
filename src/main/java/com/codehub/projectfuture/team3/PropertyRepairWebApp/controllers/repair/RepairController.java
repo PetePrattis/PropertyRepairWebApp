@@ -1,17 +1,11 @@
-package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.rapair;
+package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.repair;
 
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.RepairForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.RepairModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.RepairService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 

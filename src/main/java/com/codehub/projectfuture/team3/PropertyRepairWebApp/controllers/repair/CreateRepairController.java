@@ -1,8 +1,7 @@
-package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.rapair;
+package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.repair;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.RepairForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.RepairService;
 import org.springframework.beans.factory.annotation.Autowired;

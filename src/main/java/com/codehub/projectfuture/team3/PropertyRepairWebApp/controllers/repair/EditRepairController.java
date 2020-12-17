@@ -1,4 +1,4 @@
-package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.rapair;
+package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.repair;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;

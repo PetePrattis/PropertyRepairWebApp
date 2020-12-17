@@ -1,4 +1,4 @@
-package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.rapair;
+package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.repair;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.RepairSearchForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.RepairModel;

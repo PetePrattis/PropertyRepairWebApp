@@ -1,7 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.owner;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceprions.OwnerNotFoundException;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,12 +31,6 @@ public class EditOwnerController {
         model.addAttribute(OWNER_ATTR, ownerModel);
         model.addAttribute(PROPERTY_TYPES, PropertyType.values());
         return "pages/owner/owner_edit";
-    }
-
-    @PostMapping(value = "/owner/edit")
-    public String editBook(OwnerModel ownerModel) {
-        ownerService.updateOwner(ownerModel);
-        return "redirect:/admin/owners";
     }
 
     //TODO implement delete in JS modal
