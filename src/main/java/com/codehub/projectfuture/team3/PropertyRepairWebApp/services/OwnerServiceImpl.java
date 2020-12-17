@@ -79,6 +79,7 @@ public class OwnerServiceImpl  implements OwnerService{
     @Override
     public OwnerModel createOwner(OwnerForm ownerForm) {
         Owner owner = ownerFormToOwner.map(ownerForm);
+        owner.setPassword("password");
         Owner newOwner = ownerRepository.save(owner);
         return ownerToOwnerModel.map(newOwner);
     }

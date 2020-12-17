@@ -4,6 +4,24 @@
     console.log("Hello World!");
 })();
 
+(() => {
+  'use strict';
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation');
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+
 // Date format
 jQuery(function ($) {
     var $datePicker = $('#datepicker');
@@ -15,41 +33,33 @@ jQuery(function ($) {
         $datePicker2.datepicker({format: 'yyyy-mm-dd'});
     }
     const $createForm = $('#createForm');
-    if ($createForm.validate) {
-        $createForm.validate({
-            rules: {
-                title: {
-                    required: true
-                },
-                category: {
-                    required: true
-                },
-                authorFirstName: {
-                    required: true
-                },
-                authorLastName: {
-                    required: true
-                },
-                publicationDate: {
-                    required: true
-                },
-                isbn: {
-                    required: true,
-                    digits: true,
-                    minlength: 10,
-                    maxlength: 10
-                }
-            },
-            messages: {
-                title: {
-                    required: "Title is required."
-                },
-                isbn: {
-                    minlength: "It should be at 10 digits.",
-                    maxlength: "It should be at 10 digits."
-                }
-            }
-        });
+        console.log($createForm);
+//    if ($createForm.validate) {
+//        $createForm.validate({
+//            rules: {
+//                firstName: {
+//                    required: true
+//                },
+//                lastName: {
+//                    required: true
+//                },
+//                Afm: {
+//                    required: true,
+//                    digits: true,
+//                    minlength: 10,
+//                    maxlength: 10
+//                }
+//            },
+//            messages: {
+//                lastName: {
+//                    required: "Lastname is required."
+//                },
+//                Afm: {
+//                    minlength: "It should be at 10 digits.",
+//                    maxlength: "It should be at 10 digits."
+//                }
+//            }
+//        });
     }
 
 
