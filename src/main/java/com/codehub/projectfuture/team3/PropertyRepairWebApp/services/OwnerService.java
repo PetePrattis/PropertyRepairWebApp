@@ -1,6 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceprions.OwnerNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 
@@ -9,7 +10,7 @@ import java.util.Optional;
 
 public interface OwnerService {
 
-    Optional<OwnerModel> findOwnerById(Long id);
+    OwnerModel findOwnerById(Long id) throws OwnerNotFoundException;
 
     List<OwnerModel> getAllOwners();
 

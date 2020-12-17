@@ -39,7 +39,7 @@ public class OwnerController {
        // Owner owner = ownerService.findOwnerById(1L).orElseThrow();
 
         //model.addAttribute("anOwner", owner);
-        return "Index";
+        return "/admin";
     }
 
 }

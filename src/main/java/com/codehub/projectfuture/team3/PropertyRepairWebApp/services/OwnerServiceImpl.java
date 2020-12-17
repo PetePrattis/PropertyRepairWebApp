@@ -1,6 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceprions.OwnerNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.OwnerFormToOwnerMapper;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.OwnerToOwnerModelMapper;
@@ -27,10 +28,16 @@ public class OwnerServiceImpl  implements OwnerService{
     private OwnerFormToOwnerMapper ownerFormToOwner;
 
     @Override
-    public Optional<OwnerModel> findOwnerById(Long id) {
-        return ownerRepository
-                .findById(id)
-                .map(owner -> ownerToOwnerModel.map(owner));
+    public OwnerModel findOwnerById(Long id) {
+        Optional<Owner> owner = ownerRepository.findById(id);
+
+        if (owner.isEmpty()) throw new OwnerNotFoundException();
+
+        return ownerToOwnerModel.map(owner.get());
+
+//        return ownerRepository
+//                .findById(id)
+//                .map(owner -> ownerToOwnerModel.map(owner));
     }
 
     @Override
