@@ -7,7 +7,7 @@
     <div class="form-row">
         <div class="col-md-4 mb-3">
             <label for="first-name">First Name</label>
-          <input type="text" class="form-control" id="first-name" name="firstName" placeholder="Last Name" required>
+          <input type="text" class="form-control" id="first-name" name="firstName" placeholder="First Name" required>
            <div class="invalid-feedback">
              This field is required.
            </div>
