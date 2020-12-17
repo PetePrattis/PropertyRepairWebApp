@@ -34,7 +34,7 @@ public class OwnerController {
     private RepairService repairService;
 
 
-    @GetMapping("/owner")
+    @GetMapping("/admin/owner")
     public String ownerHomePageView(Model model) {
        // Owner owner = ownerService.findOwnerById(1L).orElseThrow();
 

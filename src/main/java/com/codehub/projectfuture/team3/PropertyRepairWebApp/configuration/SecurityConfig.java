@@ -1,5 +1,6 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.configuration;
 
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.authenticationHandlers.LoginSuccessHandler;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -40,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //LOGIN Configuration
                 .formLogin()
-                .loginPage("/login")
+//                .loginPage("/login")
                 //.usernameParameter()
                 //.passwordParameter()
                 .successHandler(loginSuccessHandler)
@@ -72,5 +73,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sameOrigin();
     }
 
+    public static void main(String[] args) {
+        System.out.println(new BCryptPasswordEncoder().encode("password1"));
+    }
 }
 

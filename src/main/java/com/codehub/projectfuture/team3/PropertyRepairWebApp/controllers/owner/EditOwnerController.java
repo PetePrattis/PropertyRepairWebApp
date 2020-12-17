@@ -25,7 +25,7 @@ public class EditOwnerController {
     private OwnerService ownerService;
 
 
-    @GetMapping(value = "/owner/{id}/edit")
+    @GetMapping(value = "/admin/owner/{id}/edit")
     public String editRepair(@PathVariable Long id, Model model) {
         OwnerModel ownerModel = ownerService.findOwnerById(id);
         model.addAttribute(OWNER_ATTR, ownerModel);
@@ -34,7 +34,7 @@ public class EditOwnerController {
     }
 
     //TODO implement delete in JS modal
-    @PostMapping(value = "/owner/{id}/delete")
+    @PostMapping(value = "/admin/owner/{id}/delete")
     public String deleteOwner(@PathVariable Long id) {
         ownerService.deleteOwnerById(id);
         return "redirect:/admin/owners";

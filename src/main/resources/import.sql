@@ -11,7 +11,7 @@
 -- INSERT INTO USER (id, firstname, lastname, email, username, password, role) VALUES ('124', 'Jane', 'Doe', 'jane@mail.com', 'janeD', 'pass1234', 'ROLE_ADMIN');
 
 -- INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephone, owner_email, owner_password, property_type) VALUES ('1234567891', 'Tolstoy@mail.com');
-INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephone, owner_email, owner_password, property_type, user_role) VALUES ('1234567891', 'fname1', 'lname1', 'address1', '6955555555', 'user1@mail.com', 'password1', 'MAISONETTE', 'ADMIN');
+INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephone, owner_email, owner_password, property_type, user_role) VALUES ('1234567891', 'fname1', 'lname1', 'address1', '6955555555', 'user1@mail.com', '$2a$10$5PK0V1TJeR3OKxbEcE7deuSaBz74YjcY/l9sgi4YyrVY8mhjMTyHq', 'MAISONETTE', 'ADMIN');
 INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephone, owner_email, owner_password, property_type, user_role) VALUES ('1234567892', 'fname2', 'lname2', 'address2', '6955555555', 'user2@mail.com', 'password2', 'MAISONETTE', 'OWNER');
 INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephone, owner_email, owner_password, property_type, user_role) VALUES ('1234567893', 'fname3', 'lname3', 'address3', '6955555555', 'user3@mail.com', 'password3', 'APARTMENT', 'OWNER');
 INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephone, owner_email, owner_password, property_type, user_role) VALUES ('1234567894', 'fname4', 'lname4', 'address4', '6955555555', 'user4@mail.com', 'password4', 'APARTMENT', 'OWNER');

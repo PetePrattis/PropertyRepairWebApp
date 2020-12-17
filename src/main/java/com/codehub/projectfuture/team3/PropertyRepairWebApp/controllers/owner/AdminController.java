@@ -23,7 +23,7 @@ public class AdminController {
     @Autowired
     private RepairService repairService;
 
-    @GetMapping("/admin")
+    @GetMapping("/admin/home")
     public String adminHomePageView(Model model) {
         List<RepairModel> repairList = repairService.findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus.INPROGRESS);
 
