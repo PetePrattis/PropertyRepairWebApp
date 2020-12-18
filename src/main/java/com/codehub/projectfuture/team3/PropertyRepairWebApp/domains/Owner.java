@@ -51,7 +51,7 @@ public class Owner {
     @Column(name = "user_role")
     private UserRole userRole;
 
-    @OneToMany(mappedBy = "owner", targetEntity = Repair.class)
+    @OneToMany(mappedBy = "owner", targetEntity = Repair.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Repair> repairs;
 
     public Long getId() {

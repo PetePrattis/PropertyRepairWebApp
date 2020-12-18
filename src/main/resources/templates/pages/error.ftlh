@@ -22,6 +22,7 @@
                 <@spring.message errorMessage/>
             </#if>
         </p>
+        <a style="color: white;" href="/admin/home">Home</a>
         <span class="handle"></span>
     </div>
 </div>
