@@ -25,6 +25,7 @@ INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_sta
 INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id) VALUES ('Address 4',20300.14,'2021-01-11','Extra info 4','INPROGRESS','PLUMBING',1)
 INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id) VALUES ('Address 5',21300.14,'2021-11-11','Extra info 5','PENDING','PLUMBING',1)
 
+INSERT INTO PROPERTY (property_code,property_address,property_constructionYear,property_type,property_owner) VALUES ('PROPERTY1','Address 1','2021-01-11','HOUSE',1)
 
 -- insert into BOOK(book_id, book_title,publication_year,author_id,book_category) values ('fbe25e54-645f-4ede-829b-d28f3a29b2dc','War and Peace','1867','1','LITERARY_REALISM');
 -- insert into BOOK(book_id, book_title,publication_year,author_id,book_category) values ('a6fe1574-04de-44d6-ae2c-9f43fc2f42f1','The Grapes of Wrath','1939','2','DRAMA');

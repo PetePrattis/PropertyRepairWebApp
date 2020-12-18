@@ -2,6 +2,9 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Property;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.PropertyForm;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.PropertyFormToPropertyMapper;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.PropetryToPropertyModelMapper;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.PropertyModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.repositories.PropertyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +21,7 @@ public class PropertyServiceImpl implements PropertyService{
     private PropertyRepository propertyRepository;
 
     @Autowired
-    private  PropetryToPropertyModelMapper propertyToPropertyModel;
+    private PropetryToPropertyModelMapper propertyToPropertyModel;
 
     @Autowired
     private PropertyFormToPropertyMapper propertyFormToProperty;
