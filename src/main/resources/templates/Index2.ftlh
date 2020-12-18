@@ -4,7 +4,7 @@
 </head>
 <body>
 <h1>Property</h1>
-Code: ${aProperty}
+Code: ${aProperty.address}
 
 </body>
 

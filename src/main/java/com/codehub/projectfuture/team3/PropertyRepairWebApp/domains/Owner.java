@@ -54,6 +54,9 @@ public class Owner {
     @OneToMany(mappedBy = "owner", targetEntity = Repair.class)
     private List<Repair> repairs;
 
+    @OneToMany(mappedBy = "owner", targetEntity = Property.class)
+    private List<Property> properties;
+
     public Long getId() {
         return id;
     }

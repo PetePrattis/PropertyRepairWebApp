@@ -1,6 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.domains;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "PROPERTY", uniqueConstraints = {@UniqueConstraint(columnNames = {"property_code", "property_AFM"})})
+@Table(name = "PROPERTY", uniqueConstraints = {@UniqueConstraint(columnNames = {"property_code"})})
 public class Property {
 
     @Id
@@ -35,9 +36,9 @@ public class Property {
     private PropertyType propertyType;
 
     // how to implement
+    @JsonIgnore
     @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "owner_id")
-    @Column(name = "property_owner")
     private Owner owner;
 
     //TODO connect repair with property
