@@ -6,11 +6,11 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.PropertyModel;
 import org.springframework.stereotype.Component;
 
 @Component
-public class PropetryToPropertyModelMapper {
+public class PropertyToPropertyModelMapper {
 
     public PropertyModel map(Property property){
         PropertyModel propertyModel = new PropertyModel();
-        propertyModel.setPropertyCode(Long.parseLong(property.getPropertyCode()));
+        propertyModel.setPropertyCode(property.getPropertyCode());
         propertyModel.setAddress(property.getAddress());
         propertyModel.setConstructionYear(property.getConstructionYear());
         propertyModel.setPropertyType(property.getPropertyType());

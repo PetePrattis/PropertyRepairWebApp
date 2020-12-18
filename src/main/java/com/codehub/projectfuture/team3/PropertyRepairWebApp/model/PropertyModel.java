@@ -6,7 +6,7 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
 public class PropertyModel {
 
     private Long id;
-    private Long propertyCode;
+    private String propertyCode;
     private String address;
     private Integer constructionYear;
     private PropertyType propertyType;
@@ -20,11 +20,11 @@ public class PropertyModel {
         this.id = id;
     }
 
-    public Long getPropertyCode() {
+    public String getPropertyCode() {
         return propertyCode;
     }
 
-    public void setPropertyCode(Long propertyCode) {
+    public void setPropertyCode(String propertyCode) {
         this.propertyCode = propertyCode;
     }
 
