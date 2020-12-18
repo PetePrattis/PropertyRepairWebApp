@@ -15,11 +15,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 
+import static com.codehub.projectfuture.team3.PropertyRepairWebApp.utils.GlobalAttributes.ERROR_MESSAGE;
+
 @Controller
 public class EditOwnerController {
     private static final String OWNER_ATTR = "owner";
     private static final String PROPERTY_TYPES = "propertyType";
-    private static final String ERROR_MESSAGE = "errorMessage";
 
     @Autowired
     private OwnerService ownerService;
@@ -33,7 +34,12 @@ public class EditOwnerController {
         return "pages/owner/owner_edit";
     }
 
-    //TODO implement delete in JS modal
+    @PostMapping(value = "/admin/owner/edit")
+    public String editOwner(OwnerModel ownerModel) {
+        ownerService.updateOwner(ownerModel);
+        return "redirect:/admin/owners";
+    }
+
     @PostMapping(value = "/admin/owner/{id}/delete")
     public String deleteOwner(@PathVariable Long id) {
         ownerService.deleteOwnerById(id);
@@ -45,7 +51,7 @@ public class EditOwnerController {
                                            RedirectAttributes redirectAttributes,
                                            OwnerNotFoundException e)
     {
-        redirectAttributes.addFlashAttribute(ERROR_MESSAGE, "error.generic");
+        redirectAttributes.addFlashAttribute(ERROR_MESSAGE, "error.owner.null");
         return "redirect:/error/generic";
     }
 

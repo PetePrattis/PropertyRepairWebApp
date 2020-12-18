@@ -29,14 +29,8 @@ public class OwnerServiceImpl  implements OwnerService{
     @Override
     public OwnerModel findOwnerById(Long id) {
         Optional<Owner> owner = ownerRepository.findById(id);
-
         if (owner.isEmpty()) throw new OwnerNotFoundException();
-
         return ownerToOwnerModel.map(owner.get());
-
-//        return ownerRepository
-//                .findById(id)
-//                .map(owner -> ownerToOwnerModel.map(owner));
     }
 
     @Override
@@ -49,17 +43,17 @@ public class OwnerServiceImpl  implements OwnerService{
     }
 
     @Override
-    public Optional<OwnerModel> findOwnerByAfm(Long afm) {
-        return ownerRepository
-                .findOwnerByAfm(afm)
-                .map(owner -> ownerToOwnerModel.map(owner));
+    public OwnerModel findOwnerByAfm(Long afm) {
+        Optional<Owner> owner = ownerRepository.findOwnerByAfm(afm);
+        if (owner.isEmpty()) throw new OwnerNotFoundException();
+        return ownerToOwnerModel.map(owner.get());
     }
 
     @Override
-    public Optional<OwnerModel> findOwnerByEmail(String email) {
-        return ownerRepository
-                .findOwnerByEmail(email)
-                .map(owner -> ownerToOwnerModel.map(owner));
+    public OwnerModel findOwnerByEmail(String email) {
+        Optional<Owner> owner = ownerRepository.findOwnerByEmail(email);
+        if (owner.isEmpty()) throw new OwnerNotFoundException();
+        return ownerToOwnerModel.map(owner.get());
     }
 
     @Override
@@ -70,15 +64,16 @@ public class OwnerServiceImpl  implements OwnerService{
 
     @Override
     public OwnerModel updateOwner(OwnerModel ownerModel) {
-        Owner originalOwner = ownerRepository.findById(ownerModel.getId()).get();
-        originalOwner.setFirstName(ownerModel.getFirstName());
-        originalOwner.setAfm(ownerModel.getAfm());
-        originalOwner.setLastName(ownerModel.getLastName());
-        originalOwner.setAddress(ownerModel.getAddress());
-        originalOwner.setEmail(ownerModel.getEmail());
-        originalOwner.setTelephoneNumber(ownerModel.getTelephoneNumber());
+        Optional<Owner> originalOwner = ownerRepository.findById(ownerModel.getId());
+        if (originalOwner.isEmpty()) throw new OwnerNotFoundException();
+        originalOwner.get().setFirstName(ownerModel.getFirstName());
+        originalOwner.get().setAfm(ownerModel.getAfm());
+        originalOwner.get().setLastName(ownerModel.getLastName());
+        originalOwner.get().setAddress(ownerModel.getAddress());
+        originalOwner.get().setEmail(ownerModel.getEmail());
+        originalOwner.get().setTelephoneNumber(ownerModel.getTelephoneNumber());
 
-        Owner newOwner = ownerRepository.save(originalOwner);
+        Owner newOwner = ownerRepository.save(originalOwner.get());
         return ownerToOwnerModel.map(newOwner);
     }
 

@@ -5,7 +5,6 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface OwnerService {
 
@@ -13,13 +12,13 @@ public interface OwnerService {
 
     List<OwnerModel> getAllOwners();
 
-    Optional<OwnerModel> findOwnerByAfm(Long afm);
+    OwnerModel findOwnerByAfm(Long afm) throws OwnerNotFoundException;
 
-    Optional<OwnerModel> findOwnerByEmail(String email);
+    OwnerModel findOwnerByEmail(String email) throws OwnerNotFoundException;
 
     void deleteOwnerById(Long id);
 
-    OwnerModel updateOwner(OwnerModel ownerModel);
+    OwnerModel updateOwner(OwnerModel ownerModel) throws OwnerNotFoundException;
 
     OwnerModel createOwner(OwnerForm ownerForm);
 

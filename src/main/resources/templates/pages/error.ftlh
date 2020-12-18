@@ -19,7 +19,6 @@
         <p>
             <#--${errorMessage!""}-->
             <#if errorMessage??>
-<!--                 ${errorMessage!""}-->
                 <@spring.message errorMessage/>
             </#if>
         </p>
