@@ -39,12 +39,12 @@
                                 <td>${repair.date}</td>
                                 <td>
                         <#if repair.repairStatus??>
-                                ${repair.repairStatus.getStatus()}
+                                ${repair.repairStatus}
                         </#if>
                                 </td>
                                 <td>
                         <#if repair.repairType??>
-                                ${repair.repairType.getType()}
+                                ${repair.repairType}
                         </#if>
                                 </td>
                                 <td>${repair.cost}</td>
