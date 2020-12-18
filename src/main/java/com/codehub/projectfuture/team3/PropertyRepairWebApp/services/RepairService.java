@@ -3,6 +3,7 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OnCreateRepairException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.RepairNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
@@ -34,5 +35,5 @@ public interface RepairService {
 
     RepairModel updateRepair(RepairModel repairModel)throws RepairNotFoundException, OwnerNotFoundException;
 
-    RepairModel createRepair(RepairForm repairForm);
+    RepairModel createRepair(RepairForm repairForm) throws OnCreateRepairException;
 }

@@ -4,6 +4,7 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OnCreateRepairException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.RepairNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.RepairForm;
@@ -124,10 +125,14 @@ public class RepairServiceImpl implements RepairService{
 
     @Override
     public RepairModel createRepair(RepairForm repairForm) {
-        Repair repair = repairFormToRepair.map(repairForm);
-        Repair newRepair = repairRepository.save(repair);
-        return repairToRepairModel.map(newRepair);
-
+        try {
+            Repair repair = repairFormToRepair.map(repairForm);
+            Repair newRepair = repairRepository.save(repair);
+            return repairToRepairModel.map(newRepair);
+        }
+        catch (OwnerNotFoundException e) {
+            throw new OnCreateRepairException();
+        }
     }
 
 }
