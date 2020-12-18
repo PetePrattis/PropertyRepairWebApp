@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class PropertyController {
@@ -18,7 +19,9 @@ public class PropertyController {
 
     @GetMapping("/property")
     public String propertyView(Model model){
-        PropertyModel propertyList = propertyService.findPropertyById(1L);
+        PropertyModel propertyList = propertyService.findPropertyByOwnerId(1L).orElseThrow();
+                //findPropertyByOwnerId(1L);
+                //findPropertyById(1L);
 
         model.addAttribute("aProperty", propertyList);
         return "Index2";
