@@ -1,8 +1,11 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 
+
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.RepairNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.RepairForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.RepairFormToRepairMapper;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.RepairToRepairModelMapper;
@@ -27,16 +30,16 @@ public class RepairServiceImpl implements RepairService{
     private OwnerRepository ownerRepository;
 
     @Autowired
-    private RepairToRepairModelMapper repairModelMapper;
+    private RepairToRepairModelMapper repairToRepairModel;
 
     @Autowired
     private RepairFormToRepairMapper repairFormToRepair;
 
     @Override
-    public Optional<RepairModel> findRepairById(Long id) {
-        return repairRepository
-                .findById(id)
-                .map(repair -> repairModelMapper.map(repair));
+    public RepairModel findRepairById(Long id) {
+        Optional<Repair> repair = repairRepository.findById(id);
+        if (repair.isEmpty()) throw new RepairNotFoundException();
+        return repairToRepairModel.map(repair.get());
     }
 
     @Override
@@ -44,7 +47,7 @@ public class RepairServiceImpl implements RepairService{
         return repairRepository
                 .findAll()
                 .stream()
-                .map(repair -> repairModelMapper.map(repair))
+                .map(repair -> repairToRepairModel.map(repair))
                 .collect(Collectors.toList());
     }
 
@@ -53,7 +56,7 @@ public class RepairServiceImpl implements RepairService{
         return repairRepository
                 .findByDateAndRepairStatus(date, status)
                 .stream()
-                .map(repair -> repairModelMapper.map(repair))
+                .map(repair -> repairToRepairModel.map(repair))
                 .collect(Collectors.toList());
     }
 
@@ -62,7 +65,7 @@ public class RepairServiceImpl implements RepairService{
         return repairRepository
                 .findRepairByDate(date)
                 .stream()
-                .map(repair -> repairModelMapper.map(repair))
+                .map(repair -> repairToRepairModel.map(repair))
                 .collect(Collectors.toList());
     }
 
@@ -71,7 +74,7 @@ public class RepairServiceImpl implements RepairService{
         return repairRepository
                 .findByDateBetween(startDate, endDate)
                 .stream()
-                .map(repair -> repairModelMapper.map(repair))
+                .map(repair -> repairToRepairModel.map(repair))
                 .collect(Collectors.toList());
     }
 
@@ -85,7 +88,7 @@ public class RepairServiceImpl implements RepairService{
         return repairRepository
                 .findByOwner_Afm(afm)
                 .stream()
-                .map(repair -> repairModelMapper.map(repair))
+                .map(repair -> repairToRepairModel.map(repair))
                 .collect(Collectors.toList());
     }
 
@@ -95,31 +98,35 @@ public class RepairServiceImpl implements RepairService{
         return repairRepository
                 .findFirst10ByRepairStatusOrderByDateAsc(status)
                 .stream()
-                .map(repair -> repairModelMapper.map(repair))
+                .map(repair -> repairToRepairModel.map(repair))
                 .collect(Collectors.toList());
     }
 
     @Override
     public RepairModel updateRepair(RepairModel repairModel) {
-        Repair originalRepair = repairRepository.findById(repairModel.getId()).get();
-        originalRepair.setAddress(repairModel.getAddress());
-        originalRepair.setCost(Float.valueOf(repairModel.getCost().replace(".","").replace(",",".")));
+        Optional<Repair> originalRepair = repairRepository.findById(repairModel.getId());
+        if (originalRepair.isEmpty()) throw new RepairNotFoundException();
+        originalRepair.get().setAddress(repairModel.getAddress());
+        originalRepair.get().setCost(Float.parseFloat(repairModel.getCost().replace(".","").replace(",",".")));
         LocalDate date = LocalDate.parse(repairModel.getDate());
-        originalRepair.setDate(date);
-        originalRepair.setExtraInfo(repairModel.getExtraInfo());
-        originalRepair.setOwner(ownerRepository.findOwnerByAfm(repairModel.getOwnerAfm()).get());
-        originalRepair.setRepairStatus(repairModel.getRepairStatus());
-        originalRepair.setRepairType(repairModel.getRepairType());
-        Repair newRepair = repairRepository.save(originalRepair);
-        return repairModelMapper.map(newRepair);
+        originalRepair.get().setDate(date);
+        originalRepair.get().setExtraInfo(repairModel.getExtraInfo());
 
+        Optional<Owner> owner = ownerRepository.findOwnerByAfm(repairModel.getOwnerAfm());
+        if (owner.isEmpty()) throw new OwnerNotFoundException();
+
+        originalRepair.get().setOwner(owner.get());
+        originalRepair.get().setRepairStatus(repairModel.getRepairStatus());
+        originalRepair.get().setRepairType(repairModel.getRepairType());
+        Repair newRepair = repairRepository.save(originalRepair.get());
+        return repairToRepairModel.map(newRepair);
     }
 
     @Override
     public RepairModel createRepair(RepairForm repairForm) {
         Repair repair = repairFormToRepair.map(repairForm);
         Repair newRepair = repairRepository.save(repair);
-        return repairModelMapper.map(newRepair);
+        return repairToRepairModel.map(newRepair);
 
     }
 

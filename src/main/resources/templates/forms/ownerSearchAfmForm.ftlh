@@ -1,6 +1,6 @@
 <#import "/spring.ftl" as spring />
 
-<h4 class="mb-3">Search Repair</h4>
+<h4 class="mb-3">Search Owner</h4>
 <form action="/admin/search/byAfm/owner" method="post">
     <div>
         <label for="afmpicker">AFM:</label>

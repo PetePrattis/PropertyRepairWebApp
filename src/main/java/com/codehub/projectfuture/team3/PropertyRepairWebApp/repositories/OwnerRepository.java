@@ -7,11 +7,6 @@ import java.util.Optional;
 
 public interface OwnerRepository extends JpaRepository<Owner, Long> {
 
-    //TODO search by email or afm
     Optional<Owner> findOwnerByEmail(String email);
     Optional<Owner> findOwnerByAfm(Long afm);
-
-    //TODO updates
-
-    //todo delete query
 }
