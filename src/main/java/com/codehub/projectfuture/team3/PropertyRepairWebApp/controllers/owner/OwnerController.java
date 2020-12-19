@@ -37,7 +37,7 @@ public class OwnerController {
     @GetMapping("/owner/home")
     public String ownerrHomePageView(Model model) {
         String mail = SecurityContextHolder.getContext().getAuthentication().getName();
-        OwnerModel owner = ownerService.findOwnerByEmail(mail).get();
+        OwnerModel owner = ownerService.findOwnerByEmail(mail);
 
         List<RepairModel> repairList = repairService.getRepairsByAfm(owner.getAfm());
         model.addAttribute("repairList", repairList);

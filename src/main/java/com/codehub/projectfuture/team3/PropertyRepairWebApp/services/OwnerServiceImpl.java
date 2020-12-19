@@ -43,10 +43,20 @@ public class OwnerServiceImpl  implements OwnerService{
     }
 
     @Override
+    public Optional<Owner> findOwnerByAfmOptional(Long afm) {
+        return ownerRepository.findOwnerByAfm(afm);
+    }
+
+    @Override
     public OwnerModel findOwnerByAfm(Long afm) {
         Optional<Owner> owner = ownerRepository.findOwnerByAfm(afm);
         if (owner.isEmpty()) throw new OwnerNotFoundException();
         return ownerToOwnerModel.map(owner.get());
+    }
+
+    @Override
+    public Optional<Owner> findOwnerByEmailOptional(String email) {
+        return ownerRepository.findOwnerByEmail(email);
     }
 
     @Override

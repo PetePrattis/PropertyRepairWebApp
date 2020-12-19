@@ -1,5 +1,6 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.validators;
 
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.OwnerService;
@@ -30,12 +31,12 @@ public class OwnerFormValidation implements Validator {
         // Here we add our custom validation logic
         if(registrationForm.getAfm().matches(AFM_PATTERN))
         {
-            Optional<OwnerModel> ownerByAfm = ownerService.findOwnerByAfm(Long.valueOf(registrationForm.getAfm()));
+            Optional<Owner> ownerByAfm = ownerService.findOwnerByAfmOptional(Long.valueOf(registrationForm.getAfm()));
             if (ownerByAfm.isPresent()) {
                 errors.rejectValue("afm", "register.afm.taken.error");
             }
         }
-        Optional<OwnerModel> ownerByEmail = ownerService.findOwnerByEmail(registrationForm.getEmail());
+        Optional<Owner> ownerByEmail = ownerService.findOwnerByEmailOptional(registrationForm.getEmail());
         if (ownerByEmail.isPresent()) {
             errors.rejectValue("email", "register.email.taken.error");
         }
