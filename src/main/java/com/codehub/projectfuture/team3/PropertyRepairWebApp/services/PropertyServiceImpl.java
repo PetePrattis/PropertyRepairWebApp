@@ -41,23 +41,29 @@ public class PropertyServiceImpl implements PropertyService{
     }
 
     @Override
-    public Optional<PropertyModel> findPropertyByPropertyCode(String propertyCode) {
-        return propertyRepository
-                .findPropertyByPropertyCode(propertyCode)
-                .map(property -> propertyToPropertyModel.map(property));
+    public PropertyModel findPropertyByPropertyCode(String propertyCode) {
+        Optional<Property> property = propertyRepository.findPropertyByPropertyCode(propertyCode);
+        //todo exception
+        return propertyToPropertyModel.map(property.get());
+//                .findPropertyByPropertyCode(propertyCode)
+//                .map(property -> propertyToPropertyModel.map(property));
     }
 
     @Override
-    public Optional<PropertyModel> findPropertyByOwnerId(Long id) {
+    public List<PropertyModel> findPropertyByOwnerAfm(Long Afm) {
+        //Optional<Property> property = propertyRepository.findPropertyByOwnerAfm(Afm);
+        //todo exception
         return propertyRepository
-                .findPropertyByOwnerId(id)
-                .map(property -> propertyToPropertyModel.map(property));
+                .findPropertyByOwnerAfm(Afm)
+                .stream()
+                .map(property -> propertyToPropertyModel.map(property))
+                .collect(Collectors.toList());
+
+               // map(property.get());
+//                .findPropertyByOwnerId(id)
+//                .map(property -> propertyToPropertyModel.map(property));
     }
 
-    @Override
-    public Optional<PropertyModel> findPropertyByOwnerAfm(Long id) {
-        return null;
-    }
 
     @Override
     public void deletePropertyById(Long id) {

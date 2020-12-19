@@ -32,13 +32,12 @@ public class SearchPropertyController {
     public String searchPropertyByOwnerAfmView(Model model)
     {
         model.addAttribute(PROPERTY_FORM, new RepairSearchForm());
-        return "pages/repair/search_repair_byAFM";
+        return "pages/property/search_property_byAFM";
     }
 
     @PostMapping("/admin/search/byPropertyCode/property")
     public String searchPropertyByPropertyCodeView(@ModelAttribute(PROPERTY_FORM) PropertySearchForm propertySearchForm, Model model) {
-        //todo remove optional wrapper class
-        List<PropertyModel> propertyList = propertyService.findPropertyByPropertyCode(propertySearchForm.getInput().get());
+        PropertyModel propertyList = propertyService.findPropertyByPropertyCode(propertySearchForm.getInput());
 
         model.addAttribute("propertyList", propertyList);
         return "pages/adminHomePage";
@@ -46,8 +45,7 @@ public class SearchPropertyController {
 
     @PostMapping("/admin/search/byAfm/property")
     public String searchPropertyView(@ModelAttribute(PROPERTY_FORM)PropertySearchForm propertySearchForm, Model model) {
-        //todo remove optional wrapper class
-        List<PropertyModel> propertyList = propertyService.findPropertyByOwnerId(Long.parseLong(propertySearchForm.getInput()).get());//todo implement find by afm;
+        List<PropertyModel> propertyList = propertyService.findPropertyByOwnerAfm(Long.parseLong(propertySearchForm.getInput()));
 
         model.addAttribute("propertyList", propertyList);
         return "pages/adminHomePage";

@@ -1,5 +1,6 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.property;
 
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.PropertyModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,16 +12,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class EditPropertyController {
-
-    //todo private static final fields
+    private static final String PROPERTY_ATTR = "property";
+    private static final String PROPERTY_TYPES = "propertyType";
+    private static final String ERROR_MESSAGE = "errorMessage";
 
     @Autowired
     private PropertyService propertyService;
 
     @GetMapping(value = "/property/{id}/edit")
     public String editProperty(@PathVariable Long id, Model model) {
-        PropertyModel propertyModel = propertyService.findRepairById(id).get();//todo implement in service
-        //todo add model attributes and views
+        PropertyModel propertyModel = propertyService.findPropertyById(id);
+        model.addAttribute(PROPERTY_ATTR, propertyModel);
+        model.addAttribute(PROPERTY_TYPES, PropertyType.values());
         return "pages/property/property_edit";
     }
 

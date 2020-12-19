@@ -13,11 +13,11 @@ public interface PropertyService {
 
     List<PropertyModel> getAllProperties();
 
-    Optional<PropertyModel> findPropertyByPropertyCode(String propertyCode);
+    PropertyModel findPropertyByPropertyCode(String propertyCode);
 
-    Optional<PropertyModel> findPropertyByOwnerId(Long id);
+    //Optional<PropertyModel> findPropertyByOwnerId(Long id);
 
-    Optional<PropertyModel> findPropertyByOwnerAfm(Long id);
+    List<PropertyModel> findPropertyByOwnerAfm(Long id);
 
     void deletePropertyById(Long id);
 
