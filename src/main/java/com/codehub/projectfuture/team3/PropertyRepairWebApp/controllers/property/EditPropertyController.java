@@ -1,6 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.property;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.PropertyModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,10 @@ public class EditPropertyController {
         return "pages/property/property_edit";
     }
 
-    @PostMapping(value = "/property/edit")
+    @PostMapping(value = "/admin/property/edit")
     public String editProperty(PropertyModel propertyModel) {
         propertyService.updateProperty(propertyModel);
-        return "redirect:/admin";
+        return "redirect:/admin/properties";
     }
 
     @PostMapping(value = "/property/{id}/delete")

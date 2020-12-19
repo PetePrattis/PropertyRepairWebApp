@@ -14,7 +14,7 @@ public class PropertyToPropertyModelMapper {
         propertyModel.setAddress(property.getAddress());
         propertyModel.setConstructionYear(property.getConstructionYear());
         propertyModel.setPropertyType(property.getPropertyType());
-        //setOwner
+        propertyModel.setOwnerId(property.getOwner().getAfm());
 
         return propertyModel;
     }

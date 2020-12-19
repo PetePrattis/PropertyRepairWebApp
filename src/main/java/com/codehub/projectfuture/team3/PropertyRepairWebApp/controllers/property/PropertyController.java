@@ -19,7 +19,7 @@ public class PropertyController {
 
     @GetMapping("/property")
     public String propertyView(Model model){
-        PropertyModel propertyList = propertyService.findPropertyByOwnerAfm(1234567891L);
+        List<PropertyModel> propertyList = propertyService.findPropertyByOwnerAfm(1234567891L);
                 //findPropertyByOwnerId(1L);
                 //findPropertyById(1L);
 

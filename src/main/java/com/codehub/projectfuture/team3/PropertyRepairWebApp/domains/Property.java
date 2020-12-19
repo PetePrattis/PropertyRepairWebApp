@@ -35,6 +35,7 @@ public class Property {
     @Column(name = "property_type")
     private PropertyType propertyType;
 
+    //todo change id to afm
     @JsonIgnore
     @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "owner_id")

@@ -10,7 +10,7 @@ public class PropertyModel {
     private String address;
     private Integer constructionYear;
     private PropertyType propertyType;
-    //private OwnerModel ownerModel;
+    private Long ownerAfm;
 
     public Long getId() {
         return id;
@@ -52,4 +52,11 @@ public class PropertyModel {
         this.propertyType = propertyType;
     }
 
+    public Long getOwnerAfm() {
+        return ownerAfm;
+    }
+
+    public void setOwnerAfm(Long ownerAfm) {
+        this.ownerAfm = ownerAfm;
+    }
 }
