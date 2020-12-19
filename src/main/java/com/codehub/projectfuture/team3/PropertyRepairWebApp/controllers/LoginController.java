@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
     private static final String ERROR_MESSAGE = "errorMessage";
 
-    @GetMapping("/login")
+    @GetMapping(value = {"/", "/login"})
     private String login() {
         return "login";
     }

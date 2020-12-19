@@ -63,7 +63,7 @@
         <div class="col-md-4 mb-3">
         <label for="address">Address</label>
                 <@spring.bind "ownersForm.address"/>
-          <input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
+          <input type="text" class="form-control" id="address" name="address" placeholder="Address" value="${ownersForm.address!''}" required>
         <#if spring.status.error>
             <ul>
                 <#list spring.status.errorMessages as error>

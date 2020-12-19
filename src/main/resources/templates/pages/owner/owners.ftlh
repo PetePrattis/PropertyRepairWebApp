@@ -34,7 +34,7 @@
                     <tbody>
                             <#list ownerList as owner>
                             <tr data-id="${owner.id}">
-                                <td><a href="/owner/${owner.id}/edit">#${owner.id}</a></td>
+                                <td><a href="/admin/owner/${owner.id}/edit">#${owner.id}</a></td>
                                 <td>${owner.afm}</td>
                                 <td>${owner.firstName}</td>
                                 <td>${owner.lastName}</td>
