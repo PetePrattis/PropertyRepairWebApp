@@ -10,6 +10,7 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
 
     Optional<Property> findPropertyByPropertyCode(String propertyCode);
     Optional<Property> findPropertyByOwnerId(Long id);
+    Optional<Property> findPropertyByOwnerAfm(Long id);
     //TODO add findRepairsByPropertyId in repair repository
 
 }

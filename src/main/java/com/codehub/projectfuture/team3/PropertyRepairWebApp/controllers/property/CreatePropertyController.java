@@ -1,5 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.property;
 
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.PropertyForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,7 @@ import javax.validation.Valid;
 
 @Controller
 public class CreatePropertyController {
-    //todo private static final fields
+    private static final String PROPERTY_TYPES = "propertyTypes";
     private static final String PROPERTIES_FORM = "propertiesForm";
 
     @Autowired
@@ -23,7 +25,7 @@ public class CreatePropertyController {
     @GetMapping(value = "/property/create")
     public String createProperty(Model model) {
         model.addAttribute(PROPERTIES_FORM, new PropertyForm());
-        //todo add model attributes
+        model.addAttribute(PROPERTY_TYPES, PropertyType.values());
         return "pages/property/create_property";
     }
 
@@ -32,10 +34,10 @@ public class CreatePropertyController {
                               BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "/admin/owners/create";
+            return "/admin/property/create";
         }
         propertyService.createProperty(propertyForm);
-        return "redirect:/admin";
+        return "redirect:/admin/properties";
     }
 
 }

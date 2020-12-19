@@ -35,13 +35,10 @@ public class Property {
     @Column(name = "property_type")
     private PropertyType propertyType;
 
-    // how to implement
     @JsonIgnore
     @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "owner_id")
     private Owner owner;
-
-    //TODO connect repair with property
 
     public Long getId() {
         return id;

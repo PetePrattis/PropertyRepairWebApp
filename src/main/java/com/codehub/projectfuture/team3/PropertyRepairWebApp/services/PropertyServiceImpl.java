@@ -55,6 +55,11 @@ public class PropertyServiceImpl implements PropertyService{
     }
 
     @Override
+    public Optional<PropertyModel> findPropertyByOwnerAfm(Long id) {
+        return null;
+    }
+
+    @Override
     public void deletePropertyById(Long id) {
         propertyRepository.deleteById(id);
     }

@@ -17,6 +17,8 @@ public interface PropertyService {
 
     Optional<PropertyModel> findPropertyByOwnerId(Long id);
 
+    Optional<PropertyModel> findPropertyByOwnerAfm(Long id);
+
     void deletePropertyById(Long id);
 
     PropertyModel updateProperty(PropertyModel propertyModel);
