@@ -14,6 +14,10 @@ jQuery(function ($) {
     if ($datePicker2.datepicker) {
         $datePicker2.datepicker({format: 'yyyy-mm-dd'});
     }
+    var yearpicker = $('#yearpicker');
+    if (yearpicker.datepicker) {
+        yearpicker.datepicker({format: 'yyyy'});
+    }
 
 
     $('#modal').on('show.bs.modal', function (event) {

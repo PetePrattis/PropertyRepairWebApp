@@ -21,15 +21,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         // here we would search into the repo for the user.
         // for not we are just going to send always a successful response.
-        Owner user = ownerRepository.findOwnerByEmail(email).get();
+        Optional<Owner> optionalUser = ownerRepository.findOwnerByEmail(email);
 
-        if (user == null) {
+        if (optionalUser.isEmpty()) {
             throw new UsernameNotFoundException(email);
         }
 
         /*        List<SimpleGrantedAuthority> authorization = Collections.singletonList(new SimpleGrantedAuthority("ADMIN"));
         CharSequence password = "password";*/
-
+        Owner user = optionalUser.get();
         return new LoginResponse(user.getEmail(), user.getPassword(), Arrays.asList(new SimpleGrantedAuthority(user.getUserRole().name())));
     }
 }
