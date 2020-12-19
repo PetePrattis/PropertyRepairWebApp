@@ -1,7 +1,7 @@
 <#import "/spring.ftl" as spring />
 
 <h4 class="mb-3">Edit Property</h4>
-<form action="/property/edit" method="post">
+<form action="/admin/property/edit" method="post">
 
 
     <input type="hidden" name="id" value="${property.id}">

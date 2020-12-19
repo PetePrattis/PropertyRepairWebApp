@@ -19,11 +19,11 @@ INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephon
 -- INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephone, owner_email, owner_password, property_type, user_role) VALUES ('1234567891', 'fname', 'lname', 'address', 'phone', '@mail.com', 'password', 'type', 'role');
 -- INSERT INTO REPAIR (repair_cost, owner_id) VALUES ('100', '1');
 -- INSERT INTO REPAIR (repair_cost, owner_id) VALUES ('123', '2');
-INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 1',2000.14,'2021-01-11','Extra info 1','INPROGRESS','INSULATION',1,'PROPERTY1')
-INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 2',200021.14,'2021-02-11','Extra info 2','INPROGRESS','PAINTING',2,'PROPERTY2')
-INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 3',20100.14,'2021-01-11','Extra info 3','INPROGRESS','PLUMBING',3,'PROPERTY3')
-INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 4',20300.14,'2021-01-11','Extra info 4','INPROGRESS','PLUMBING',1,'PROPERTY4')
-INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 5',21300.14,'2021-11-11','Extra info 5','PENDING','PLUMBING',1,'PROPERTY5')
+INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 1',2000.14,'2021-01-11','Extra info 1','INPROGRESS','INSULATION',1,1)
+INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 2',200021.14,'2021-02-11','Extra info 2','INPROGRESS','PAINTING',2,2)
+INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 3',20100.14,'2021-01-11','Extra info 3','INPROGRESS','PLUMBING',3,3)
+INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 4',20300.14,'2021-01-11','Extra info 4','INPROGRESS','PLUMBING',1,4)
+INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 5',21300.14,'2021-11-11','Extra info 5','PENDING','PLUMBING',1,4)
 
 INSERT INTO PROPERTY (property_code,property_address,property_constructionYear,property_type,owner_id) VALUES ('PROPERTY1','Address 1', 2021,'HOUSE',1)
 INSERT INTO PROPERTY (property_code,property_address,property_constructionYear,property_type,owner_id) VALUES ('PROPERTY2','Address 2', 2021,'HOUSE',1)

@@ -22,7 +22,7 @@ public interface PropertyService {
 
     void deletePropertyById(Long id);
 
-    PropertyModel updateProperty(PropertyModel propertyModel) throws PropertyNotFoundException;
+    PropertyModel updateProperty(PropertyModel propertyModel) throws PropertyNotFoundException, OwnerNotFoundException;
 
     PropertyModel createProperty(PropertyForm propertyForm) throws OnCreatePropertyException;
 

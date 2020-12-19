@@ -1,5 +1,6 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Property;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OnCreatePropertyException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
@@ -8,6 +9,7 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.PropertyForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.PropertyFormToPropertyMapper;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.PropertyToPropertyModelMapper;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.PropertyModel;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.repositories.OwnerRepository;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.repositories.PropertyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +29,9 @@ public class PropertyServiceImpl implements PropertyService{
 
     @Autowired
     private PropertyFormToPropertyMapper propertyFormToProperty;
+
+    @Autowired
+    private OwnerRepository ownerRepository;
 
     @Override
     public PropertyModel findPropertyById(Long id) {
@@ -78,12 +83,15 @@ public class PropertyServiceImpl implements PropertyService{
     public PropertyModel updateProperty(PropertyModel propertyModel) {
         Optional<Property>  originalProperty = propertyRepository.findById(propertyModel.getId());
         if (originalProperty.isEmpty()) throw new PropertyNotFoundException();
-//        originalProperty.setFirstName(originalProperty.getFirstName());
-//        originalProperty.setAfm(originalProperty.getAfm());
-//        originalProperty.setLastName(originalProperty.getLastName());
-//        originalProperty.setAddress(originalProperty.getAddress());
-//        originalProperty.setEmail(originalProperty.getEmail());
-//        originalProperty.setTelephoneNumber(originalProperty.getTelephoneNumber());
+        originalProperty.get().setPropertyCode(propertyModel.getPropertyCode());
+        originalProperty.get().setAddress(propertyModel.getAddress());
+        originalProperty.get().setConstructionYear(propertyModel.getConstructionYear());
+        originalProperty.get().setPropertyType(propertyModel.getPropertyType());
+
+        Optional<Owner> owner = ownerRepository.findOwnerByAfm(propertyModel.getOwnerAfm());
+        if (owner.isEmpty()) throw new OwnerNotFoundException();
+
+        originalProperty.get().setOwner(owner.get());
 
         Property newProperty = propertyRepository.save(originalProperty.get());
         return propertyToPropertyModel.map(newProperty);
