@@ -75,12 +75,29 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="/admin/properties">
+                    <span data-feather="home"></span>
                     Properties
                 </a>
             </li>
 
             <li class="nav-item">
+                <a class="nav-link">
+                    <span data-feather="search"></span>
+                    Search for Properties
+                </a>
+                <ul>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin/search/byPropertyCode/property">Search By Code</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/admin/property/byOwnersAfm/property">Search By Owner's AFM</a>
+                  </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="/admin/property/create">
+                    <span data-feather="plus-circle"></span>
                     Create property
                 </a>
             </li>
