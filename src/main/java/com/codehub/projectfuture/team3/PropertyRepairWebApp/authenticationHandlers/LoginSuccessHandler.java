@@ -17,7 +17,7 @@ import static com.codehub.projectfuture.team3.PropertyRepairWebApp.utils.GlobalA
 @Component
 public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
 
-    private static final String USER_HOME_PAGE_URL = "user/home";
+    private static final String USER_HOME_PAGE_URL = "owner/home";
     private static final String ADMIN_HOME_PAGE_URL = "admin/home";
 
 

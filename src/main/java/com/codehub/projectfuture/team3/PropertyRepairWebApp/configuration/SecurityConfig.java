@@ -41,11 +41,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 //LOGIN Configuration
                 .formLogin()
-//                .loginPage("/login")
+                .loginPage("/login")
                 //.usernameParameter()
                 //.passwordParameter()
                 .successHandler(loginSuccessHandler)
-                .failureUrl("/login?error=true")
+                .failureUrl("/login/failed")
 
 
                 //LOGOUT Configuration
@@ -62,6 +62,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("login").anonymous()
                 .antMatchers("/admin/**").hasAuthority("ADMIN")
+                .antMatchers("/owner/**").hasAuthority("OWNER")
 
                 //ERROR HANDLING FOR ACCESS DENIED
                 .and()
@@ -74,7 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     public static void main(String[] args) {
-        System.out.println(new BCryptPasswordEncoder().encode("password1"));
+        System.out.println(new BCryptPasswordEncoder().encode("password5"));
     }
 }
 

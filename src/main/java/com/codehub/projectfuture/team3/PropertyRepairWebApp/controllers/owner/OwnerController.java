@@ -13,6 +13,7 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.RepairModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.OwnerService;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.RepairService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +34,15 @@ public class OwnerController {
     @Autowired
     private RepairService repairService;
 
+    @GetMapping("/owner/home")
+    public String ownerrHomePageView(Model model) {
+        String mail = SecurityContextHolder.getContext().getAuthentication().getName();
+        OwnerModel owner = ownerService.findOwnerByEmail(mail).get();
+
+        List<RepairModel> repairList = repairService.getRepairsByAfm(owner.getAfm());
+        model.addAttribute("repairList", repairList);
+        return "pages/ownerHomePage";
+    }
 
     @GetMapping("/admin/owner")
     public String ownerHomePageView(Model model) {
