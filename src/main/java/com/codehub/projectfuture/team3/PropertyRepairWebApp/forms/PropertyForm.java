@@ -7,7 +7,7 @@ public class PropertyForm {
     private String address;
     private String constructionYear;
     private String propertyType;
-    //private String ownerModel;
+    private String ownerAfm;
 
 
     public String getId() {
@@ -48,5 +48,13 @@ public class PropertyForm {
 
     public void setPropertyType(String propertyType) {
         this.propertyType = propertyType;
+    }
+
+    public String getOwnerAfm() {
+        return ownerAfm;
+    }
+
+    public void setOwnerAfm(String ownerAfm) {
+        this.ownerAfm = ownerAfm;
     }
 }

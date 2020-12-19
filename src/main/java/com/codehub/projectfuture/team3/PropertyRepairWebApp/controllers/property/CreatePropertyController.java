@@ -22,7 +22,7 @@ public class CreatePropertyController {
     @Autowired
     private PropertyService propertyService;
 
-    @GetMapping(value = "/property/create")
+    @GetMapping(value = "admin/property/create")
     public String createProperty(Model model) {
         model.addAttribute(PROPERTIES_FORM, new PropertyForm());
         model.addAttribute(PROPERTY_TYPES, PropertyType.values());

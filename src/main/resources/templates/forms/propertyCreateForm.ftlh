@@ -5,12 +5,12 @@
 
 
     <div class="mb-3">
-        <label for="datepicker">Construction Year</label>
+        <label for="yearpicker">Construction Year</label>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"><span data-feather="calendar"></span></span>
             </div>
-            <input type="text" class="form-control" id="datepicker" name="constructionYear">
+            <input type="text" class="form-control" id="yearpicker" name="constructionYear">
         </div>
     </div>
 
@@ -32,8 +32,8 @@
         <label for="category">Type</label>
         <div class="input-group">
             <select class="custom-select d-block w-100" id="status" name="propertyType">
-                <#if propertyType??>
-                <#list propertyType as type>
+                <#if propertyTypes??>
+                <#list propertyTypes as type>
                 <option value="${type}">${type.getType()}</option>
             </#list>
         </#if>
@@ -42,7 +42,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="title">Owner's AFM</label>
+        <label for="owner-afm">Owner's AFM</label>
         <div class="input-group">
             <input type="text" class="form-control" id="owner-afm" name="ownerAfm">
         </div>

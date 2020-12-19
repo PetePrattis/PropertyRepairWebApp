@@ -47,14 +47,14 @@ public class AdminController {
     public String adminShowRepairs(Model model) {
         List<RepairModel> repairModelList = repairService.getAllRepairs();
         model.addAttribute("repairList", repairModelList);
-        return "pages/repairs";
+        return "pages/repair/repairs";
     }
 
     @GetMapping("/admin/properties")
-    public String View(Model model) {
+    public String adminShowProperties(Model model) {
         List<PropertyModel> propertyModelList = propertyService.getAllProperties();
         model.addAttribute("propertyList", propertyModelList);
-        return "pages/properties";
+        return "pages/property/properties";
     }
 
 }

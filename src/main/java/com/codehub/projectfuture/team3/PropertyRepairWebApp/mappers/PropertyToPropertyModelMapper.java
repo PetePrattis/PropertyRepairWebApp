@@ -10,6 +10,7 @@ public class PropertyToPropertyModelMapper {
 
     public PropertyModel map(Property property){
         PropertyModel propertyModel = new PropertyModel();
+        propertyModel.setId(property.getId());
         propertyModel.setPropertyCode(property.getPropertyCode());
         propertyModel.setAddress(property.getAddress());
         propertyModel.setConstructionYear(property.getConstructionYear());
