@@ -1,6 +1,9 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Property;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OnCreatePropertyException;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.PropertyNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.PropertyForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.PropertyFormToPropertyMapper;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.PropertyToPropertyModelMapper;
@@ -28,6 +31,7 @@ public class PropertyServiceImpl implements PropertyService{
     @Override
     public PropertyModel findPropertyById(Long id) {
         Optional<Property> property = propertyRepository.findById(id);
+        if (property.isEmpty()) throw new PropertyNotFoundException();
         return propertyToPropertyModel.map(property.get());
     }
 
@@ -43,7 +47,7 @@ public class PropertyServiceImpl implements PropertyService{
     @Override
     public PropertyModel findPropertyByPropertyCode(String propertyCode) {
         Optional<Property> property = propertyRepository.findPropertyByPropertyCode(propertyCode);
-        //todo exception
+        if (property.isEmpty()) throw new PropertyNotFoundException();
         return propertyToPropertyModel.map(property.get());
 //                .findPropertyByPropertyCode(propertyCode)
 //                .map(property -> propertyToPropertyModel.map(property));
@@ -72,7 +76,8 @@ public class PropertyServiceImpl implements PropertyService{
 
     @Override
     public PropertyModel updateProperty(PropertyModel propertyModel) {
-        Property originalProperty = propertyRepository.findById(propertyModel.getId()).get();
+        Optional<Property>  originalProperty = propertyRepository.findById(propertyModel.getId());
+        if (originalProperty.isEmpty()) throw new PropertyNotFoundException();
 //        originalProperty.setFirstName(originalProperty.getFirstName());
 //        originalProperty.setAfm(originalProperty.getAfm());
 //        originalProperty.setLastName(originalProperty.getLastName());
@@ -80,16 +85,19 @@ public class PropertyServiceImpl implements PropertyService{
 //        originalProperty.setEmail(originalProperty.getEmail());
 //        originalProperty.setTelephoneNumber(originalProperty.getTelephoneNumber());
 
-        Property newProperty = propertyRepository.save(originalProperty);
+        Property newProperty = propertyRepository.save(originalProperty.get());
         return propertyToPropertyModel.map(newProperty);
     }
 
     @Override
     public PropertyModel createProperty(PropertyForm propertyForm) {
-        Property property = propertyFormToProperty.map(propertyForm);
-
-        Property newProperty = propertyRepository.save(property);
-        return propertyToPropertyModel.map(newProperty);
+        try {
+            Property property = propertyFormToProperty.map(propertyForm);
+            Property newProperty = propertyRepository.save(property);
+            return propertyToPropertyModel.map(newProperty);
+        } catch (OwnerNotFoundException e) {
+            throw new OnCreatePropertyException();
+        }
     }
 }
 

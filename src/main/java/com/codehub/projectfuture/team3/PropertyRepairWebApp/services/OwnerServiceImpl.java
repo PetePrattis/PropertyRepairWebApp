@@ -29,14 +29,8 @@ public class OwnerServiceImpl  implements OwnerService{
     @Override
     public OwnerModel findOwnerById(Long id) {
         Optional<Owner> owner = ownerRepository.findById(id);
-
         if (owner.isEmpty()) throw new OwnerNotFoundException();
-
         return ownerToOwnerModel.map(owner.get());
-
-//        return ownerRepository
-//                .findById(id)
-//                .map(owner -> ownerToOwnerModel.map(owner));
     }
 
     @Override

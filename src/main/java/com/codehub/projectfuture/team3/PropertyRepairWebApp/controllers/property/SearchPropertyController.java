@@ -1,5 +1,6 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.property;
 
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.PropertyNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.PropertySearchForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.RepairSearchForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.PropertyModel;
@@ -7,16 +8,20 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.PropertySer
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
 import java.util.List;
 
 @Controller
 public class SearchPropertyController {
     private static final String PROPERTY_FORM = "propertySearchForm";
+    private static final String ERROR_MESSAGE = "errorMessage";
 
     @Autowired
     private PropertyService propertyService;
@@ -49,6 +54,15 @@ public class SearchPropertyController {
 
         model.addAttribute("propertyList", propertyList);
         return "pages/adminHomePage";
+    }
+
+    @ExceptionHandler({PropertyNotFoundException.class})
+    public String handleOwnerNotFoundError(HttpServletRequest request,
+                                           RedirectAttributes redirectAttributes,
+                                           PropertyNotFoundException e)
+    {
+        redirectAttributes.addFlashAttribute(ERROR_MESSAGE, "error.property.null");
+        return "redirect:/error/generic";
     }
 
 }

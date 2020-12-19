@@ -2,17 +2,24 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.propert
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OnCreatePropertyException;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.PropertyNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.PropertyForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+
+import static com.codehub.projectfuture.team3.PropertyRepairWebApp.utils.GlobalAttributes.ERROR_MESSAGE;
 
 @Controller
 public class CreatePropertyController {
@@ -38,6 +45,15 @@ public class CreatePropertyController {
         }
         propertyService.createProperty(propertyForm);
         return "redirect:/admin/properties";
+    }
+
+    @ExceptionHandler({OnCreatePropertyException.class})
+    public String handleOwnerNotFoundError(HttpServletRequest request,
+                                           RedirectAttributes redirectAttributes,
+                                           OnCreatePropertyException e)
+    {
+        redirectAttributes.addFlashAttribute(ERROR_MESSAGE, "error.property.create.owner.null");
+        return "redirect:/error/generic";
     }
 
 }
