@@ -44,5 +44,4 @@ public class AdminController {
         model.addAttribute("repairList", repairModelList);
         return "pages/adminHomePage";
     }
-
 }

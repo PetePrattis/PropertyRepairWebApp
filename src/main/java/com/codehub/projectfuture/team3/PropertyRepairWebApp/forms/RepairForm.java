@@ -7,13 +7,18 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import java.sql.Timestamp;
 
 public class RepairForm {
+    private static final String AFM_PATTERN = "[0-9]{9}";
     private String date;
 
+    @NotEmpty(message = "{register.not.null}")
     private String repairStatus;
 
+    @NotEmpty(message = "{register.not.null}")
     private String repairType;
 
     private String cost;
@@ -22,6 +27,7 @@ public class RepairForm {
 
     private String extraInfo;
 
+    @Pattern(regexp = AFM_PATTERN, message = "{createOwner.afm.pattern.invalid}")
     private String ownerAfm;
 
     public String getDate() {

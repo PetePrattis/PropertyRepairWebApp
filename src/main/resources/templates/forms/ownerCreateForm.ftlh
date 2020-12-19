@@ -1,21 +1,42 @@
 <#import "/spring.ftl" as spring />
 
 <h4 class="mb-3">Create Owner</h4>
-<form id="createForm" class="needs-validation" action="/admin/owners/create" method="post" novalidate>
+<form id="createForm" name="ownerForm" class="needs-validation" action="/admin/owners/create" method="post" novalidate>
 
+<#if errorMessage??>
+    <h4>${errorMessage}</h4>
+</#if>
 
     <div class="form-row">
         <div class="col-md-4 mb-3">
             <label for="first-name">First Name</label>
-          <input type="text" class="form-control" id="first-name" name="firstName" placeholder="First Name" required>
+                            <@spring.bind "ownersForm.firstName"/>
+
+          <input type="text" class="form-control" id="first-name" name="firstName" placeholder="First Name" value="${ownersForm.firstName!''}" required>
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
            <div class="invalid-feedback">
              This field is required.
            </div>
         </div>
         <div class="col-md-4 mb-3">
           <label for="last-name">Last Name</label>
+                                      <@spring.bind "ownersForm.lastName"/>
+
           <div class="input-group">
-            <input type="text" class="form-control" id="last-name" name="lastName" placeholder="Last Name" aria-describedby="inputGroupPrepend" required>
+            <input type="text" class="form-control" id="last-name" name="lastName" placeholder="Last Name" value="${ownersForm.lastName!''}" required>
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
            <div class="invalid-feedback">
              This field is required.
            </div>
@@ -26,14 +47,30 @@
     <div class="form-row">
        <div class="col-md-4 mb-3">
         <label for="afm">AFM</label>
-          <input type="text" class="form-control" id="afm" name="Afm" pattern="[0-9]{9}" placeholder="Afm" required>
+                <@spring.bind "ownersForm.afm"/>
+          <input type="text" class="form-control" id="afm" name="Afm" pattern="[0-9]{9}" placeholder="Afm" value="${ownersForm.afm!''}" required>
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
            <div class="invalid-feedback">
              Please provide a valid afm.
            </div>
         </div>
         <div class="col-md-4 mb-3">
         <label for="address">Address</label>
+                <@spring.bind "ownersForm.address"/>
           <input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
            <div class="invalid-feedback">
              This field is required.
            </div>
@@ -43,7 +80,15 @@
     <div class="form-row">
        <div class="col-md-4 mb-3">
            <label for="telephone-number">Telephone Number</label>
-         <input type="text" class="form-control" id="telephone-number" name="telephoneNumber" pattern="^(\+\d{2})?[0-9]{10}" placeholder="Telephone Number" required>
+                <@spring.bind "ownersForm.telephoneNumber"/>
+         <input type="text" class="form-control" id="telephone-number" name="telephoneNumber" pattern="^(\+\d{2})?[0-9]{10}" placeholder="Telephone Number" value="${ownersForm.telephoneNumber!''}" required>
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
            <div class="invalid-feedback">
              Please provide a valid telephone number.
            </div>
@@ -51,7 +96,15 @@
        <div class="col-md-4 mb-3">
          <label for="email">Email</label>
          <div class="input-group">
-           <input type="email" class="form-control" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email" aria-describedby="inputGroupPrepend" required>
+                <@spring.bind "ownersForm.email"/>
+           <input type="email" class="form-control" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email" aria-describedby="inputGroupPrepend" value="${ownersForm.email!''}" required>
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
            <div class="invalid-feedback">
              Please provide a valid email.
            </div>
@@ -64,17 +117,29 @@
               <div class="col-md-4 mb-3">
               <label for="property-type">Property Type</label>
                 <select class="custom-select d-block w-100" id="property-type" name="propertyType">
+                    <#if ownersForm.propertyType??>
+                    <#list propertyType as type>
+                        <option value="${type}" <#if ownersForm.propertyType == type> selected</#if>>${type.getType()}</option>
+                    </#list>
+                    <#else>
                     <#list propertyType as type>
                         <option value="${type}">${type.getType()}</option>
                     </#list>
+                    </#if>
                 </select>
               </div>
               <div class="col-md-4 mb-3">
                   <label for="user-role">User Role</label>
                 <select class="custom-select d-block w-100" id="user-role" name="userRole">
+                    <#if ownersForm.userRole??>
                     <#list userRole as role>
                         <option value="${role}">${role.getRole()}</option>
                     </#list>
+                    <#else>
+                    <#list userRole as role>
+                        <option value="${role}">${role.getRole()}</option>
+                    </#list>
+                    </#if>
                 </select>
               </div>
             </div>
@@ -84,7 +149,7 @@
 </form>
 
 <script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+//JavaScript for disabling form submissions if there are invalid fields
 (function() {
   'use strict';
   window.addEventListener('load', function() {
