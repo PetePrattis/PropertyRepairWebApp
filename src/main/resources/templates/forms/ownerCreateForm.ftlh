@@ -13,9 +13,6 @@
                             <@spring.bind "ownersForm.firstName"/>
 
           <input type="text" class="form-control" id="first-name" name="firstName" placeholder="First Name" value="${ownersForm.firstName!''}" required>
-            <span class="focus-border">
-            	<i></i>
-            </span>
         <#if spring.status.error>
             <ul>
                 <#list spring.status.errorMessages as error>
@@ -138,9 +135,6 @@
                     <#list userRole as role>
                         <option value="${role}">${role.getRole()}</option>
                     </#list>
-                    <#list propertyType as type>
-                        <option value="${type}" <#if ownersForm.propertyType == type> selected</#if>>${type.getType()}</option>
-                    </#list>
                     <#else>
                     <#list userRole as role>
                         <option value="${role}">${role.getRole()}</option>
@@ -155,7 +149,7 @@
 </form>
 
 <script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+//JavaScript for disabling form submissions if there are invalid fields
 (function() {
   'use strict';
   window.addEventListener('load', function() {

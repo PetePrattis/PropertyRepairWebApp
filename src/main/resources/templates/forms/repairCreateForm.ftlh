@@ -1,72 +1,143 @@
 <#import "/spring.ftl" as spring />
 
 <h4 class="mb-3">Create Repair</h4>
-<form id="createForm" action="/admin/repair/create" method="post">
 
+<#if errorMessage??>
+    <h4>${errorMessage}</h4>
+</#if>
 
-    <div class="mb-3">
-        <label for="datepicker">Date</label>
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><span data-feather="calendar"></span></span>
-            </div>
-            <input type="text" class="form-control" id="datepicker" name="date">
+<form id="createForm" name="repairForm" class="needs-validation" action="/admin/repair/create"  method="post" novalidate>
+
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+            <label for="cost">Cost</label>
+                            <@spring.bind "repairsForm.cost"/>
+
+      <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost" value="${repairsForm.cost!''}" required>
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
+           <div class="invalid-feedback">
+             This field is required.
+           </div>
         </div>
-    </div>
+        <div class="col-md-4 mb-3">
+            <label for="title">Address</label>
+                                      <@spring.bind "repairsForm.address"/>
 
-    <div class="mb-3">
-        <label for="category">Status</label>
-        <div class="input-group">
+          <div class="input-group">
+            <input type="text" class="form-control" id="address" name="address" placeholder="Address" value="${repairsForm.address!''}" required>
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
+           <div class="invalid-feedback">
+             This field is required.
+           </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="form-row">
+        <div class="col-md-4 mb-3">
+        <label for="ownerAfm">Owner's AFM</label>
+                            <@spring.bind "repairsForm.ownerAfm"/>
+
+      <input type="text" class="form-control" id="ownerAfm" name="ownerAfm" pattern="[0-9]{9}"   placeholder="Owner's Afm" value="${repairsForm.ownerAfm!''}" required>
+        <#if spring.status.error>
+            <ul>
+                <#list spring.status.errorMessages as error>
+                    <li style="color: #dc3545">${error}</li>
+                </#list>
+            </ul>
+        </#if>
+           <div class="invalid-feedback">
+             Please provide a valid afm.
+           </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <label for="extra-Info">Extra Info</label>
+                                      <@spring.bind "repairsForm.extraInfo"/>
+
+          <div class="input-group">
+            <input type="text" class="form-control" id="extra-Info" name="extraInfo" placeholder="Extra Info" value="${repairsForm.extraInfo!''}">
+           <div class="invalid-feedback">
+             This field is required.
+           </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+          <div class="col-md-4 mb-3">
+          <label for="status">Status</label>
             <select class="custom-select d-block w-100" id="status" name="repairStatus">
-                <#if repairStatus??>
-                    <#list repairStatus as status>
-                        <option value="${status}">${status.getStatus()}</option>
-                    </#list>
+                <#if repairsForm.repairStatus??>
+                <#list repairStatus as status>
+                    <option value="${status}" <#if repairsForm.repairStatus == status> selected</#if>>${status.getStatus()}</option>
+                </#list>
+                <#else>
+                <#list repairStatus as status>
+                    <option value="${status}">${status.getStatus()}</option>
+                </#list>
                 </#if>
             </select>
-        </div>
-    </div>
-
-    <div class="mb-3">
-        <label for="category">Type</label>
-        <div class="input-group">
+          </div>
+          <div class="col-md-4 mb-3">
+              <label for="type">Type</label>
             <select class="custom-select d-block w-100" id="type" name="repairType">
-                <#if repairTypes??>
+                <#if repairsForm.repairType??>
+                    <#list repairTypes as type>
+                        <option value="${type}"  <#if repairsForm.repairType == type> selected</#if>>${type.getType()}</option>
+                    </#list>
+                <#else>
                     <#list repairTypes as type>
                         <option value="${type}">${type.getType()}</option>
                     </#list>
                 </#if>
             </select>
+          </div>
         </div>
-    </div>
 
-    <div class="mb-3">
-        <label for="author-first-name">Cost</label>
-        <div class="input-group">
-            <input type="text" class="form-control" id="cost" name="cost">
-        </div>
-    </div>
 
-    <div class="mb-3">
-        <label for="title">Address</label>
-        <div class="input-group">
-            <input type="text" class="form-control" id="address" name="address">
-        </div>
-    </div>
+            <div class="col-md-8 mb-3">
+                <label for="datepicker">Date</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><span data-feather="calendar"></span></span>
+                    </div>
+                    <input type="text" class="form-control" id="datepicker" name="date" required>
+                </div>
+            </div>
 
-    <div class="mb-3">
-        <label for="title">Owner's AFM</label>
-        <div class="input-group">
-            <input type="text" class="form-control" id="owner-afm" name="ownerAfm">
-        </div>
-    </div>
-
-    <div class="mb-3">
-        <label for="title">Extra Info</label>
-        <div class="input-group">
-            <input type="text" class="form-control" id="extra-Info" name="extraInfo">
-        </div>
-    </div>
 
     <button class="btn btn-primary btn-lg mt-4" type="submit">Create</button>
 </form>
+
+<script>
+//JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
