@@ -42,10 +42,10 @@ public class SearchPropertyController {
 
     @PostMapping("/admin/search/byPropertyCode/property")
     public String searchPropertyByPropertyCodeView(@ModelAttribute(PROPERTY_FORM) PropertySearchForm propertySearchForm, Model model) {
-        PropertyModel propertyList = propertyService.findPropertyByPropertyCode(propertySearchForm.getInput());
+        PropertyModel propertyItem = propertyService.findPropertyByPropertyCode(propertySearchForm.getInput());
 
-        model.addAttribute("propertyList", propertyList);
-        return "pages/adminHomePage";
+        model.addAttribute("property", propertyItem);
+        return "pages/property/property";
     }
 
     @PostMapping("/admin/search/byAfm/property")
@@ -53,7 +53,7 @@ public class SearchPropertyController {
         List<PropertyModel> propertyList = propertyService.findPropertyByOwnerAfm(Long.parseLong(propertySearchForm.getInput()));
 
         model.addAttribute("propertyList", propertyList);
-        return "pages/adminHomePage";
+        return "pages/property/properties";
     }
 
     @ExceptionHandler({PropertyNotFoundException.class})

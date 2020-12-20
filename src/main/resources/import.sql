@@ -22,9 +22,9 @@ INSERT INTO OWNER (owner_AFM, firstname, lastname, owner_address, owner_telephon
 
 INSERT INTO PROPERTY (property_code,property_address,property_constructionYear,property_type,owner_id) VALUES ('PROPERTY1','Address 1', 2021,'HOUSE',1)
 INSERT INTO PROPERTY (property_code,property_address,property_constructionYear,property_type,owner_id) VALUES ('PROPERTY2','Address 2', 2021,'HOUSE',1)
-INSERT INTO PROPERTY (property_code,property_address,property_constructionYear,property_type,owner_id) VALUES ('PROPERTY3','Address 3', 2021,'HOUSE',1)
-INSERT INTO PROPERTY (property_code,property_address,property_constructionYear,property_type,owner_id) VALUES ('PROPERTY4','Address 4', 2021,'HOUSE',1)
-INSERT INTO PROPERTY (property_code,property_address,property_constructionYear,property_type,owner_id) VALUES ('PROPERTY5','Address 5', 2021,'HOUSE',1)
+INSERT INTO PROPERTY (property_code,property_address,property_constructionYear,property_type,owner_id) VALUES ('PROPERTY3','Address 3', 2021,'HOUSE',3)
+INSERT INTO PROPERTY (property_code,property_address,property_constructionYear,property_type,owner_id) VALUES ('PROPERTY4','Address 4', 2021,'HOUSE',3)
+INSERT INTO PROPERTY (property_code,property_address,property_constructionYear,property_type,owner_id) VALUES ('PROPERTY5','Address 5', 2021,'HOUSE',5)
 
 INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 1',2000.14,'2021-01-11','Extra info 1','INPROGRESS','INSULATION',1,1)
 INSERT INTO REPAIR (repair_address,repair_cost,repair_date,extra_info,repair_status,repair_type,owner_id,property_id) VALUES ('Address 2',200021.14,'2021-02-11','Extra info 2','INPROGRESS','PAINTING',2,2)
