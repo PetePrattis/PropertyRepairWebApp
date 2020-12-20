@@ -17,6 +17,24 @@ input[type=text], input[type=password] {
   box-sizing: border-box;
 }
 
+body{
+    background: gainsboro;
+}
+
+.form-signin{
+    width: 50%;
+    left: 113px;
+    position: relative;
+    left: 25%;
+    background: ivory;
+    border-radius: 25px;
+}
+
+.input
+{
+    border-radius: 10px;
+}
+
 button {
   background-color: #4CAF50;
   color: white;
@@ -43,7 +61,6 @@ button:hover {
 }
 
 img.avatar {
-  width: 40%;
   border-radius: 50%;
 }
 
@@ -53,7 +70,6 @@ img.avatar {
 
 span.psw {
   float: right;
-  padding-top: 16px;
 }
 
 /* Change styles for span and cancel button on extra small screens */
@@ -70,31 +86,29 @@ span.psw {
 </head>
 <body>
 
-<h2>Login Form</h2>
-
 <#if errorMessage??>
     <h4>${errorMessage}</h4>
 </#if>
 
-<form nmae="login" class="form-signin" method="post" action="/login">
+<form name="login" class="form-signin" method="post" action="/login">
+  <div class="imgcontainer">
+    <img src="/images/logo.png" alt="Logo Image" class="avatar">
+  </div>
 
   <div class="container">
     <label class="sr-only" for="username"><b>Username</b></label>
-    <input type="text" class="form-control" placeholder="Enter Username" id="username" name="username" required autoFocus>
+    <input class="input" type="text" placeholder="Enter Username" id="username" name="username" required autoFocus>
 
     <label class="sr-only" for="password"><b>Password</b></label>
-    <input type="password" id="password" placeholder="Enter Password" name="password" required>
+    <input class="input" type="password" id="password" placeholder="Enter Password" name="password" required>
 
     <button type="submit">Login</button>
     <label>
       <input type="checkbox" checked="checked" name="remember"> Remember me
     </label>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
+
 </form>
 
 </body>

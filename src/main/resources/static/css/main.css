@@ -2,6 +2,10 @@
     color: darkgreen;
 }
 
+body{
+    background: ivory;
+}
+
 .error {
     color: #dc3545;
 }
