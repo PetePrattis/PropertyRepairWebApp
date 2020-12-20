@@ -1,4 +1,3 @@
-
 <#import "/spring.ftl" as spring />
 <html>
 <head>
@@ -14,68 +13,56 @@
     <div class="row">
         <#include "../partials/ownersidebar.ftlh">
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <h3 class="mb-3">Repairs</h3>
-  <#if repairList?has_content>
-  <p>Search by any repair attribute</p>
+            <h3 class="mb-3">Properties</h3>
+            <#if propertyList?has_content>
+  <p>Search by any property attribute</p>
   <input class="form-control" id="myInput" type="text" placeholder="Search..">
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
                         <th>#ID</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Type</th>
-                        <th>Cost</th>
-                        <th>Address</th>
-                        <th>Owner's AFM</th>
-                        <th>Info</th>
+                        <th>Property Code</th>
+                        <th>Property Address</th>
+                        <th>Property Construction Year</th>
+                        <th>Property Type</th>
+                        <th>Property's Owner Id</th>
                         <th class="text-center">Edit</th>
                         <th class="text-center">Remove</th>
                     </tr>
                     </thead>
                     <tbody id="myTable">
-                            <#list repairList as repair>
-                            <tr data-id="${repair.id}">
-                                <td><a href="/repair/${repair.id}/edit">#${repair.id}</a></td>
-                                <td>${repair.date}</td>
-                                <td>
-                        <#if repair.repairStatus??>
-                                ${repair.repairStatus.getStatus()}
-                        </#if>
-                                </td>
-                                <td>
-                        <#if repair.repairType??>
-                                ${repair.repairType.getType()}
-                        </#if>
-                                </td>
-                                <td>${repair.cost}</td>
-                                <td>${repair.address}</td>
-                                <td>${repair.ownerAfm}</td>
-                                <td>${repair.extraInfo}</td>
-                                <td class="text-center"><a class="btn btn-link" href="/repair/${repair.id}/edit"><span data-feather="edit"></span></a></td>
-                                <td class="text-center">
+                    <#list propertyList as property>
+                    <tr data-id="${property.id}">
+                        <td><a href="/property/${property.id}/edit">#${property.id}</a></td>
+                        <td>${property.propertyCode}</td>
+                        <td>${property.address}</td>
+                        <td>${property.constructionYear}</td>
+                        <td>${property.propertyType}</td>
+                        <td>${property.ownerAfm}</td>
+                        <td class="text-center"><a class="btn btn-link" href="/property/${property.id}/edit"><span data-feather="edit"></span></a></td>
+                        <td class="text-center">
 
-                                <button
-                                        class="btn btn-link"
-                                        data-toggle="modal"
-                                        data-target="#modal"
-                                        data-id="${repair.id}"
-                                >
-                                    <span data-feather="x"></span>
-                                </button>
+                            <button
+                                    class="btn btn-link"
+                                    data-toggle="modal"
+                                    data-target="#propertyModal"
+                                    data-id="${property.id}"
+                            >
+                                <span data-feather="x"></span>
+                            </button>
 
-                                </td>
-                            </tr>
-                            </#list>
+                        </td>
+                    </tr>
+                    </#list>
                     </tbody>
                 </table>
 
-                <div id="modal" class="modal" tabindex="-1" role="dialog">
+                <div id="propertyModal" class="modal" tabindex="-1" role="dialog">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Repair</h5>
+                                <h5 class="modal-title">repair</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -94,9 +81,9 @@
                 </div>
 
             </div>
-      <#else>
-        There are no repairs in progress!
-      </#if>
+            <#else>
+            There are no properties!
+        </#if>
         </main>
     </div>
 </div>
