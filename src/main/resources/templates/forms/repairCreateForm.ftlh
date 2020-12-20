@@ -11,7 +11,7 @@
     <div class="form-row">
         <div class="col-md-4 mb-3">
             <label for="cost">Cost</label>
-                            <@spring.bind "repairsForm.cost"/>
+                <@spring.bind "repairsForm.cost"/>
 
       <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost" value="${repairsForm.cost!''}" required>
         <#if spring.status.error>

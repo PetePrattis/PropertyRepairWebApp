@@ -44,7 +44,7 @@ public class CreateRepairController {
     }
 
 
-    @GetMapping(value = "/repair/create")
+    @GetMapping(value = "/admin/repair/create")
     public String createRepair(Model model) {
         model.addAttribute(REPAIRS_FORM, new RepairForm());
         model.addAttribute(REPAIR_STATUS, RepairStatus.values());

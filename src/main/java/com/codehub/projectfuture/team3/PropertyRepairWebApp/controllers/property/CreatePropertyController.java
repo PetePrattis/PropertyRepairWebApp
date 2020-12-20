@@ -2,18 +2,19 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.propert
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OnCreatePropertyException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.PropertyNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.PropertyForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.PropertyService;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.validators.PropertyFormValidation;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.validators.RepairFormValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +30,15 @@ public class CreatePropertyController {
     @Autowired
     private PropertyService propertyService;
 
+    @Autowired
+    private PropertyFormValidation propertyFormValidation;
+
+    @InitBinder(PROPERTIES_FORM)
+    protected void initBinder(final WebDataBinder binder) {
+        binder.addValidators(propertyFormValidation);
+    }
+
+
     @GetMapping(value = "admin/property/create")
     public String createProperty(Model model) {
         model.addAttribute(PROPERTIES_FORM, new PropertyForm());
@@ -41,7 +51,9 @@ public class CreatePropertyController {
                               BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "/admin/property/create";
+            model.addAttribute(PROPERTY_TYPES, PropertyType.values());
+            model.addAttribute(ERROR_MESSAGE, "validation errors occurred");
+            return "pages/property/create_property";
         }
         propertyService.createProperty(propertyForm);
         return "redirect:/admin/properties";

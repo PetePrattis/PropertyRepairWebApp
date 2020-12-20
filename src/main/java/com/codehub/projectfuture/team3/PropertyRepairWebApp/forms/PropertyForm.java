@@ -1,9 +1,12 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.forms;
 
 
+import javax.validation.constraints.NotEmpty;
+
 public class PropertyForm {
     private String id;
     private String propertyCode;
+    @NotEmpty(message = "{register.not.null}")
     private String address;
     private String constructionYear;
     private String propertyType;

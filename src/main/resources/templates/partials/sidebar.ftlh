@@ -21,7 +21,7 @@
         border-bottom-width: medium;
     border-bottom: ridge;
     text-align: left;
-    margin: 10;
+    margin: 10px;
 }
 
 
@@ -82,7 +82,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="/repair/create">
+                <a class="nav-link" href="/admin/repair/create">
                     <span data-feather="plus-circle"></span>
                     Create Repair
                 </a>
