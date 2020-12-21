@@ -3,7 +3,6 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.repair;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OnCreateRepairException;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.RepairForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.RepairService;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.validators.RepairFormValidation;
@@ -21,8 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-
-import static com.codehub.projectfuture.team3.PropertyRepairWebApp.utils.GlobalAttributes.ERROR_MESSAGE;
 
 @Controller
 public class CreateRepairController {

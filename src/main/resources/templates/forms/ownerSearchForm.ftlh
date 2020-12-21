@@ -1,7 +1,7 @@
 <#import "/spring.ftl" as spring />
 
 <h4 class="mb-3">Search Repair</h4>
-<!-- todo different forms for searches-->
+
 <form action="/admin/search/owner" method="post">
     <div>
         <label for="emailpicker">Pick Email:</label>

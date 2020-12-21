@@ -1,14 +1,10 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.property;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OnCreatePropertyException;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.PropertyNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.PropertyForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.PropertyService;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.validators.PropertyFormValidation;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.validators.RepairFormValidation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

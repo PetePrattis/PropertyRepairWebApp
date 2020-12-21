@@ -16,7 +16,6 @@ import static com.codehub.projectfuture.team3.PropertyRepairWebApp.utils.GlobalA
 
 @Component
 public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {
-
     private static final String USER_HOME_PAGE_URL = "owner/home";
     private static final String ADMIN_HOME_PAGE_URL = "admin/home";
 
@@ -34,7 +33,6 @@ public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessH
         }
         getRedirectStrategy().sendRedirect(request, response, redirectUrl);
     }
-
 
     private Cookie generateTimestampCookie() {
         return new Cookie(TIMESTAMP_COOKIE_NAME, String.valueOf(System.currentTimeMillis()));

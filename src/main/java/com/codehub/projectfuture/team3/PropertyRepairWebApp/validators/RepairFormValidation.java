@@ -1,9 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.validators;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.RepairForm;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.OwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

@@ -1,7 +1,5 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.owner;
 
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.PropertyModel;

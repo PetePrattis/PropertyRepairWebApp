@@ -1,14 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.model;
 
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.*;
-import java.sql.Timestamp;
-import java.time.LocalDate;
 
 public class RepairModel {
     private Long id;

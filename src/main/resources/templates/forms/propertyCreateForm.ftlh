@@ -13,7 +13,7 @@
         <div class="col-md-4 mb-3">
             <label for="type">Type</label>
             <@spring.bind "propertiesForm.constructionYear"/>
-            <select class="custom-select d-block w-100" id="status" name="propertyType">
+            <select class="custom-select d-block w-100" id="type" name="propertyType">
                 <#if propertyTypes??>
                 <#list propertyTypes as type>
                     <option value="${type}">${type.getType()}</option>
