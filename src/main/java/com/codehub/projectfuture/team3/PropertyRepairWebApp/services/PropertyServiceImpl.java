@@ -59,6 +59,11 @@ public class PropertyServiceImpl implements PropertyService{
     }
 
     @Override
+    public Optional<Property> findPropertyByPropertyCodeOptional(String propertyCode) {
+        return propertyRepository.findPropertyByPropertyCode(propertyCode);
+    }
+
+    @Override
     public List<PropertyModel> findPropertyByOwnerAfm(Long Afm) {
         //Optional<Property> property = propertyRepository.findPropertyByOwnerAfm(Afm);
         //todo exception

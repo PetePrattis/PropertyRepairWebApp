@@ -5,7 +5,6 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
 public class RepairForm {
-    private static final String AFM_PATTERN = "[0-9]{9}";
     private static final String COST_PATTERN = "[0-9]+(\\.[0-9]+)?";
     private String date;
 
@@ -21,8 +20,8 @@ public class RepairForm {
 
     private String extraInfo;
 
-    @Pattern(regexp = AFM_PATTERN, message = "{createOwner.afm.pattern.invalid}")
-    private String ownerAfm;
+    @NotEmpty(message = "{register.not.null}")
+    private String propertyCode;
 
     public String getDate() {
         return date;
@@ -72,11 +71,11 @@ public class RepairForm {
         this.extraInfo = extraInfo;
     }
 
-    public String getOwnerAfm() {
-        return ownerAfm;
+    public String getPropertyCode() {
+        return propertyCode;
     }
 
-    public void setOwnerAfm(String ownerAfm) {
-        this.ownerAfm = ownerAfm;
+    public void setPropertyCode(String propertyCode) {
+        this.propertyCode = propertyCode;
     }
 }

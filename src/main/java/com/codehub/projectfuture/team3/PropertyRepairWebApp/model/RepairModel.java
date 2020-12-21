@@ -11,7 +11,7 @@ public class RepairModel {
     private String cost;
     private String address;
     private String extraInfo;
-    private Long ownerAfm;
+    private String propertyCode;
 
     public Long getId() {
         return id;
@@ -69,11 +69,11 @@ public class RepairModel {
         this.extraInfo = extraInfo;
     }
 
-    public Long getOwnerAfm() {
-        return ownerAfm;
+    public String getPropertyCode() {
+        return propertyCode;
     }
 
-    public void setOwnerAfm(Long ownerAfm) {
-        this.ownerAfm = ownerAfm;
+    public void setPropertyCode(String propertyCode) {
+        this.propertyCode = propertyCode;
     }
 }

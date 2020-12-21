@@ -84,14 +84,14 @@ public class RepairServiceImpl implements RepairService{
         repairRepository.deleteById(id);
     }
 
-    @Override
-    public List<RepairModel> getRepairsByAfm(Long afm) {
-        return repairRepository
-                .findByOwner_Afm(afm)
-                .stream()
-                .map(repair -> repairToRepairModel.map(repair))
-                .collect(Collectors.toList());
-    }
+//    @Override
+//    public List<RepairModel> getRepairsByAfm(Long afm) {
+//        return repairRepository
+//                .findByOwner_Afm(afm)
+//                .stream()
+//                .map(repair -> repairToRepairModel.map(repair))
+//                .collect(Collectors.toList());
+//    }
 
     @Override
     public List<RepairModel> findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus status)
@@ -113,10 +113,10 @@ public class RepairServiceImpl implements RepairService{
         originalRepair.get().setDate(date);
         originalRepair.get().setExtraInfo(repairModel.getExtraInfo());
 
-        Optional<Owner> owner = ownerRepository.findOwnerByAfm(repairModel.getOwnerAfm());
-        if (owner.isEmpty()) throw new OwnerNotFoundException();
+        //Optional<Owner> owner = ownerRepository.findOwnerByAfm(repairModel.getOwnerAfm());
+        //if (owner.isEmpty()) throw new OwnerNotFoundException();
 
-        originalRepair.get().setOwner(owner.get());
+        //originalRepair.get().setOwner(owner.get());
         originalRepair.get().setRepairStatus(repairModel.getRepairStatus());
         originalRepair.get().setRepairType(repairModel.getRepairType());
         Repair newRepair = repairRepository.save(originalRepair.get());

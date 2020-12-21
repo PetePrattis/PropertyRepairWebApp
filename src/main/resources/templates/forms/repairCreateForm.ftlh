@@ -47,10 +47,10 @@
 
     <div class="form-row">
         <div class="col-md-4 mb-3">
-        <label for="ownerAfm">Owner's AFM</label>
-                            <@spring.bind "repairsForm.ownerAfm"/>
+        <label for="propertyCode">Property's Code</label>
+                            <@spring.bind "repairsForm.propertyCode"/>
 
-      <input type="text" class="form-control" id="ownerAfm" name="ownerAfm" pattern="[0-9]{9}"   placeholder="Owner's Afm" value="${repairsForm.ownerAfm!''}" required>
+      <input type="text" class="form-control" id="propertyCode" name="propertyCode" placeholder="Property's Code" value="${repairsForm.propertyCode!''}" required>
         <#if spring.status.error>
             <ul>
                 <#list spring.status.errorMessages as error>
@@ -59,7 +59,7 @@
             </ul>
         </#if>
            <div class="invalid-feedback">
-             Please provide a valid afm.
+             Please provide a valid code.
            </div>
         </div>
         <div class="col-md-4 mb-3">

@@ -46,9 +46,6 @@ public class Owner {
     @Column(name = "user_role")
     private UserRole userRole;
 
-    @OneToMany(mappedBy = "owner", targetEntity = Repair.class, cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Repair> repairs;
-
     @OneToMany(mappedBy = "owner", targetEntity = Property.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Property> properties;
 
@@ -124,11 +121,4 @@ public class Owner {
         this.userRole = userRole;
     }
 
-    public List<Repair> getRepairs() {
-        return repairs;
-    }
-
-    public void setRepairs(List<Repair> repairs) {
-        this.repairs = repairs;
-    }
 }

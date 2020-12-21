@@ -12,11 +12,10 @@ public class RepairToRepairModelMapper {
         RepairModel repairModel = new RepairModel();
         repairModel.setAddress(repair.getAddress());
         repairModel.setCost(String.valueOf(repair.getCost()));
-        //TODO format date
         repairModel.setDate(repair.getDate().toString());
         repairModel.setId(repair.getId());
         repairModel.setExtraInfo(repair.getExtraInfo());
-        repairModel.setOwnerAfm(repair.getOwner().getAfm());
+        repairModel.setPropertyCode(repair.getProperty().getPropertyCode());
         repairModel.setRepairStatus(repair.getRepairStatus());
         repairModel.setRepairType(repair.getRepairType());
         return repairModel;

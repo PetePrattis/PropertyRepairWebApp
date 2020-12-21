@@ -39,7 +39,6 @@ public class Repair {
     @Column(name = "repair_cost")
     private float cost;
 
-    //todo join with property
     @Column(name = "repair_address")
     private String address;
 
@@ -48,8 +47,8 @@ public class Repair {
 
     @JsonIgnore
     @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "owner_id")
-    private Owner owner;
+    @JoinColumn(name = "property_id")
+    private Property property;
 
     public Long getId() {
         return id;
@@ -107,11 +106,11 @@ public class Repair {
         this.extraInfo = extraInfo;
     }
 
-    public Owner getOwner() {
-        return owner;
+    public Property getProperty() {
+        return property;
     }
 
-    public void setOwner(Owner owner) {
-        this.owner = owner;
+    public void setProperty(Property property) {
+        this.property = property;
     }
 }

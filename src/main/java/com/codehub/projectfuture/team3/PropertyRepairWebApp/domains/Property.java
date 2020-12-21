@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -38,6 +39,9 @@ public class Property {
     @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "owner_id")
     private Owner owner;
+
+    @OneToMany(mappedBy = "property", targetEntity = Repair.class, cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Repair> repairs;
 
     public Long getId() {
         return id;
@@ -87,4 +91,11 @@ public class Property {
         this.owner = owner;
     }
 
+    public List<Repair> getRepairs() {
+        return repairs;
+    }
+
+    public void setRepairs(List<Repair> repairs) {
+        this.repairs = repairs;
+    }
 }

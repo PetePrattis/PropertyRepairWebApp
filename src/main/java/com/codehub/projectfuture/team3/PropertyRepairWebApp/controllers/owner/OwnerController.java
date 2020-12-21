@@ -26,15 +26,15 @@ public class OwnerController {
     @Autowired
     private PropertyService propertyService;
 
-    @GetMapping("/owner/home")
-    public String ownerrHomePageView(Model model) {
-        String mail = SecurityContextHolder.getContext().getAuthentication().getName();
-        OwnerModel owner = ownerService.findOwnerByEmail(mail);
-
-        List<RepairModel> repairList = repairService.getRepairsByAfm(owner.getAfm());
-        model.addAttribute("repairList", repairList);
-        return "pages/ownerHomePage";
-    }
+//    @GetMapping("/owner/home")
+//    public String ownerrHomePageView(Model model) {
+//        String mail = SecurityContextHolder.getContext().getAuthentication().getName();
+//        OwnerModel owner = ownerService.findOwnerByEmail(mail);
+//
+//        List<RepairModel> repairList = repairService.getRepairsByAfm(owner.getAfm());
+//        model.addAttribute("repairList", repairList);
+//        return "pages/ownerHomePage";
+//    }
 
     @GetMapping("/owner/properties")
     public String ownerPropertyView(Model model) {
