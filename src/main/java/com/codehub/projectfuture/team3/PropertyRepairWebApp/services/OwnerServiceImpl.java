@@ -1,6 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.email.SendMail;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.OwnerFormToOwnerMapper;
@@ -8,6 +9,7 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.OwnerToOwner
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.repositories.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -90,7 +92,9 @@ public class OwnerServiceImpl  implements OwnerService{
     @Override
     public OwnerModel createOwner(OwnerForm ownerForm) {
         Owner owner = ownerFormToOwner.map(ownerForm);
-        owner.setPassword("password");
+        SendMail sendmail = new SendMail();
+        sendmail.sendFromGMail(owner.getEmail(), owner.getPassword());
+        owner.setPassword(new BCryptPasswordEncoder().encode(owner.getPassword()));
         Owner newOwner = ownerRepository.save(owner);
         return ownerToOwnerModel.map(newOwner);
     }

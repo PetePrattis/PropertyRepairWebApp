@@ -54,7 +54,7 @@ public class CreateOwnerController {
             return "pages/owner/owner_create";
         }
         OwnerModel owner = ownerService.createOwner(ownerForm);
-        redirectAttributes.addAttribute("id",owner.getId());
+//        redirectAttributes.addAttribute("id",owner.getId());
         return "redirect:/admin/owners";
     }
 }
