@@ -1,16 +1,5 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.model;
 
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.UserRole;
-
-import javax.persistence.*;
-import java.sql.Timestamp;
-import java.util.List;
-
 public class OwnerModel {
     private Long id;
     private Long afm;

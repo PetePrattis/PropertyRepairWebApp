@@ -6,9 +6,6 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.UserRole;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 @Component
 public class OwnerFormToOwnerMapper {
 

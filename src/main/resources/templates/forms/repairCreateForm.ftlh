@@ -13,7 +13,7 @@
             <label for="cost">Cost</label>
                 <@spring.bind "repairsForm.cost"/>
 
-      <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost" value="${repairsForm.cost!''}" required>
+      <input type="text" class="form-control" id="cost" name="cost" placeholder="Cost" pattern="[0-9]+(\.[0-9]+)?" value="${repairsForm.cost!''}" required>
         <#if spring.status.error>
             <ul>
                 <#list spring.status.errorMessages as error>
@@ -22,7 +22,7 @@
             </ul>
         </#if>
            <div class="invalid-feedback">
-             This field is required.
+             Please insert a valid value.
            </div>
         </div>
         <div class="col-md-4 mb-3">

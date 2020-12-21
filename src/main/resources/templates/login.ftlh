@@ -73,22 +73,17 @@ span.psw {
   float: right;
 }
 
-/* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
+#errormsg {
+  text-align: center;
+  color: firebrick;
 }
+
 </style>
 </head>
 <body>
 
 <#if errorMessage??>
-    <h4>${errorMessage}</h4>
+    <h4 id="errormsg">${errorMessage}</h4>
 </#if>
 
 <form name="login" class="form-signin" method="post" action="/login">

@@ -1,6 +1,5 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.model;
 
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
 
 public class PropertyModel {

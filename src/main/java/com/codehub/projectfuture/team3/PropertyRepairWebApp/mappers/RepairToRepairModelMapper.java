@@ -2,7 +2,6 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers;
 
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.RepairModel;
 import org.springframework.stereotype.Component;
 

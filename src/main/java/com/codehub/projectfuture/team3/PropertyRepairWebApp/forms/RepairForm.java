@@ -1,18 +1,12 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.forms;
 
 
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
-import java.sql.Timestamp;
 
 public class RepairForm {
     private static final String AFM_PATTERN = "[0-9]{9}";
+    private static final String COST_PATTERN = "[0-9]+(\\.[0-9]+)?";
     private String date;
 
     @NotEmpty(message = "{register.not.null}")

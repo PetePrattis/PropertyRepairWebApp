@@ -3,7 +3,6 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.propert
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.PropertyNotFoundException;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.PropertyModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;

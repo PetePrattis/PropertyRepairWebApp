@@ -8,8 +8,6 @@
 
 <body>
 
-<#include "../../partials/navbar.ftlh">
-
 <div class="container-fluid">
     <div class="row">
 

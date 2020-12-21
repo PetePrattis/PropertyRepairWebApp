@@ -4,7 +4,6 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Property;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.PropertyNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.PropertyForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.repositories.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
