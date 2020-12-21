@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @Controller
+/**
+ * The admin controller
+ */
 public class AdminController {
 
     @Autowired
@@ -26,6 +29,10 @@ public class AdminController {
     @Autowired
     private PropertyService propertyService;
 
+    /**
+     * This method returns the admin's home page.
+     * @return Admin home page
+     */
     @GetMapping("/admin/home")
     public String adminHomePageView(Model model) {
         List<RepairModel> repairList = repairService.findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus.INPROGRESS);
@@ -34,6 +41,10 @@ public class AdminController {
         return "pages/adminHomePage";
     }
 
+    /**
+     * This method returns the admin's owners page.
+     * @return Admin owners page
+     */
     @GetMapping("/admin/owners")
     public String adminShowOwners(Model model) {
         List<OwnerModel> ownerList = ownerService.getAllOwners();
@@ -41,6 +52,10 @@ public class AdminController {
         return "pages/owner/owners";
     }
 
+    /**
+     * This method returns the admin's repairs page.
+     * @return Admin repairs page
+     */
     @GetMapping("/admin/repairs")
     public String adminShowRepairs(Model model) {
         List<RepairModel> repairModelList = repairService.getAllRepairs();
@@ -48,6 +63,10 @@ public class AdminController {
         return "pages/repair/repairs";
     }
 
+    /**
+     * This method returns the admin's properties page.
+     * @return Admin properties page
+     */
     @GetMapping("/admin/properties")
     public String adminShowProperties(Model model) {
         List<PropertyModel> propertyModelList = propertyService.getAllProperties();

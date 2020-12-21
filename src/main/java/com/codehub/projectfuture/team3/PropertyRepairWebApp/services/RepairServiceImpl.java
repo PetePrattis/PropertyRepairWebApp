@@ -94,6 +94,15 @@ public class RepairServiceImpl implements RepairService{
 //    }
 
     @Override
+    public List<RepairModel> getRepairsByCode(String code) {
+        return repairRepository
+                .findByProperty_PropertyCode(code)
+                .stream()
+                .map(repair -> repairToRepairModel.map(repair))
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public List<RepairModel> findFirst10ByOrderByDateAscAndRepairStatus(RepairStatus status)
     {
         return repairRepository

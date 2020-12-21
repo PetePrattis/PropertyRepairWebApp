@@ -15,7 +15,6 @@ import java.util.Optional;
 
 @Component
 public class RepairFormValidation implements Validator {
-    private static final String AFM_PATTERN = "[0-9]{9}";
 
     @Autowired
     private PropertyService propertyService;
@@ -33,7 +32,7 @@ public class RepairFormValidation implements Validator {
         
         Optional<Property> property = propertyService.findPropertyByPropertyCodeOptional(registrationForm.getPropertyCode());
         if (property.isEmpty()) {
-            errors.rejectValue("propertyCode", "repair.afm..error");
+            errors.rejectValue("propertyCode", "repair.property..error");
         }
 
         // Or use reject if empty or whitespace

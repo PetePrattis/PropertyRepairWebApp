@@ -30,12 +30,18 @@ public class CreateOwnerController {
     @Autowired
     private OwnerFormValidation ownerFormValidation;
 
-
+    /**
+     * This method is used to initialize the validation for the owners form.
+     */
     @InitBinder(OWNERS_FORM)
     protected void initBinder(final WebDataBinder binder) {
         binder.addValidators(ownerFormValidation);
     }
 
+    /**
+     * This method returns the admin's create owner page.
+     * @return Owner Create Page
+     */
     @GetMapping(value = "/admin/owners/create")
     public String createOwnerView(Model model) {
         model.addAttribute(OWNERS_FORM, new OwnerForm());
@@ -43,6 +49,11 @@ public class CreateOwnerController {
         return "pages/owner/owner_create";
     }
 
+    /**
+     * This method is used to add an owner.
+     * If validation is good, then the user is added.
+     * Else the user is redirected to the create page.
+     */
     @PostMapping(value = "/admin/owners/create")
     public String createOwner(Model model, @Valid @ModelAttribute(OWNERS_FORM) OwnerForm ownerForm,
                               BindingResult bindingResult,

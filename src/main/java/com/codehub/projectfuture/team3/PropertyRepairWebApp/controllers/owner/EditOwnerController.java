@@ -25,7 +25,10 @@ public class EditOwnerController {
     @Autowired
     private OwnerService ownerService;
 
-
+    /**
+     * This method returns the admin's edit owner page.
+     * @return Owner Update Page
+     */
     @GetMapping(value = "/admin/owner/{id}/edit")
     public String editRepair(@PathVariable Long id, Model model) {
         OwnerModel ownerModel = ownerService.findOwnerById(id);
@@ -34,18 +37,29 @@ public class EditOwnerController {
         return "pages/owner/owner_edit";
     }
 
+    /**
+     * This method is used to update the owner.
+     * After the update the user is redirected to the owners page.
+     */
     @PostMapping(value = "/admin/owner/edit")
     public String editOwner(OwnerModel ownerModel) {
         ownerService.updateOwner(ownerModel);
         return "redirect:/admin/owners";
     }
 
+    /**
+     * This method is used to delete the owner.
+     * After the deletion the user is redirected to the owners page.
+     */
     @PostMapping(value = "/admin/owner/{id}/delete")
     public String deleteOwner(@PathVariable Long id) {
         ownerService.deleteOwnerById(id);
         return "redirect:/admin/owners";
     }
 
+    /**
+     * This method handles the OwnerNotFoundException exception.
+     */
     @ExceptionHandler({OwnerNotFoundException.class})
     public String handleOwnerNotFoundError(HttpServletRequest request,
                                            RedirectAttributes redirectAttributes,

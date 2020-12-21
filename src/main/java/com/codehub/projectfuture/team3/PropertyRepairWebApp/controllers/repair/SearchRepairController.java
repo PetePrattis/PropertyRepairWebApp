@@ -34,21 +34,21 @@ public class SearchRepairController {
         return "pages/repair/search_repair_betweenDate";
     }
 
-    @GetMapping("/admin/search/byOwnersAfm/repair")
+    @GetMapping("/admin/search/byPropertyCode/repair")
     public String searchRepairByOwnerAfmView(Model model)
     {
         model.addAttribute(REPAIR_FORM, new RepairSearchForm());
-        return "pages/repair/search_repair_byAFM";
+        return "pages/repair/search_repair_byCode";
     }
 
-//    @PostMapping("/admin/search/byAfm/repair")
-//    public String searchRepairView(@ModelAttribute(REPAIR_FORM)RepairSearchForm repairSearchForm, Model model) {
-//
-//        List<RepairModel> repairList = repairService.getRepairsByAfm(Long.parseLong(repairSearchForm.getInput()));
-//
-//        model.addAttribute("repairList", repairList);
-//        return "pages/adminHomePage";
-//    }
+    @PostMapping("/admin/search/byPropertyCode/repair")
+    public String searchRepairView(@ModelAttribute(REPAIR_FORM)RepairSearchForm repairSearchForm, Model model) {
+
+        List<RepairModel> repairList = repairService.getRepairsByCode(repairSearchForm.getInput());
+
+        model.addAttribute("repairList", repairList);
+        return "pages/adminHomePage";
+    }
 
     @PostMapping("/admin/search/byDate/repair")
     public String searchRepairByDateView(@ModelAttribute(REPAIR_FORM)RepairSearchForm repairSearchForm, Model model) {

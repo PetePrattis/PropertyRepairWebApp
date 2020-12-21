@@ -29,12 +29,18 @@ public class CreatePropertyController {
     @Autowired
     private PropertyFormValidation propertyFormValidation;
 
+    /**
+     * This method is used to initialize the validation for the properties form.
+     */
     @InitBinder(PROPERTIES_FORM)
     protected void initBinder(final WebDataBinder binder) {
         binder.addValidators(propertyFormValidation);
     }
 
 
+    /**
+     * This method return the admin's create owener page.
+     */
     @GetMapping(value = "admin/property/create")
     public String createProperty(Model model) {
         model.addAttribute(PROPERTIES_FORM, new PropertyForm());

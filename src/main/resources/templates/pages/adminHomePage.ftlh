@@ -22,7 +22,7 @@
                         <th>Type</th>
                         <th>Cost</th>
                         <th>Address</th>
-                        <th>Owner's AFM</th>
+                        <th>Property's Code</th>
                         <th>Extra Info</th>
                         <th class="text-center">Edit</th>
                         <th class="text-center">Remove</th>
@@ -44,7 +44,7 @@
                                 </td>
                                 <td>${repair.cost}</td>
                                 <td>${repair.address}</td>
-                                <td>${repair.ownerAfm?replace(",","")?replace(".","")}</td>
+                                <td>${repair.propertyCode}</td>
                                 <td>${repair.extraInfo}</td>
                                 <td class="text-center"><a class="btn btn-link" href="/admin/repair/${repair.id}/edit"><span data-feather="edit"></span></a></td>
                                 <td class="text-center">

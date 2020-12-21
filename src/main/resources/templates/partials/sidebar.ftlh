@@ -74,7 +74,7 @@
                     <a class="nav-link" href="/admin/search/betweenDate/repair">Search Between Date</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/admin/search/byOwnersAfm/repair">Search By Owner's Afm</a>
+                    <a class="nav-link" href="/admin/search/byPropertyCode/repair">Search By Property's Code</a>
                   </li>
                 </ul>
             </li>

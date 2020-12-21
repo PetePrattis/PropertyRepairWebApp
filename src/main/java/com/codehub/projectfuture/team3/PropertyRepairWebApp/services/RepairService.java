@@ -18,7 +18,9 @@ public interface RepairService {
 
     List<RepairModel> findRepairByDateAndRepairStatus(LocalDate date, RepairStatus status);
 
-    //List<RepairModel> getRepairsByAfm(Long afm);
+//    List<RepairModel> getRepairsByAfm(Long afm);
+
+    List<RepairModel> getRepairsByCode(String code);
 
     List<RepairModel> findRepairByDate(LocalDate date);
 

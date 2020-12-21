@@ -1,14 +1,14 @@
 <#import "/spring.ftl" as spring />
 
 <h4 class="mb-3">Search Repair</h4>
-<form class="needs-validation" action="/admin/search/byAfm/repair" method="post" novalidate>
+<form class="needs-validation" action="/admin/search/byPropertyCode/repair" method="post" novalidate>
     <div>
-        <label for="afmpicker">AFM:</label>
+        <label for="codepicker">Property Code</label>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"></span>
             </div>
-            <input type="text" class="form-control" id="afmpicker" pattern="[0-9]{9}" name="input" required>
+            <input type="text" class="form-control" id="codepicker" name="input" required>
            <div class="invalid-feedback">
              Please provide a valid afm.
            </div>

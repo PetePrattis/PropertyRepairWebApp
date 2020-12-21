@@ -29,9 +29,9 @@
                     <tr data-id="${property.id}">
                         <td>${property.propertyCode}</td>
                         <td>${property.address}</td>
-                        <td>${property.constructionYear}</td>
+                        <td>${property.constructionYear?replace(",","")?replace(".","")}</td>
                         <td>${property.propertyType}</td>
-                        <td>${property.ownerAfm}</td>
+                        <td>${property.ownerAfm?replace(",","")?replace(".","")}</td>
                     </tr>
                     </#list>
                     </tbody>

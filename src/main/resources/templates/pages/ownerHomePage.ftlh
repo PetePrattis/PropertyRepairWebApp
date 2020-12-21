@@ -23,7 +23,7 @@
                         <th>Type</th>
                         <th>Cost</th>
                         <th>Address</th>
-                        <th>Owner's AFM</th>
+                        <th>Property's Code</th>
                         <th>Info</th>
                     </tr>
                     </thead>
@@ -43,7 +43,7 @@
                                 </td>
                                 <td>${repair.cost}</td>
                                 <td>${repair.address}</td>
-                                <td>${repair.ownerAfm}</td>
+                                <td>${repair.propertyCode}</td>
                                 <td>${repair.extraInfo}</td>
                             </tr>
                             </#list>

@@ -24,6 +24,10 @@ public class SearchOwnerController {
     @Autowired
     private OwnerService ownerService;
 
+    /**
+     * This method returns the owner search by afm page.
+     * @return Search owner by afm page.
+     */
     @GetMapping("/admin/search/byAFM/owner")
     public String searchOwnerByAFMView(Model model)
     {
@@ -31,6 +35,10 @@ public class SearchOwnerController {
         return "pages/owner/search_owner_byAFM";
     }
 
+    /**
+     * This method returns the owner search by email page.
+     * @return Search owner by email page.
+     */
     @GetMapping("/admin/search/byEmail/owner")
     public String searchOwnerByEmailView(Model model)
     {
@@ -38,6 +46,9 @@ public class SearchOwnerController {
         return "pages/owner/search_owner_byEmail";
     }
 
+    /**
+     * This method handles the owner search by afm request.
+     */
     @PostMapping("/admin/search/byAfm/owner")
     public String searchOwnerView(@ModelAttribute(OWNER_FORM)OwnerSearchForm ownerSearchForm, Model model) {
 
@@ -55,6 +66,9 @@ public class SearchOwnerController {
         return "pages/owner/owner";
     }
 
+    /**
+     * This method handles the owner search by email request.
+     */
     @PostMapping("/admin/search/byEmail/owner")
     public String searchOwnerByEmailView(@ModelAttribute(OWNER_FORM)OwnerSearchForm ownerSearchForm, Model model) {
 
@@ -72,6 +86,9 @@ public class SearchOwnerController {
         return "pages/owner/owner";
     }
 
+    /**
+     * This method handles the OwnerNotFoundException excepiton.
+     */
     @ExceptionHandler({OwnerNotFoundException.class})
     public String handleOwnerNotFoundError(HttpServletRequest request,
                                            RedirectAttributes redirectAttributes,
