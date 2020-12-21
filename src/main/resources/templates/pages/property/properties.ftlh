@@ -18,7 +18,6 @@
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
-                        <th>#ID</th>
                         <th>Property Code</th>
                         <th>Property Address</th>
                         <th>Property Construction Year</th>
@@ -31,10 +30,9 @@
                     <tbody>
                     <#list propertyList as property>
                     <tr data-id="${property.id}">
-                        <td><a href="/admin/property/${property.id}/edit">#${property.id}</a></td>
                         <td>${property.propertyCode}</td>
                         <td>${property.address}</td>
-                        <td>${property.constructionYear}</td>
+                        <td>${property.constructionYear?replace(",","")?replace(".","")}</td>
                         <td>${property.propertyType.getType()}</td>
                         <td>${property.ownerAfm}</td>
                         <td class="text-center"><a class="btn btn-link" href="/admin/property/${property.id}/edit"><span data-feather="edit"></span></a></td>

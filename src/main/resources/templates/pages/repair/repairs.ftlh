@@ -19,7 +19,6 @@
                     <table class="table table-striped table-sm">
                         <thead>
                         <tr>
-                            <th>#ID</th>
                             <th>Date</th>
                             <th>Repair Status</th>
                             <th>Repair Type</th>
@@ -33,7 +32,6 @@
                         <tbody>
                         <#list repairList as repair>
                             <tr data-id="${repair.id}">
-                                <td><a href="/admin/repair/${repair.id}/edit">#${repair.id}</a></td>
                                 <td>${repair.date}</td>
                                 <td>${repair.repairStatus.getStatus()}</td>
                                 <td>${repair.repairType.getType()}</td>

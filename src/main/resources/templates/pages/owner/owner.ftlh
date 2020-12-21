@@ -18,7 +18,6 @@
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
-                        <th>#ID</th>
                         <th>AFM</th>
                         <th>First Name</th>
                         <th>Last Name</th>
@@ -31,7 +30,6 @@
                     </thead>
                     <tbody>
                             <tr data-id="${owner.id}">
-                                <td><a href="/admin/owner/${owner.id}/edit">#${owner.id}</a></td>
                                 <td>${owner.afm}</td>
                                 <td>${owner.firstName}</td>
                                 <td>${owner.lastName}</td>

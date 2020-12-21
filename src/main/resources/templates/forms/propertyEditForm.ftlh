@@ -50,7 +50,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"><span data-feather="calendar"></span></span>
             </div>
-            <input type="text" class="form-control" id="yearpicker" name="date" value="${property.constructionYear?replace(",","")?replace(".","")}">
+            <input type="text" class="form-control" id="yearpicker" name="constructionYear" value="${property.constructionYear?replace(",","")?replace(".","")}">
         </div>
     </div>
   </div>
