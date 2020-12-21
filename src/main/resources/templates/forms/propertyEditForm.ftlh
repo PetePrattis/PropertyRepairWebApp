@@ -8,13 +8,12 @@
 
 
     <div class="mb-3">
-        <label for="datepicker">Construction Year</label>
+        <label for="yearpicker">Construction Year</label>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"><span data-feather="calendar"></span></span>
             </div>
-            <input type="text" class="form-control" id="datepicker" name="date" value="${property.constructionYear?replace(",","")?replace(".","")}">
-            <input type="text" class="form-control" id="yearpicker" name="date" value="${property.constructionYear}">
+            <input type="text" class="form-control" id="yearpicker" name="date" value="${property.constructionYear?replace(",","")?replace(".","")}">
         </div>
     </div>
 
