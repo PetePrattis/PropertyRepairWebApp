@@ -1,5 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.model;
 
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.UserRole;
+
 public class OwnerModel {
     private Long id;
     private Long afm;
@@ -8,6 +10,7 @@ public class OwnerModel {
     private String address;
     private String telephoneNumber;
     private String email;
+    private UserRole role;
 
     public Long getId() {
         return id;
@@ -65,4 +68,11 @@ public class OwnerModel {
         this.email = email;
     }
 
+    public UserRole getRole() {
+        return role;
+    }
+
+    public void setRole(UserRole role) {
+        this.role = role;
+    }
 }

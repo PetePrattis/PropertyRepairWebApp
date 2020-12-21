@@ -1,6 +1,7 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.owner;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.UserRole;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.DeleteAdminException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.OwnerService;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+
+import java.util.List;
 
 import static com.codehub.projectfuture.team3.PropertyRepairWebApp.utils.GlobalAttributes.ERROR_MESSAGE;
 
@@ -53,7 +56,27 @@ public class EditOwnerController {
      */
     @PostMapping(value = "/admin/owner/{id}/delete")
     public String deleteOwner(@PathVariable Long id) {
-        ownerService.deleteOwnerById(id);
+        OwnerModel owner = ownerService.findOwnerById(id);
+        if (owner.getRole().equals(UserRole.ADMIN))
+        {
+            int counter = 0;
+            List<OwnerModel> ownerList = ownerService.getAllOwners();
+            for (OwnerModel ownerModel : ownerList)
+            {
+               if (ownerModel.getRole().equals(UserRole.ADMIN)) counter++;
+            }
+            if (counter == 1) {
+                throw new DeleteAdminException();
+            }
+            else
+            {
+                ownerService.deleteOwnerById(id);
+            }
+        }
+        else
+        {
+            ownerService.deleteOwnerById(id);
+        }
         return "redirect:/admin/owners";
     }
 
@@ -69,4 +92,15 @@ public class EditOwnerController {
         return "redirect:/error/generic";
     }
 
+    /**
+     * This method handles the DeleteAdminException exception.
+     */
+    @ExceptionHandler({DeleteAdminException.class})
+    public String handleDeleteAdminException(HttpServletRequest request,
+                                           RedirectAttributes redirectAttributes,
+                                             DeleteAdminException e)
+    {
+        redirectAttributes.addFlashAttribute(ERROR_MESSAGE, "admin.delete");
+        return "redirect:/error/generic";
+    }
 }

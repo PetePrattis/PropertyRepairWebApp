@@ -35,7 +35,7 @@
                                 <td>${owner.address}</td>
                                 <td>${owner.telephoneNumber}</td>
                                 <td>${owner.email}</td>
-                                <td class="text-center"><a class="btn btn-link" href="/owner/${owner.id}/edit"><span data-feather="edit"></span></a></td>
+                                <td class="text-center"><a class="btn btn-link" href="/admin/owner/${owner.id}/edit"><span data-feather="edit"></span></a></td>
                                 <td class="text-center">
 
                                 <button

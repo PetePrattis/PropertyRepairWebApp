@@ -1,8 +1,11 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.validators;
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Property;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.PropertyForm;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.PropertyModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.OwnerService;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
@@ -17,6 +20,9 @@ public class PropertyFormValidation implements Validator {
 
     @Autowired
     private OwnerService ownerService;
+
+    @Autowired
+    private PropertyService propertyService;
 
     @Override
     public boolean supports(Class<?> aClass) {
@@ -33,6 +39,10 @@ public class PropertyFormValidation implements Validator {
             if (ownerByAfm.isEmpty()) {
                 errors.rejectValue("ownerAfm", "repair.afm..error");
             }
+        }
+        Optional<Property> property = propertyService.findPropertyByPropertyCodeOptional(registrationForm.getPropertyCode());
+        if (property.isEmpty()) {
+            errors.rejectValue("propertyCode", "property.code.taken.error");
         }
         // Or use reject if empty or whitespace
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "constructionYear", "register.not.null.or.empty");

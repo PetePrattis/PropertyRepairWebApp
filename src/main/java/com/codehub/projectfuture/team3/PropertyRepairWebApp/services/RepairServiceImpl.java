@@ -2,16 +2,19 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.services;
 
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Property;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OnCreateRepairException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.PropertyNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.RepairNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.RepairForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.RepairFormToRepairMapper;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers.RepairToRepairModelMapper;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.RepairModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.repositories.OwnerRepository;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.repositories.PropertyRepository;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.repositories.RepairRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +32,9 @@ public class RepairServiceImpl implements RepairService{
 
     @Autowired
     private OwnerRepository ownerRepository;
+
+    @Autowired
+    private PropertyRepository propertyRepository;
 
     @Autowired
     private RepairToRepairModelMapper repairToRepairModel;
@@ -122,10 +128,10 @@ public class RepairServiceImpl implements RepairService{
         originalRepair.get().setDate(date);
         originalRepair.get().setExtraInfo(repairModel.getExtraInfo());
 
-        //Optional<Owner> owner = ownerRepository.findOwnerByAfm(repairModel.getOwnerAfm());
-        //if (owner.isEmpty()) throw new OwnerNotFoundException();
+        Optional<Property> property = propertyRepository.findPropertyByPropertyCode(repairModel.getPropertyCode());
+        if (property.isEmpty()) throw new PropertyNotFoundException();
 
-        //originalRepair.get().setOwner(owner.get());
+        originalRepair.get().setProperty(property.get());
         originalRepair.get().setRepairStatus(repairModel.getRepairStatus());
         originalRepair.get().setRepairType(repairModel.getRepairType());
         Repair newRepair = repairRepository.save(originalRepair.get());

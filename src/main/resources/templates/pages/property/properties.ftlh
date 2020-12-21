@@ -60,6 +60,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
+                                <p>This will delete all the repairs related to this property</p>
                                 <p>Are you sure?</p>
                             </div>
                             <div class="modal-footer">

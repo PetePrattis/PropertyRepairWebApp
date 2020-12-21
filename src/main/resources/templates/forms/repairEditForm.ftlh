@@ -53,9 +53,9 @@
 
   <div class="form-row">
     <div class="col-md-4 mb-3">
-        <label for="owner-afm">Owner's AFM</label>
+        <label for="propertyCode">Property's Code</label>
         <div class="input-group">
-            <input type="text" class="form-control" id="owner-afm" name="ownerAfm"  value="${repair.ownerAfm?replace(",","")?replace(".","")}">
+            <input type="text" class="form-control" id="propertyCode" name="propertyCode"  value="${repair.propertyCode}">
         </div>
     </div>
     <div class="col-md-4 mb-3">
