@@ -1,13 +1,5 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.owner;
 
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Repair;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairStatus;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.RepairType;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.UserRole;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.RepairForm;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.PropertyModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.RepairModel;
@@ -27,7 +19,6 @@ import java.util.List;
 
 @Controller
 public class OwnerController {
-    private static final String PROPERTY_TYPES = "propertyType";
     private static final String USER_ROLE = "userType";
     private static final String OWNERS_FORM = "ownersForm";
 

@@ -2,7 +2,6 @@
 <#import "/spring.ftl" as spring />
 <html>
 <head>
-    <title>Owners</title>
     <#include "../../partials/head.ftlh">
 </head>
 <body>
@@ -84,7 +83,7 @@
 
             </div>
       <#else>
-        There are no owners!
+        No owners found!
       </#if>
         </main>
     </div>

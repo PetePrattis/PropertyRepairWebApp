@@ -3,7 +3,7 @@
 <h4 class="mb-3">Create Repair</h4>
 
 <#if errorMessage??>
-    <h4>${errorMessage}</h4>
+    <h4 class="validationmsg">${errorMessage}</h4>
 </#if>
 
 <form id="createForm" name="repairForm" class="needs-validation" action="/admin/repair/create"  method="post" novalidate>
@@ -107,6 +107,7 @@
         </div>
 
 
+      <div class="form-row">
             <div class="col-md-8 mb-3">
                 <label for="datepicker">Date</label>
                 <div class="input-group">
@@ -116,6 +117,7 @@
                     <input type="text" class="form-control" id="datepicker" name="date" value="${repairsForm.date!''}" required>
                 </div>
             </div>
+        </div>
 
 
     <button class="btn btn-primary btn-lg mt-4" type="submit">Create</button>

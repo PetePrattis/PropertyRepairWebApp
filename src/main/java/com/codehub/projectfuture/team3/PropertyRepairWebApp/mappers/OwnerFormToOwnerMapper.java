@@ -2,7 +2,6 @@ package com.codehub.projectfuture.team3.PropertyRepairWebApp.mappers;
 
 
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.UserRole;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
 import org.springframework.stereotype.Component;
@@ -22,7 +21,6 @@ public class OwnerFormToOwnerMapper {
         owner.setTelephoneNumber(ownerForm.getTelephoneNumber());
         owner.setEmail(ownerForm.getEmail());
         owner.setPassword("password");
-        owner.setPropertyType(PropertyType.valueOf(ownerForm.getPropertyType()));
         owner.setUserRole(UserRole.valueOf(ownerForm.getUserRole()));
 
         return owner;

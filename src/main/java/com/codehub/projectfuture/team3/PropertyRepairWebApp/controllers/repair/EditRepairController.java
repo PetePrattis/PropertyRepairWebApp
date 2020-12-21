@@ -28,7 +28,7 @@ public class EditRepairController {
     @Autowired
     private RepairService repairService;
 
-    @GetMapping(value = "/adminow/repair/{id}/edit")
+    @GetMapping(value = "/admin/repair/{id}/edit")
     public String editRepair(@PathVariable Long id, Model model) {
         RepairModel repairModel = repairService.findRepairById(id);
         model.addAttribute(REPAIR_ATTR, repairModel);

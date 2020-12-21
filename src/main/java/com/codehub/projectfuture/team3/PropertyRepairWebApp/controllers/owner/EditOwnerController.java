@@ -1,6 +1,6 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.controllers.owner;
 
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.UserRole;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.exceptions.OwnerNotFoundException;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.model.OwnerModel;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.services.OwnerService;
@@ -20,7 +20,7 @@ import static com.codehub.projectfuture.team3.PropertyRepairWebApp.utils.GlobalA
 @Controller
 public class EditOwnerController {
     private static final String OWNER_ATTR = "owner";
-    private static final String PROPERTY_TYPES = "propertyType";
+    private static final String USER_ROLE = "userRole";
 
     @Autowired
     private OwnerService ownerService;
@@ -30,7 +30,7 @@ public class EditOwnerController {
     public String editRepair(@PathVariable Long id, Model model) {
         OwnerModel ownerModel = ownerService.findOwnerById(id);
         model.addAttribute(OWNER_ATTR, ownerModel);
-        model.addAttribute(PROPERTY_TYPES, PropertyType.values());
+        model.addAttribute(USER_ROLE, UserRole.values());
         return "pages/owner/owner_edit";
     }
 

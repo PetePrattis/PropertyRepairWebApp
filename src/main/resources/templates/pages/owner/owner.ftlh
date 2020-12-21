@@ -2,7 +2,6 @@
 <#import "/spring.ftl" as spring />
 <html>
 <head>
-    <title>Owners</title>
     <#include "../../partials/head.ftlh">
 </head>
 <body>

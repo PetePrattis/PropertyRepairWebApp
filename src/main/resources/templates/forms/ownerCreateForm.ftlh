@@ -4,7 +4,7 @@
 <form id="createForm" name="ownerForm" class="needs-validation" action="/admin/owners/create" method="post" novalidate>
 
 <#if errorMessage??>
-    <h4>${errorMessage}</h4>
+    <h4 class="validationmsg">${errorMessage}</h4>
 </#if>
 
     <div class="form-row">
@@ -114,21 +114,7 @@
 
 
           <div class="form-row">
-              <div class="col-md-4 mb-3">
-              <label for="property-type">Property Type</label>
-                <select class="custom-select d-block w-100" id="property-type" name="propertyType">
-                    <#if ownersForm.propertyType??>
-                    <#list propertyType as type>
-                        <option value="${type}" <#if ownersForm.propertyType == type> selected</#if>>${type.getType()}</option>
-                    </#list>
-                    <#else>
-                    <#list propertyType as type>
-                        <option value="${type}">${type.getType()}</option>
-                    </#list>
-                    </#if>
-                </select>
-              </div>
-              <div class="col-md-4 mb-3">
+            <div class="col-md-8 mb-3">
                   <label for="user-role">User Role</label>
                 <select class="custom-select d-block w-100" id="user-role" name="userRole">
                     <#if ownersForm.userRole??>

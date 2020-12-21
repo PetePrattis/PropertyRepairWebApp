@@ -2,7 +2,6 @@
 <#import "/spring.ftl" as spring />
 <html>
 <head>
-    <title>Repairs</title>
     <#include "../../partials/head.ftlh">
 </head>
 <body>
@@ -83,7 +82,7 @@
 
                 </div>
             <#else>
-                There are no repairs!
+                No repairs found!
             </#if>
         </main>
     </div>

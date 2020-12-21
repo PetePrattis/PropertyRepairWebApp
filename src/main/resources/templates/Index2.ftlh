@@ -1,6 +1,5 @@
 <html>
 <head>
-    <title>Repair page</title>
 </head>
 <body>
 <h1>Property</h1>

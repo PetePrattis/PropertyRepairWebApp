@@ -19,8 +19,6 @@ public class OwnerForm {
     @Pattern(regexp = EMAIL_PATTERN, message = "{createOwner.email.pattern.invalid}")
     private String email;
     @NotEmpty(message = "{register.not.null}")
-    private String propertyType;
-    @NotEmpty(message = "{register.not.null}")
     private String userRole;
 
     public String getAfm() {
@@ -71,13 +69,6 @@ public class OwnerForm {
         this.email = email;
     }
 
-    public String getPropertyType() {
-        return propertyType;
-    }
-
-    public void setPropertyType(String propertyType) {
-        this.propertyType = propertyType;
-    }
 
     public String getUserRole() {
         return userRole;

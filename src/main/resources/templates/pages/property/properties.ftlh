@@ -1,7 +1,6 @@
 <#import "/spring.ftl" as spring />
 <html>
 <head>
-    <title>Repairs</title>
     <#include "../../partials/head.ftlh">
 </head>
 <body>
@@ -80,7 +79,7 @@
 
             </div>
             <#else>
-            There are no properties!
+            No properties found!
         </#if>
         </main>
     </div>

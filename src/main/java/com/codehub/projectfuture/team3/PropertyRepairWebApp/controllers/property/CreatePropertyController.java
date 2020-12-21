@@ -52,7 +52,7 @@ public class CreatePropertyController {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute(PROPERTY_TYPES, PropertyType.values());
-            model.addAttribute(ERROR_MESSAGE, "validation errors occurred");
+            model.addAttribute(ERROR_MESSAGE, "Validation errors occurred!");
             return "pages/property/create_property";
         }
         propertyService.createProperty(propertyForm);

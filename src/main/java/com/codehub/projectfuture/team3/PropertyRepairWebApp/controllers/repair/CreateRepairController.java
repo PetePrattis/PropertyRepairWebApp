@@ -60,7 +60,7 @@ public class CreateRepairController {
         if (bindingResult.hasErrors()) {
             model.addAttribute(REPAIR_STATUS, RepairStatus.values());
             model.addAttribute(REPAIR_TYPES, RepairType.values());
-            model.addAttribute(ERROR_MESSAGE, "validation errors occurred");
+            model.addAttribute(ERROR_MESSAGE, "Validation errors occurred!");
             return "pages/repair/create_repair";
         }
         repairService.createRepair(repairForm);

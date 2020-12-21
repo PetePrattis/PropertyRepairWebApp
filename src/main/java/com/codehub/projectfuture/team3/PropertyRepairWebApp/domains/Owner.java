@@ -1,6 +1,5 @@
 package com.codehub.projectfuture.team3.PropertyRepairWebApp.domains;
 
-import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,10 +41,6 @@ public class Owner {
 
     @Column(name = "owner_password")
     private String password;
-
-    @Enumerated(EnumType.STRING)
-    @Column(name = "property_type")
-    private PropertyType propertyType;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "user_role")
@@ -119,14 +114,6 @@ public class Owner {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public PropertyType getPropertyType() {
-        return propertyType;
-    }
-
-    public void setPropertyType(PropertyType propertyType) {
-        this.propertyType = propertyType;
     }
 
     public UserRole getUserRole() {
