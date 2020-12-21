@@ -19,7 +19,6 @@ public class OwnerFormToOwnerMapper {
         owner.setTelephoneNumber(ownerForm.getTelephoneNumber());
         owner.setEmail(ownerForm.getEmail());
         owner.setPassword(String.valueOf(PasswordGenerator.generatePassword(8)));
-        owner.setPropertyType(PropertyType.valueOf(ownerForm.getPropertyType()));
         owner.setUserRole(UserRole.valueOf(ownerForm.getUserRole()));
 
         return owner;
