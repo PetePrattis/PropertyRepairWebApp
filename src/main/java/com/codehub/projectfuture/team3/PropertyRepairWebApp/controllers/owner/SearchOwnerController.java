@@ -41,7 +41,15 @@ public class SearchOwnerController {
     @PostMapping("/admin/search/byAfm/owner")
     public String searchOwnerView(@ModelAttribute(OWNER_FORM)OwnerSearchForm ownerSearchForm, Model model) {
 
-        OwnerModel owner = ownerService.findOwnerByAfm(Long.parseLong(ownerSearchForm.getInput()));
+        OwnerModel owner;
+        try
+        {
+            owner = ownerService.findOwnerByAfm(Long.parseLong(ownerSearchForm.getInput()));
+        }
+        catch (OwnerNotFoundException e)
+        {
+            owner = null;
+        }
 
         model.addAttribute("owner", owner);
         return "pages/owner/owner";
@@ -50,7 +58,15 @@ public class SearchOwnerController {
     @PostMapping("/admin/search/byEmail/owner")
     public String searchOwnerByEmailView(@ModelAttribute(OWNER_FORM)OwnerSearchForm ownerSearchForm, Model model) {
 
-        OwnerModel owner = ownerService.findOwnerByEmail(ownerSearchForm.getInput());
+        OwnerModel owner;
+        try
+        {
+            owner = ownerService.findOwnerByEmail(ownerSearchForm.getInput());
+        }
+        catch (OwnerNotFoundException e)
+        {
+            owner = null;
+        }
 
         model.addAttribute("owner", owner);
         return "pages/owner/owner";

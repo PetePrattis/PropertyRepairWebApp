@@ -42,7 +42,15 @@ public class SearchPropertyController {
 
     @PostMapping("/admin/search/byPropertyCode/property")
     public String searchPropertyByPropertyCodeView(@ModelAttribute(PROPERTY_FORM) PropertySearchForm propertySearchForm, Model model) {
-        PropertyModel propertyItem = propertyService.findPropertyByPropertyCode(propertySearchForm.getInput());
+        PropertyModel propertyItem;
+        try
+        {
+            propertyItem = propertyService.findPropertyByPropertyCode(propertySearchForm.getInput());
+        }
+        catch (PropertyNotFoundException e)
+        {
+            propertyItem = null;
+        }
 
         model.addAttribute("property", propertyItem);
         return "pages/property/property";

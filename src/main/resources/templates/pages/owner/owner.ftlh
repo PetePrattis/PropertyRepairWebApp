@@ -13,7 +13,8 @@
     <div class="row">
         <#include "../../partials/sidebar.ftlh">
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <h3 class="mb-3">Owners</h3>
+            <h3 class="mb-3">Owner</h3>
+  <#if owner?has_content>
             <div class="table-responsive">
                 <table class="table table-striped table-sm">
                     <thead>
@@ -77,6 +78,9 @@
                     </div>
                 </div>
             </div>
+      <#else>
+        No owners found!
+      </#if>
         </main>
     </div>
 </div>
