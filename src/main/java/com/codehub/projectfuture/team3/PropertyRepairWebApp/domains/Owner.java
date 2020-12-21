@@ -54,7 +54,7 @@ public class Owner {
     @OneToMany(mappedBy = "owner", targetEntity = Repair.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Repair> repairs;
 
-    @OneToMany(mappedBy = "owner", targetEntity = Property.class)
+    @OneToMany(mappedBy = "owner", targetEntity = Property.class, cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Property> properties;
 
     public Long getId() {

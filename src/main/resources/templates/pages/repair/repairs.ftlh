@@ -36,8 +36,8 @@
                             <tr data-id="${repair.id}">
                                 <td><a href="/repair/${repair.id}/edit">#${repair.id}</a></td>
                                 <td>${repair.date}</td>
-                                <td>${repair.repairStatus}</td>
-                                <td>${repair.repairType}</td>
+                                <td>${repair.repairStatus.getStatus()}</td>
+                                <td>${repair.repairType.getType()}</td>
                                 <td>${repair.cost}</td>
                                 <td>${repair.address}</td>
                                 <td>${repair.extraInfo}</td>
