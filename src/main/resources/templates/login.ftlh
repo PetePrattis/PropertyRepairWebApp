@@ -104,7 +104,7 @@ span.psw {
 
     <button type="submit">Login</button>
     <label>
-      <input type="checkbox" checked="checked" name="remember"> Remember me
+      <input type="checkbox" name="remember" onclick="myFunction()">Show Password
     </label>
     <span class="psw">Forgot <a href="#">password?</a></span>
   </div>
@@ -113,3 +113,14 @@ span.psw {
 
 </body>
 </html>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>

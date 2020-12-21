@@ -5,6 +5,7 @@ import com.codehub.projectfuture.team3.PropertyRepairWebApp.domains.Owner;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.PropertyType;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.enums.UserRole;
 import com.codehub.projectfuture.team3.PropertyRepairWebApp.forms.OwnerForm;
+import com.codehub.projectfuture.team3.PropertyRepairWebApp.passwordGenerator.PasswordGenerator;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -21,7 +22,7 @@ public class OwnerFormToOwnerMapper {
         owner.setAddress(ownerForm.getAddress());
         owner.setTelephoneNumber(ownerForm.getTelephoneNumber());
         owner.setEmail(ownerForm.getEmail());
-        owner.setPassword("password");
+        owner.setPassword(String.valueOf(PasswordGenerator.generatePassword(8)));
         owner.setPropertyType(PropertyType.valueOf(ownerForm.getPropertyType()));
         owner.setUserRole(UserRole.valueOf(ownerForm.getUserRole()));
 
