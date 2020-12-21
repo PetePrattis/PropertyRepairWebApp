@@ -17,7 +17,6 @@
                 <table class="table table-striped table-sm">
                     <thead>
                     <tr>
-                        <th>#ID</th>
                         <th>Property Code</th>
                         <th>Property Address</th>
                         <th>Property Construction Year</th>
@@ -30,7 +29,6 @@
                     <tbody id="myTable">
                     <#list propertyList as property>
                     <tr data-id="${property.id}">
-                        <td><a href="/property/${property.id}/edit">#${property.id}</a></td>
                         <td>${property.propertyCode}</td>
                         <td>${property.address}</td>
                         <td>${property.constructionYear}</td>

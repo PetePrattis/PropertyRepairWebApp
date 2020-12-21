@@ -15,17 +15,6 @@ public class PropertyController {
     @Autowired
     private PropertyService propertyService;
 
-    @GetMapping("/property")
-    public String propertyView(Model model){
-        List<PropertyModel> propertyList = propertyService.findPropertyByOwnerAfm(1234567891L);
-                //findPropertyByOwnerId(1L);
-                //findPropertyById(1L);
-
-        model.addAttribute("aProperty", propertyList);
-        return "Index2";
-    }
-
-
     @GetMapping("/search/property")
     public String searchPropertyView(Model model) {
         return "pages/property/search_property";

@@ -25,7 +25,7 @@
 
   <div class="form-row">
     <div class="col-md-4 mb-3">
-      <label for="category">Status</label>
+      <label for="status">Status</label>
       <div class="input-group">
           <select class="custom-select d-block w-100" id="status" name="repairStatus">
               <#if repairStatus??>

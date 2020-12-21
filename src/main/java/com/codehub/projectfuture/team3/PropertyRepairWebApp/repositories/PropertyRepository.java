@@ -8,10 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface PropertyRepository extends JpaRepository<Property, Long> {
-
     Optional<Property> findPropertyByPropertyCode(String propertyCode);
     Optional<Property> findPropertyByOwnerId(Long id);
     List<Property> findPropertyByOwnerAfm(Long id);
-    //TODO add findRepairsByPropertyId in repair repository
-
 }

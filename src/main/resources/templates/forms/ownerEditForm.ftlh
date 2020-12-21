@@ -8,13 +8,13 @@
 
     <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="title">First Name</label>
+            <label for="first-name">First Name</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="first-name" name="firstName"  value="${owner.firstName}">
             </div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="title">Last Name</label>
+            <label for="last-name">Last Name</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="last-name" name="lastName"  value="${owner.lastName}">
             </div>
@@ -23,13 +23,13 @@
 
     <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="title">AFM</label>
+            <label for="afm">AFM</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="afm" name="Afm"  value="${owner.afm?replace(",","")?replace(".","")}">
             </div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="title">Address</label>
+            <label for="address">Address</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="address" name="address" value="${owner.address}">
             </div>
@@ -39,13 +39,13 @@
 
     <div class="form-row">
         <div class="col-md-4 mb-3">
-            <label for="title">Telephone Number</label>
+            <label for="telephone-number">Telephone Number</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="telephone-number" name="telephoneNumber"  value="${owner.telephoneNumber}">
             </div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="author-first-name">Email</label>
+            <label for="email">Email</label>
             <div class="input-group">
                 <input type="text" class="form-control" id="email" name="email" value="${owner.email}">
             </div>

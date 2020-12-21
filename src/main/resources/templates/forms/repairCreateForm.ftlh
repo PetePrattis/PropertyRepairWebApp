@@ -26,7 +26,7 @@
            </div>
         </div>
         <div class="col-md-4 mb-3">
-            <label for="title">Address</label>
+            <label for="address">Address</label>
                                       <@spring.bind "repairsForm.address"/>
 
           <div class="input-group">

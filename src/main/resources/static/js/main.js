@@ -24,7 +24,7 @@ jQuery(function ($) {
         const id = event.relatedTarget.dataset.id;
         $('#deleteForm').attr('action', `/admin/repair/${id}/delete`);
         $('.modal-title').text(function () {
-            return `Repair #${id}`;
+            return `Repair`;
         });
     });
 
@@ -32,7 +32,7 @@ jQuery(function ($) {
         const id = event.relatedTarget.dataset.id;
         $('#deleteForm').attr('action', `/admin/owner/${id}/delete`);
         $('.modal-title').text(function () {
-            return `Owner #${id}`;
+            return `Owner`;
         });
     });
 
@@ -40,7 +40,7 @@ jQuery(function ($) {
         const id = event.relatedTarget.dataset.id;
         $('#deleteForm').attr('action', `/admin/repair/${id}/delete`);
         $('.modal-title').text(function () {
-            return `Repair #${id}`;
+            return `Repair`;
         });
     });
 
@@ -48,7 +48,7 @@ jQuery(function ($) {
         const id = event.relatedTarget.dataset.id;
         $('#deleteForm').attr('action', `/admin/property/${id}/delete`);
         $('.modal-title').text(function () {
-            return `Property #${id}`;
+            return `Property`;
         });
     });
 });

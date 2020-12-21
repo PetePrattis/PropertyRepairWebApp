@@ -8,7 +8,7 @@
 
   <div class="form-row">
     <div class="col-md-4 mb-3">
-        <label for="category">Property Type</label>
+        <label for="type">Property Type</label>
         <div class="input-group">
             <select class="custom-select d-block w-100" id="type" name="propertyType">
             <#if propertyType??>
@@ -21,24 +21,24 @@
     </div>
 
     <div class="col-md-4 mb-3">
-        <label for="title">Property Code</label>
+        <label for="code">Property Code</label>
         <div class="input-group">
-            <input type="text" class="form-control" name="propertyCode" value="${property.propertyCode}">
+            <input type="text" class="form-control" id="code" name="propertyCode" value="${property.propertyCode}">
         </div>
     </div>
   </div>
 
   <div class="form-row">
     <div class="col-md-4 mb-3">
-        <label for="title">Owner's AFM</label>
+        <label for="owner-afm">Owner's AFM</label>
         <div class="input-group">
             <input type="text" class="form-control" id="owner-afm" name="ownerAfm"  value="${property.ownerAfm?replace(",","")?replace(".","")}">
         </div>
     </div>
     <div class="col-md-4 mb-3">
-        <label for="title">Property Address</label>
+        <label for="address">Property Address</label>
         <div class="input-group">
-            <input type="text" class="form-control" name="address" value="${property.address}">
+            <input type="text" class="form-control" id="address" name="address" value="${property.address}">
         </div>
     </div>
   </div>
@@ -50,7 +50,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"><span data-feather="calendar"></span></span>
             </div>
-            <input type="text" class="form-control" id="yearpicker" name="date" value="${property.constructionYear?replace(",","")?replace(".","")}">
+            <input type="text" class="form-control" id="yearpicker" name="constructionYear" value="${property.constructionYear?replace(",","")?replace(".","")}">
         </div>
     </div>
   </div>
