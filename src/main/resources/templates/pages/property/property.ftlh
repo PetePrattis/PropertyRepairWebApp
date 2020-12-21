@@ -28,9 +28,9 @@
                             <tr data-id="${property.id}">
                                 <td>${property.propertyCode}</td>
                                 <td>${property.address}</td>
-                                <td>${property.constructionYear}</td>
+                                <td>${property.constructionYear?replace(",","")?replace(".","")}</td>
                                 <td>${property.propertyType}</td>
-                                <td>${property.ownerAfm}</td>
+                                <td>${property.ownerAfm?replace(",","")?replace(".","")}</td>
                                 <td class="text-center"><a class="btn btn-link" href="/property/${property.id}/edit"><span data-feather="edit"></span></a></td>
                                 <td class="text-center">
 

@@ -29,7 +29,7 @@
                     </thead>
                     <tbody>
                             <tr data-id="${owner.id}">
-                                <td>${owner.afm}</td>
+                                <td>${owner.afm?replace(",","")?replace(".","")}</td>
                                 <td>${owner.firstName}</td>
                                 <td>${owner.lastName}</td>
                                 <td>${owner.address}</td>

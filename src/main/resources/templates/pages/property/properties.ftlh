@@ -19,7 +19,7 @@
                         <th>Property Address</th>
                         <th>Property Construction Year</th>
                         <th>Property Type</th>
-                        <th>Property's Owner Id</th>
+                        <th>Owner's Afm</th>
                         <th class="text-center">Edit</th>
                         <th class="text-center">Remove</th>
                     </tr>
@@ -31,7 +31,7 @@
                         <td>${property.address}</td>
                         <td>${property.constructionYear?replace(",","")?replace(".","")}</td>
                         <td>${property.propertyType.getType()}</td>
-                        <td>${property.ownerAfm}</td>
+                        <td>${property.ownerAfm?replace(",","")?replace(".","")}</td>
                         <td class="text-center"><a class="btn btn-link" href="/admin/property/${property.id}/edit"><span data-feather="edit"></span></a></td>
                         <td class="text-center">
 
