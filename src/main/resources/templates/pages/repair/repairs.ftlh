@@ -34,14 +34,14 @@
                         <tbody>
                         <#list repairList as repair>
                             <tr data-id="${repair.id}">
-                                <td><a href="/repair/${repair.id}/edit">#${repair.id}</a></td>
+                                <td><a href="/admin/repair/${repair.id}/edit">#${repair.id}</a></td>
                                 <td>${repair.date}</td>
                                 <td>${repair.repairStatus}</td>
                                 <td>${repair.repairType}</td>
                                 <td>${repair.cost}</td>
                                 <td>${repair.address}</td>
                                 <td>${repair.extraInfo}</td>
-                                <td class="text-center"><a class="btn btn-link" href="/repair/${repair.id}/edit"><span data-feather="edit"></span></a></td>
+                                <td class="text-center"><a class="btn btn-link" href="/admin/repair/${repair.id}/edit"><span data-feather="edit"></span></a></td>
                                 <td class="text-center">
 
                                     <button

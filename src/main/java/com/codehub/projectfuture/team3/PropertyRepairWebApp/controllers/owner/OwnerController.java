@@ -57,13 +57,4 @@ public class OwnerController {
         model.addAttribute("propertyList", propertyList);
         return "pages/ownerProperties";
     }
-
-    @GetMapping("/admin/owner")
-    public String ownerHomePageView(Model model) {
-       // Owner owner = ownerService.findOwnerById(1L).orElseThrow();
-
-        //model.addAttribute("anOwner", owner);
-        return "/admin";
-    }
-
 }

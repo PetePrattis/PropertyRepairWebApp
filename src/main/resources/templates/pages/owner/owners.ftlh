@@ -69,6 +69,7 @@
                                 </button>
                             </div>
                             <div class="modal-body">
+                                <p>This will delete all the repairs and properties related to this user.</p>
                                 <p>Are you sure?</p>
                             </div>
                             <div class="modal-footer">
