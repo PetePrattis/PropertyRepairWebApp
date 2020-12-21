@@ -51,11 +51,6 @@ public class Repair {
     @JoinColumn(name = "owner_id")
     private Owner owner;
 
-    @JsonIgnore
-    @ManyToOne(optional = false, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH})
-    @JoinColumn(name = "property_id")
-    private Property property;
-
     public Long getId() {
         return id;
     }
@@ -118,13 +113,5 @@ public class Repair {
 
     public void setOwner(Owner owner) {
         this.owner = owner;
-    }
-
-    public Property getProperty() {
-        return property;
-    }
-
-    public void setProperty(Property property) {
-        this.property = property;
     }
 }

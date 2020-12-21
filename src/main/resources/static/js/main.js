@@ -22,7 +22,7 @@ jQuery(function ($) {
 
     $('#modal').on('show.bs.modal', function (event) {
         const id = event.relatedTarget.dataset.id;
-        $('#deleteForm').attr('action', `/repair/${id}/delete`);
+        $('#deleteForm').attr('action', `/admin/repair/${id}/delete`);
         $('.modal-title').text(function () {
             return `Repair #${id}`;
         });
@@ -33,6 +33,22 @@ jQuery(function ($) {
         $('#deleteForm').attr('action', `/admin/owner/${id}/delete`);
         $('.modal-title').text(function () {
             return `Owner #${id}`;
+        });
+    });
+
+    $('#repairsModal').on('show.bs.modal', function (event) {
+        const id = event.relatedTarget.dataset.id;
+        $('#deleteForm').attr('action', `/admin/repair/${id}/delete`);
+        $('.modal-title').text(function () {
+            return `Repair #${id}`;
+        });
+    });
+
+    $('#propertyModal').on('show.bs.modal', function (event) {
+        const id = event.relatedTarget.dataset.id;
+        $('#deleteForm').attr('action', `/admin/property/${id}/delete`);
+        $('.modal-title').text(function () {
+            return `Property #${id}`;
         });
     });
 });

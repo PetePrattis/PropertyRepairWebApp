@@ -26,7 +26,7 @@ public class EditPropertyController {
     @Autowired
     private PropertyService propertyService;
 
-    @GetMapping(value = "/property/{id}/edit")
+    @GetMapping(value = "/admin/property/{id}/edit")
     public String editProperty(@PathVariable Long id, Model model) {
         PropertyModel propertyModel = propertyService.findPropertyById(id);
         model.addAttribute(PROPERTY_ATTR, propertyModel);
@@ -40,7 +40,7 @@ public class EditPropertyController {
         return "redirect:/admin/properties";
     }
 
-    @PostMapping(value = "/property/{id}/delete")
+    @PostMapping(value = "/admin/property/{id}/delete")
     public String deleteProperty(@PathVariable Long id) {
         propertyService.deletePropertyById(id);
         return "redirect:/admin/properties";

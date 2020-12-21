@@ -43,7 +43,7 @@ public class EditRepairController {
         return "redirect:/admin/repairs";
     }
 
-    @PostMapping(value = "/repair/{id}/delete")
+    @PostMapping(value = "admin/repair/{id}/delete")
     public String deleteRepair(@PathVariable Long id) {
         repairService.deleteRepairById(id);
         return "redirect:/admin/repairs";

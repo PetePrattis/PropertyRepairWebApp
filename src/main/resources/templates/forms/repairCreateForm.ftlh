@@ -113,7 +113,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><span data-feather="calendar"></span></span>
                     </div>
-                    <input type="text" class="form-control" id="datepicker" name="date" required>
+                    <input type="text" class="form-control" id="datepicker" name="date" value="${repairsForm.date!''}" required>
                 </div>
             </div>
 
