@@ -67,7 +67,7 @@
                   </ul>
               </#if>
                  <div class="invalid-feedback">
-                   This field is required.
+                   Please provide a valid afm.
                  </div>
                 </div>
               </div>

@@ -119,7 +119,7 @@
                 <select class="custom-select d-block w-100" id="user-role" name="userRole">
                     <#if ownersForm.userRole??>
                     <#list userRole as role>
-                        <option value="${role}">${role.getRole()}</option>
+                        <option value="${role}" <#if ownersForm.userRole == role> selected</#if>>${role.getRole()}</option>
                     </#list>
                     <#else>
                     <#list userRole as role>

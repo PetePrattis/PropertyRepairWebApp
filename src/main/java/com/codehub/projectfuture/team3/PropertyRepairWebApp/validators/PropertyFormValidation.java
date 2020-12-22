@@ -41,7 +41,7 @@ public class PropertyFormValidation implements Validator {
             }
         }
         Optional<Property> property = propertyService.findPropertyByPropertyCodeOptional(registrationForm.getPropertyCode());
-        if (property.isEmpty()) {
+        if (property.isPresent()) {
             errors.rejectValue("propertyCode", "property.code.taken.error");
         }
         // Or use reject if empty or whitespace
